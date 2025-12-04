@@ -5,6 +5,11 @@ theme = 'PaperMod'
 defaultContentLanguage = 'ko'
 defaultContentLanguageInSubdir = true
 
+# 로컬 개발 시 드래프트/미래 포스트 표시
+# CI/CD에서는 플래그로 제외: hugo -D=false --buildFuture=false
+buildDrafts = true
+buildFuture = true
+
 [params]
   author = 'Author'
   defaultTheme = 'auto'
@@ -13,6 +18,7 @@ defaultContentLanguageInSubdir = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
+  ShareButtons = ["facebook", "x", "threads", "linkedin", "share"]
 
 # 언어별 설정
 [languages]

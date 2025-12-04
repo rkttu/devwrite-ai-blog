@@ -1,7 +1,7 @@
 ---
 title: "Docker 컨테이너 기초"
 date: 2025-12-05T12:00:00+09:00
-draft: false
+draft: true
 slug: "docker-basics"
 tags:
   - Docker

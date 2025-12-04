@@ -7,35 +7,20 @@
 
 /* ===== Draft & Scheduled Post Styles ===== */
 
-/* Warning banner in single post view */
+/* Warning text in single post view */
 .post-warning {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin: 12px 0;
-    padding: 12px 16px;
-    border-radius: 8px;
-    background: var(--code-bg);
-    border-left: 4px solid;
-    font-weight: 600;
+    margin: 8px 0;
     font-size: 0.9em;
 }
 
 .warning-draft {
     color: #e67e22;
-    border-color: #e67e22;
 }
 
 .warning-scheduled {
-    color: #3498db;
-    border-color: #3498db;
-}
-
-.post-warning .warning-draft {
-    color: #e67e22;
-}
-
-.post-warning .warning-scheduled {
     color: #3498db;
 }
 
@@ -48,25 +33,10 @@
     color: #3498db !important;
 }
 
-/* List view: draft post styling */
-.post-entry.draft-post,
-.first-entry.draft-post {
-    border-left: 4px solid #e67e22;
-    background: linear-gradient(90deg, rgba(230, 126, 34, 0.08) 0%, transparent 100%);
-}
-
-/* List view: scheduled post styling */
-.post-entry.scheduled-post,
-.first-entry.scheduled-post {
-    border-left: 4px solid #3498db;
-    background: linear-gradient(90deg, rgba(52, 152, 219, 0.08) 0%, transparent 100%);
-}
-
-/* Combined draft + scheduled */
-.post-entry.draft-post.scheduled-post,
-.first-entry.draft-post.scheduled-post {
-    border-left: 4px solid #9b59b6;
-    background: linear-gradient(90deg, rgba(155, 89, 182, 0.08) 0%, transparent 100%);
+/* Badge positioning - closer to title */
+.entry-hint-parent {
+    justify-content: flex-start;
+    gap: 8px;
 }
 
 /* Dark mode adjustments */
@@ -74,17 +44,9 @@
     background: var(--code-bg);
 }
 
-.dark .post-entry.draft-post,
-.dark .first-entry.draft-post {
-    background: linear-gradient(90deg, rgba(230, 126, 34, 0.12) 0%, transparent 100%);
-}
-
-.dark .post-entry.scheduled-post,
-.dark .first-entry.scheduled-post {
-    background: linear-gradient(90deg, rgba(52, 152, 219, 0.12) 0%, transparent 100%);
-}
-
-.dark .post-entry.draft-post.scheduled-post,
-.dark .first-entry.draft-post.scheduled-post {
-    background: linear-gradient(90deg, rgba(155, 89, 182, 0.12) 0%, transparent 100%);
+/* ===== Share Buttons & Pagination Styles ===== */
+.share-buttons,
+.paginav {
+    background: transparent;
+    border: none;
 }
