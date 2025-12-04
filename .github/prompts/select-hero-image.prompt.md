@@ -1,24 +1,28 @@
 # Prompt: Select Hero Image from Unsplash
 
 ## Task
-Suggest appropriate Unsplash search keywords for a blog post's hero image.
+
+Suggest an appropriate Unsplash image URL for a blog post's hero image.
 
 ## Input
+
 - Post title and content
 - Post tags/categories
 
 ## Instructions
 
 1. Analyze the post topic
-2. Suggest 2-3 English keywords for Unsplash search
-3. Keywords should be:
-   - Abstract enough to find good images
-   - Related to the topic
-   - Likely to return professional-looking photos
+2. Search Unsplash (https://unsplash.com) for a suitable image
+3. Select an image that:
+   - Is horizontal (landscape orientation)
+   - Has minimal text
+   - Is professional-looking
+   - Relates to the topic abstractly
 
 ## Guidelines
 
-### Good Keywords
+### Good Keywords for Search
+
 | Topic | Keywords |
 |-------|----------|
 | 프로그래밍 일반 | `coding`, `computer`, `developer` |
@@ -29,6 +33,7 @@ Suggest appropriate Unsplash search keywords for a blog post's hero image.
 | 생산성 | `workspace`, `productivity`, `minimal` |
 
 ### Avoid
+
 - Too specific terms (won't find images)
 - Brand names
 - Text-heavy images
@@ -36,6 +41,7 @@ Suggest appropriate Unsplash search keywords for a blog post's hero image.
 ## Example
 
 ### Input
+
 ```yaml
 title: "Docker 컨테이너 최적화하기"
 tags:
@@ -45,20 +51,39 @@ tags:
 ```
 
 ### Output
+
 ```
-keywords: ["container", "server", "technology"]
-unsplash_url: "https://unsplash.com/s/photos/container-server-technology"
+image_url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop"
+keywords_used: ["server", "technology"]
+alt: "Server room with blue lights"
 ```
 
-## Usage
+## Download Command
 
-After selecting an image:
-1. Download the image
-2. Save to `static/images/posts/{slug}.jpg`
-3. Update front matter:
-   ```yaml
-   cover:
-     image: "images/posts/{slug}.jpg"
-     alt: "Brief description of the image"
-     caption: "Photo by [Author](author_url) on Unsplash"  # if attribution needed
-   ```
+**Windows (PowerShell)**:
+```powershell
+$url = "https://images.unsplash.com/photo-XXXXXXXXXX?w=1200&h=630&fit=crop"
+$output = "static/images/posts/{slug}.jpg"
+Invoke-WebRequest -Uri $url -OutFile $output
+```
+
+**macOS/Linux**:
+```bash
+curl -L "https://images.unsplash.com/photo-XXXXXXXXXX?w=1200&h=630&fit=crop" -o static/images/posts/{slug}.jpg
+```
+
+## Update Front Matter
+
+After downloading, add to all language versions:
+
+```yaml
+cover:
+  image: "images/posts/{slug}.jpg"
+  alt: "Brief description of the image"
+```
+
+## Important Notes
+
+- Use `images.unsplash.com` direct URLs (not `source.unsplash.com` which is deprecated)
+- Always include `?w=1200&h=630&fit=crop` for consistent sizing
+- The same image is shared across all language versions of a post

@@ -14,19 +14,26 @@
 ```
 content/
 ├── ko/           # 한국어 (원본)
-│   ├── posts/
+│   ├── posts/    # 파일명: {YYYY-MM-DD}-{slug}.md
 │   └── archives.md
 ├── en/           # English (번역)
-│   ├── posts/
+│   ├── posts/    # 파일명: {YYYY-MM-DD}-{slug}.md
 │   └── archives.md
 └── ja/           # 日本語 (번역)
-    ├── posts/
+    ├── posts/    # 파일명: {YYYY-MM-DD}-{slug}.md
     └── archives.md
 
 static/
 └── images/
     └── posts/    # Hero 이미지 저장 위치
 ```
+
+## 파일 명명 규칙
+
+- **포스트 파일명**: `{YYYY-MM-DD}-{slug}.md` (예: `2025-12-04-docker-basics.md`)
+- **URL**: `slug` 필드가 결정 (예: `/ko/posts/docker-basics/`)
+- **이미지 파일명**: `{slug}.jpg` (예: `docker-basics.jpg`)
+- **모든 언어에서 동일한 파일명 사용**
 
 ## Front Matter 필수 필드
 
