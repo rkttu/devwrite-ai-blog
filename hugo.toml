@@ -1,5 +1,5 @@
-baseURL = 'https://example.org/'
-title = 'DevWrite Blog'
+baseURL = 'https://devwrite.ai/'
+title = '/dev/write'
 theme = 'PaperMod'
 
 defaultContentLanguage = 'ko'
