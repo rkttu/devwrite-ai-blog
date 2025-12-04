@@ -10,6 +10,20 @@ defaultContentLanguageInSubdir = true
 buildDrafts = true
 buildFuture = true
 
+# RSS 설정
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML']
+  term = ['HTML']
+
+[outputFormats.RSS]
+  mediaType = 'application/rss+xml'
+  baseName = 'feed'  # index.xml 대신 feed.xml로 생성
+
+[services.rss]
+  limit = 20  # 피드에 포함할 최대 항목 수
+
 [params]
   author = 'Author'
   defaultTheme = 'auto'
@@ -19,11 +33,26 @@ buildFuture = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShareButtons = ["facebook", "x", "threads", "linkedin", "share"]
+  displayFullLangName = true
+
+  # OpenGraph / Twitter Cards 설정
+  images = ["/images/site-cover.jpg"]  # 기본 공유 이미지 (포스트에 cover가 없을 때 사용)
+  
+  [params.opengraph]
+    # 선택 사항: Facebook/Meta 관련 설정
+    # facebookAppID = "your-app-id"
+    # facebookAdmin = "your-admin-id"
+
+  [params.twitter]
+    # X(Twitter) Cards 설정
+    card = "summary_large_image"  # summary, summary_large_image, app, player
+    # site = "@your_twitter_handle"  # 사이트 계정
+    # creator = "@your_twitter_handle"  # 작성자 계정
 
 # 언어별 설정
 [languages]
   [languages.ko]
-    languageName = '한국어'
+    languageName = '가'
     languageCode = 'ko-KR'
     weight = 1
     contentDir = 'content/ko'
@@ -51,7 +80,7 @@ buildFuture = true
       weight = 40
 
   [languages.en]
-    languageName = 'English'
+    languageName = 'A'
     languageCode = 'en-US'
     weight = 2
     contentDir = 'content/en'
@@ -79,7 +108,7 @@ buildFuture = true
       weight = 40
 
   [languages.ja]
-    languageName = '日本語'
+    languageName = 'あ'
     languageCode = 'ja-JP'
     weight = 3
     contentDir = 'content/ja'

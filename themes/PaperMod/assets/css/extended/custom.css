@@ -1,3 +1,13 @@
+/* ===== Font Settings ===== */
+body {
+    font-family: 'Noto Sans', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+}
+
+code, pre, .highlight code, kbd, samp {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.05em;
+}
+
 .footer .ai-attribution {
     display: block;
     margin-top: 8px;
