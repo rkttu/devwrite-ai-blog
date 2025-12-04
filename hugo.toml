@@ -1,0 +1,36 @@
+baseURL = 'https://example.org/'
+languageCode = 'ko-kr'
+title = 'DevWrite Blog'
+theme = 'PaperMod'
+
+[params]
+  author = 'Author'
+  description = '개발 블로그'
+  defaultTheme = 'auto'
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = '홈'
+    url = '/'
+    weight = 10
+  [[menu.main]]
+    identifier = 'posts'
+    name = '글'
+    url = '/posts/'
+    weight = 20
+  [[menu.main]]
+    identifier = 'tags'
+    name = '태그'
+    url = '/tags/'
+    weight = 30
+  [[menu.main]]
+    identifier = 'archives'
+    name = '아카이브'
+    url = '/archives/'
+    weight = 40

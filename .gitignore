@@ -1,0 +1,21 @@
+# Hugo 빌드 출력
+/public/
+/resources/_gen/
+
+# Hugo 임시 파일
+hugo_stats.json
+.hugo_build.lock
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# IDE/에디터
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node (테마에서 사용할 수 있음)
+node_modules/
