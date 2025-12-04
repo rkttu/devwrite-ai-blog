@@ -12,7 +12,8 @@ Thumbs.db
 
 # IDE/에디터
 .idea/
-.vscode/
+.vscode/*
+!.vscode/mcp.json
 *.swp
 *.swo
 *~
