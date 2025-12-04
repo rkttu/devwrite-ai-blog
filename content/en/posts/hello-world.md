@@ -2,6 +2,7 @@
 title: "Hello! This is my first post"
 date: 2025-12-04T20:56:02+09:00
 draft: false
+slug: "hello-world"
 tags:
   - blog
   - start

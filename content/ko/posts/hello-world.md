@@ -2,6 +2,7 @@
 title: "안녕하세요! 첫 번째 포스트입니다"
 date: 2025-12-04T20:56:02+09:00
 draft: false
+slug: "hello-world"
 tags:
   - 블로그
   - 시작
