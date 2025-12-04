@@ -73,12 +73,13 @@ scripts/          # 포스트 생성, 번역 검증 등 유틸리티 스크립�
 
 VS Code에서 GitHub Copilot Chat을 열고 다음과 같이 요청할 수 있습니다:
 
-```
+```text
 "Docker 기초 사용법"이라는 제목으로 새 블로그 포스트를 만들어줘.
 slug는 "docker-basics"로 하고, 태그는 Docker, 컨테이너, DevOps로 해줘.
 ```
 
 Copilot은 `copilot-instructions.md`의 규칙에 따라:
+
 - 올바른 파일명 형식(`2025-12-04-docker-basics.md`)으로 생성
 - 필수 Front Matter 필드 자동 포함
 - 세 언어 디렉터리에 각각 파일 생성
@@ -87,11 +88,12 @@ Copilot은 `copilot-instructions.md`의 규칙에 따라:
 
 기존 한국어 포스트를 영어나 일본어로 번역해달라고 요청할 수 있습니다:
 
-```
+```text
 content/ko/posts/2025-12-04-docker-basics.md 파일을 영어와 일본어로 번역해줘.
 ```
 
 Copilot은 다음 규칙을 자동으로 준수합니다:
+
 - `slug`와 `translationKey`는 원본과 동일하게 유지
 - 코드 블록은 번역하지 않음
 - 태그와 카테고리는 각 언어로 자연스럽게 번역
@@ -101,7 +103,7 @@ Copilot은 다음 규칙을 자동으로 준수합니다:
 
 포스트에 어울리는 커버 이미지도 요청할 수 있습니다:
 
-```
+```text
 docker-basics 포스트에 어울리는 Hero 이미지를 Unsplash에서 찾아서 추가해줘.
 ```
 
@@ -109,7 +111,7 @@ docker-basics 포스트에 어울리는 Hero 이미지를 Unsplash에서 찾아�
 
 모든 언어에 번역이 완료되었는지 확인하려면:
 
-```
+```text
 번역이 누락된 포스트가 있는지 확인해줘.
 ```
 
@@ -189,6 +191,7 @@ tldr: "이 글의 핵심 요약 (1-2문장)"
 이 블로그는 **GitHub Pages**로 호스팅되며, `main` 브랜치에 푸시하면 **GitHub Actions**가 자동으로 빌드하고 배포합니다.
 
 배포 과정:
+
 1. `main` 브랜치에 커밋 푸시
 2. GitHub Actions가 Hugo로 정적 파일 빌드
 3. 빌드된 파일이 GitHub Pages에 자동 배포
