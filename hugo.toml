@@ -1,11 +1,12 @@
 baseURL = 'https://example.org/'
-languageCode = 'ko-kr'
 title = 'DevWrite Blog'
 theme = 'PaperMod'
 
+defaultContentLanguage = 'ko'
+defaultContentLanguageInSubdir = true
+
 [params]
   author = 'Author'
-  description = '개발 블로그'
   defaultTheme = 'auto'
   ShowReadingTime = true
   ShowShareButtons = true
@@ -13,24 +14,88 @@ theme = 'PaperMod'
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
 
-[menu]
-  [[menu.main]]
-    identifier = 'home'
-    name = '홈'
-    url = '/'
-    weight = 10
-  [[menu.main]]
-    identifier = 'posts'
-    name = '글'
-    url = '/posts/'
-    weight = 20
-  [[menu.main]]
-    identifier = 'tags'
-    name = '태그'
-    url = '/tags/'
-    weight = 30
-  [[menu.main]]
-    identifier = 'archives'
-    name = '아카이브'
-    url = '/archives/'
-    weight = 40
+# 언어별 설정
+[languages]
+  [languages.ko]
+    languageName = '한국어'
+    languageCode = 'ko-KR'
+    weight = 1
+    contentDir = 'content/ko'
+    [languages.ko.params]
+      description = '개발 블로그'
+    [[languages.ko.menu.main]]
+      identifier = 'home'
+      name = '홈'
+      url = '/'
+      weight = 10
+    [[languages.ko.menu.main]]
+      identifier = 'posts'
+      name = '글'
+      url = '/posts/'
+      weight = 20
+    [[languages.ko.menu.main]]
+      identifier = 'tags'
+      name = '태그'
+      url = '/tags/'
+      weight = 30
+    [[languages.ko.menu.main]]
+      identifier = 'archives'
+      name = '아카이브'
+      url = '/archives/'
+      weight = 40
+
+  [languages.en]
+    languageName = 'English'
+    languageCode = 'en-US'
+    weight = 2
+    contentDir = 'content/en'
+    [languages.en.params]
+      description = 'Dev Blog'
+    [[languages.en.menu.main]]
+      identifier = 'home'
+      name = 'Home'
+      url = '/'
+      weight = 10
+    [[languages.en.menu.main]]
+      identifier = 'posts'
+      name = 'Posts'
+      url = '/posts/'
+      weight = 20
+    [[languages.en.menu.main]]
+      identifier = 'tags'
+      name = 'Tags'
+      url = '/tags/'
+      weight = 30
+    [[languages.en.menu.main]]
+      identifier = 'archives'
+      name = 'Archives'
+      url = '/archives/'
+      weight = 40
+
+  [languages.ja]
+    languageName = '日本語'
+    languageCode = 'ja-JP'
+    weight = 3
+    contentDir = 'content/ja'
+    [languages.ja.params]
+      description = '開発ブログ'
+    [[languages.ja.menu.main]]
+      identifier = 'home'
+      name = 'ホーム'
+      url = '/'
+      weight = 10
+    [[languages.ja.menu.main]]
+      identifier = 'posts'
+      name = '記事'
+      url = '/posts/'
+      weight = 20
+    [[languages.ja.menu.main]]
+      identifier = 'tags'
+      name = 'タグ'
+      url = '/tags/'
+      weight = 30
+    [[languages.ja.menu.main]]
+      identifier = 'archives'
+      name = 'アーカイブ'
+      url = '/archives/'
+      weight = 40

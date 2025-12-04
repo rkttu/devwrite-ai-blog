@@ -1,6 +1,5 @@
 ---
-title: "아카이브"
+title: "Archives"
 layout: "archives"
-url: "/archives/"
 summary: "archives"
 ---
