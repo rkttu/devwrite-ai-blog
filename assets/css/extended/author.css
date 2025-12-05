@@ -1,0 +1,11 @@
+/* Author Link Styles */
+.author-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.author-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}

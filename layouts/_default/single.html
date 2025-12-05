@@ -29,6 +29,11 @@
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
     </div>
+    {{- else if .IsTranslated }}
+    {{- /* hideMeta가 true여도 번역 링크는 표시 */ -}}
+    <div class="post-meta">
+      {{- partial "translation_list.html" . -}}
+    </div>
     {{- end }}
   </header>
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
