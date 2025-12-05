@@ -1,6 +1,6 @@
 ---
 title: "AI '학습'이라는 용어에 속지 마세요"
-date: 2025-12-05T14:00:00+09:00
+date: 2025-12-05T15:00:00+09:00
 draft: false
 slug: "ai-training-inference-explained"
 tags:
