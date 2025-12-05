@@ -134,3 +134,9 @@ buildFuture = true
       name = 'アーカイブ'
       url = '/archives/'
       weight = 40
+
+# 라이선스 설정
+[params.license]
+  default = "CC BY-NC 4.0"
+  name = "Creative Commons Attribution-NonCommercial 4.0 International"
+  url = "https://creativecommons.org/licenses/by-nc/4.0/"

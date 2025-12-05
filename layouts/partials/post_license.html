@@ -1,0 +1,87 @@
+{{- /* 개별 포스트 라이선스 또는 기본 라이선스 표시 */ -}}
+{{- $license := .Params.license | default site.Params.license.default -}}
+{{- $licenseName := "" -}}
+{{- $licenseUrl := "" -}}
+{{- $licenseIcon := "" -}}
+
+{{- /* 라이선스 타입별 설정 */ -}}
+{{- if eq $license "CC BY-NC 4.0" -}}
+  {{- $licenseName = "Creative Commons Attribution-NonCommercial 4.0 International" -}}
+  {{- $licenseUrl = "https://creativecommons.org/licenses/by-nc/4.0/" -}}
+  {{- $licenseIcon = "cc-by-nc" -}}
+{{- else if eq $license "CC BY 4.0" -}}
+  {{- $licenseName = "Creative Commons Attribution 4.0 International" -}}
+  {{- $licenseUrl = "https://creativecommons.org/licenses/by/4.0/" -}}
+  {{- $licenseIcon = "cc-by" -}}
+{{- else if eq $license "CC BY-SA 4.0" -}}
+  {{- $licenseName = "Creative Commons Attribution-ShareAlike 4.0 International" -}}
+  {{- $licenseUrl = "https://creativecommons.org/licenses/by-sa/4.0/" -}}
+  {{- $licenseIcon = "cc-by-sa" -}}
+{{- else if eq $license "CC BY-NC-SA 4.0" -}}
+  {{- $licenseName = "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International" -}}
+  {{- $licenseUrl = "https://creativecommons.org/licenses/by-nc-sa/4.0/" -}}
+  {{- $licenseIcon = "cc-by-nc-sa" -}}
+{{- else if eq $license "CC BY-NC-ND 4.0" -}}
+  {{- $licenseName = "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International" -}}
+  {{- $licenseUrl = "https://creativecommons.org/licenses/by-nc-nd/4.0/" -}}
+  {{- $licenseIcon = "cc-by-nc-nd" -}}
+{{- else if eq $license "CC0" -}}
+  {{- $licenseName = "CC0 1.0 Universal (Public Domain)" -}}
+  {{- $licenseUrl = "https://creativecommons.org/publicdomain/zero/1.0/" -}}
+  {{- $licenseIcon = "cc-zero" -}}
+{{- else if eq $license "MIT" -}}
+  {{- $licenseName = "MIT License" -}}
+  {{- $licenseUrl = "https://opensource.org/licenses/MIT" -}}
+  {{- $licenseIcon = "mit" -}}
+{{- else if eq $license "All Rights Reserved" -}}
+  {{- $licenseName = i18n "licenseAllRightsReserved" | default "All Rights Reserved" -}}
+  {{- $licenseUrl = "" -}}
+  {{- $licenseIcon = "copyright" -}}
+{{- else -}}
+  {{- /* 커스텀 라이선스 */ -}}
+  {{- $licenseName = $license -}}
+  {{- $licenseUrl = .Params.licenseUrl | default "" -}}
+  {{- $licenseIcon = "custom" -}}
+{{- end -}}
+
+{{- if $license }}
+<div class="post-license-box">
+  <div class="license-header">
+    <svg class="license-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      {{- if or (eq $licenseIcon "cc-by-nc") (eq $licenseIcon "cc-by") (eq $licenseIcon "cc-by-sa") (eq $licenseIcon "cc-by-nc-sa") (eq $licenseIcon "cc-by-nc-nd") (eq $licenseIcon "cc-zero") }}
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M15 9.354a4 4 0 1 0 0 5.292"></path>
+      <path d="M9 9.354a4 4 0 1 0 0 5.292"></path>
+      {{- else if eq $licenseIcon "mit" }}
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      {{- else }}
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M14.83 14.83a4 4 0 1 1 0-5.66"></path>
+      {{- end }}
+    </svg>
+    <span class="license-label">{{ i18n "licenseLabel" | default "License" }}</span>
+  </div>
+  <div class="license-content">
+    {{- if $licenseUrl }}
+    <a href="{{ $licenseUrl }}" target="_blank" rel="noopener noreferrer license" class="license-link">
+      <span class="license-name">{{ $license }}</span>
+      <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </a>
+    <p class="license-description">{{ $licenseName }}</p>
+    {{- else }}
+    <span class="license-name">{{ $licenseName }}</span>
+    {{- end }}
+  </div>
+  {{- /* CC 라이선스인 경우 아이콘 뱃지 표시 */ -}}
+  {{- if hasPrefix $licenseIcon "cc" }}
+  <div class="cc-icons">
+    <img src="https://licensebuttons.net/l/{{ replace $licenseIcon "cc-" "" }}/4.0/88x31.png" alt="{{ $license }}" class="cc-badge">
+  </div>
+  {{- end }}
+</div>
+{{- end }}
