@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  # 예약 발행을 위한 스케줄 (KST 기준 08:00, 12:00, 17:00)
+  schedule:
+    - cron: '0 23 * * *'  # KST 08:00 (UTC 23:00 전날)
+    - cron: '0 3 * * *'   # KST 12:00 (UTC 03:00)
+    - cron: '0 8 * * *'   # KST 17:00 (UTC 08:00)
   workflow_dispatch:
 
 # GitHub Pages 배포를 위한 권한 설정
@@ -29,10 +34,20 @@ jobs:
     env:
       HUGO_VERSION: 0.147.4
     steps:
-      - name: Install Hugo CLI
+      - name: Cache Hugo binary
+        id: cache-hugo
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/hugo.deb
+          key: hugo-${{ env.HUGO_VERSION }}
+
+      - name: Download Hugo CLI
+        if: steps.cache-hugo.outputs.cache-hit != 'true'
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+
+      - name: Install Hugo CLI
+        run: sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
       - name: Checkout
         uses: actions/checkout@v4
