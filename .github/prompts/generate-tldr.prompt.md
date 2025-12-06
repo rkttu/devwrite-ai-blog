@@ -1,5 +1,7 @@
 # Prompt: Generate TL;DR Summary
 
+> **스타일 가이드**: TL;DR 작성 시 `/writing-style-guide.md` 파일의 언어별 어투 규칙을 따르세요.
+
 ## Task
 Generate a concise TL;DR summary for a blog post.
 

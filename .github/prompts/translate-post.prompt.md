@@ -1,5 +1,7 @@
 # Prompt: Translate Blog Post
 
+> **스타일 가이드**: 번역 시 반드시 `/writing-style-guide.md` 파일을 참조하여 언어별 작성 규칙을 따르세요.
+
 ## Task
 Translate a blog post from Korean to the target language while maintaining the original meaning and technical accuracy.
 

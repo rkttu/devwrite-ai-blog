@@ -1,5 +1,7 @@
 # Prompt: Review Draft Post
 
+> **스타일 가이드**: 검토 시 `/writing-style-guide.md` 파일의 작성 규칙 준수 여부도 확인하세요.
+
 ## Task
 
 Review a draft post for quality, accuracy, and completeness before publishing.
