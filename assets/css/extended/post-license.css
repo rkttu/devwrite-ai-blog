@@ -1,0 +1,83 @@
+/* Post License Box Styles */
+.post-license-box {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--primary);
+}
+
+.post-license-box .license-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.post-license-box .license-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.post-license-box .license-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.post-license-box .license-content {
+    margin-left: 1.75rem;
+}
+
+.post-license-box .license-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--content);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.post-license-box .license-link:hover {
+    color: var(--primary);
+}
+
+.post-license-box .license-name {
+    font-size: 1.05rem;
+}
+
+.post-license-box .external-link-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+
+.post-license-box .license-description {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    line-height: 1.4;
+}
+
+.post-license-box .cc-icons {
+    margin-top: 1rem;
+    margin-left: 1.75rem;
+}
+
+.post-license-box .cc-badge {
+    height: 31px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.post-license-box .cc-badge:hover {
+    opacity: 1;
+}
+
+/* Dark mode adjustments */
+.dark .post-license-box .cc-badge {
+    filter: brightness(0.9);
+}

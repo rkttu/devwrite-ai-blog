@@ -1,0 +1,20 @@
+{{- if or .Params.author site.Params.author }}
+{{- $author := (.Params.author | default site.Params.author) }}
+{{- $author_type := (printf "%T" $author) }}
+
+{{- /* Author 객체인 경우 (name, url 포함) */ -}}
+{{- if reflect.IsMap $author }}
+  {{- if $author.url }}
+    <a href="{{ $author.url | absLangURL }}" class="author-link">{{ $author.name }}</a>
+  {{- else }}
+    {{- $author.name }}
+  {{- end }}
+{{- /* 배열인 경우 */ -}}
+{{- else if (or (eq $author_type "[]string") (eq $author_type "[]interface {}")) }}
+  {{- (delimit $author ", " ) }}
+{{- /* 단순 문자열인 경우 */ -}}
+{{- else }}
+  {{- $author }}
+{{- end }}
+
+{{- end -}}

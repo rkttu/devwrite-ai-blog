@@ -1,0 +1,58 @@
+User-agent: *
+{{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+Disallow:
+{{- else }}
+Disallow: /
+{{- end }}
+Sitemap: {{ "sitemap.xml" | absURL }}
+
+# AI 크롤러 차단
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Google AI
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl (AI 학습 데이터로 자주 사용됨)
+User-agent: CCBot
+Disallow: /
+
+# Anthropic
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Cohere
+User-agent: cohere-ai
+Disallow: /
+
+# Meta/Facebook AI
+User-agent: FacebookBot
+Disallow: /
+
+# Amazon/Alexa
+User-agent: Amazonbot
+Disallow: /
+
+# Bytedance
+User-agent: Bytespider
+Disallow: /
+
+# Apple (Applebot-Extended는 AI 학습용)
+User-agent: Applebot-Extended
+Disallow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Disallow: /
+
+# You.com
+User-agent: YouBot
+Disallow: /
