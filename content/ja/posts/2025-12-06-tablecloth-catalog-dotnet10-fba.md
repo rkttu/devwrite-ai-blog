@@ -1,6 +1,6 @@
 ---
 title: "TableClothカタログビルダー、.NET 10とFBAで現代化"
-date: 2025-12-06T12:00:00+09:00
+date: 2025-12-06T09:00:00+09:00
 draft: false
 slug: "tablecloth-catalog-dotnet10-fba"
 tags:
