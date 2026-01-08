@@ -2,6 +2,9 @@ baseURL = 'https://devwrite.ai/'
 title = '/dev/write'
 theme = 'PaperMod'
 
+# Google Analytics
+googleAnalytics = 'G-V1NLDLYHN0'
+
 defaultContentLanguage = 'ko'
 defaultContentLanguageInSubdir = true
 
