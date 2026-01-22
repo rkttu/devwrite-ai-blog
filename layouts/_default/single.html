@@ -44,6 +44,9 @@
   {{- partial "toc.html" . }}
   {{- end }}
 
+  {{- /* 상단 광고 */ -}}
+  {{- partial "ads/kakao_adfit.html" . }}
+
   {{- if .Content }}
   <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
