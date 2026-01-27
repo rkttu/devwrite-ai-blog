@@ -2,6 +2,9 @@ baseURL = 'https://devwrite.ai/'
 title = '/dev/write'
 theme = 'PaperMod'
 
+# Google Analytics
+googleAnalytics = 'G-V1NLDLYHN0'
+
 defaultContentLanguage = 'ko'
 defaultContentLanguageInSubdir = true
 
@@ -33,6 +36,7 @@ buildFuture = true
   ShowCodeCopyButtons = true
   ShareButtons = ["facebook", "x", "threads", "linkedin", "share"]
   displayFullLangName = true
+  comments = true  # 모든 포스트에서 댓글 활성화
 
   # OpenGraph / Twitter Cards 설정
   images = ["/images/site-cover.jpg"]  # 기본 공유 이미지 (포스트에 cover가 없을 때 사용)
@@ -52,6 +56,15 @@ buildFuture = true
     card = "summary_large_image"  # summary, summary_large_image, app, player
     # site = "@your_twitter_handle"  # 사이트 계정
     # creator = "@your_twitter_handle"  # 작성자 계정
+
+  # Utterances 댓글 시스템
+  # 사전 설정: https://github.com/apps/utterances 앱을 리포지토리에 설치해야 합니다
+  [params.utterances]
+    enable = true
+    repo = "rkttu/devwrite-ai-blog"  # GitHub 리포지토리 (owner/repo 형식)
+    issueTerm = "pathname"  # pathname, url, title, og:title 또는 특정 issue 번호
+    label = "comments"  # GitHub issue에 붙을 라벨 (선택사항)
+    theme = "preferred-color-scheme"  # github-light, github-dark, preferred-color-scheme 등
 
 # 언어별 설정
 [languages]

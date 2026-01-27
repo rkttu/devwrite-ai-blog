@@ -1,5 +1,7 @@
 # Prompt: Create New Blog Post (Full Workflow)
 
+> **스타일 가이드**: 글 작성 시 반드시 `/writing-style-guide.md` 파일을 참조하여 언어별 작성 규칙을 따르세요.
+
 ## Task
 
 Create a complete blog post with all translations, TL;DR, and hero image.

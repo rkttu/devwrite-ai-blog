@@ -17,6 +17,8 @@
       {{- end }}
     </div>
     {{- end }}
+    {{- /* AI Attribution Notice */ -}}
+    {{- partial "ai_attribution.html" . }}
     {{- if .Description }}
     <div class="post-description">
       {{ .Description }}
@@ -41,6 +43,9 @@
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}
+
+  {{- /* 상단 광고 */ -}}
+  {{- partial "ads/kakao_adfit.html" . }}
 
   {{- if .Content }}
   <div class="post-content">

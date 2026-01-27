@@ -1,5 +1,7 @@
 # Prompt: Complete Manual Post
 
+> **스타일 가이드**: 글 작성 시 반드시 `/writing-style-guide.md` 파일을 참조하여 언어별 작성 규칙을 따르세요.
+
 ## Task
 
 Complete a manually written blog post by adding proper front matter, TL;DR, hero image, and translations. This prompt is for posts that were written directly without using the blog's standard creation workflow.
