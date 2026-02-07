@@ -61,7 +61,7 @@ This approach works well with major frameworks richly represented in training da
 
 ## A Different Approach: Inspecting the Assembly Directly
 
-For this project, I used [HandMirror MCP](https://github.com/pjmagee/handmirror-mcp). HandMirror is an MCP (Model Context Protocol) server that **directly inspects compiled assemblies** from NuGet packages.
+For this project, I used [HandMirror MCP](https://github.com/rkttu/HandMirrorMcp), which I created myself. HandMirror is an MCP (Model Context Protocol) server that **directly inspects compiled assemblies** from NuGet packages.
 
 Instead of searching web documentation, it analyzes the actual `.dll` and returns the following information. Notably, HandMirror doesn't use standard .NET reflection (`System.Reflection`) — it uses [Mono.Cecil](https://github.com/jbevain/cecil). Cecil reads .NET assembly metadata directly without runtime loading, so it's unaffected by the target assembly's .NET runtime version. Whether it's a .NET Framework 4.x library or a .NET 10 target, it can analyze them equally:
 
@@ -134,6 +134,73 @@ Currently HandMirror specializes in .NET assemblies, but future extensions are u
 ### 4. With AI Agents, the Limits of Solo Development Change
 
 Projects like SharpDevelop and MonoDevelop were built by dozens of contributors over several years. In 2026, AI agents handle API exploration, boilerplate generation, and repetitive implementation. Architecture decisions and quality judgment are still human responsibilities, but the bottleneck of physically typing code has been greatly reduced. The dream of an open-source IDE can now begin as a single person's side project.
+
+---
+
+## Getting Started with HandMirror MCP
+
+HandMirror MCP is published on [NuGet](https://www.nuget.org/packages/HandMirrorMcp), and the source code is available on [GitHub](https://github.com/rkttu/HandMirrorMcp). It requires .NET 8.0 SDK or later.
+
+### Installation & Setup
+
+Since it's published on NuGet, you can run it directly with the `dnx` command — no source code build required.
+
+**VS Code (GitHub Copilot)** — add to your workspace's `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "HandMirrorMcp": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["HandMirrorMcp", "--yes"]
+    }
+  }
+}
+```
+
+**Claude Desktop** — add to your config file (`%APPDATA%\Claude\claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "handmirror": {
+      "command": "dnx",
+      "args": ["HandMirrorMcp", "--yes"]
+    }
+  }
+}
+```
+
+To build from source instead:
+
+```bash
+git clone https://github.com/rkttu/HandMirrorMcp.git
+cd HandMirrorMcp
+dotnet build
+dotnet run --project HandMirrorMcp
+```
+
+### Key Usage
+
+Once connected to an MCP client, you can analyze .NET assemblies simply by asking in natural language:
+
+- **Inspect packages**: "Show me the namespaces and types in the Aprillz.MewUI package"
+- **Type details**: "Tell me the properties and methods of the MultiLineTextBox class"
+- **Resolve build errors**: "I'm getting CS0246 — find the NuGet package that provides this type"
+- **Check vulnerabilities**: "Check if System.Text.Json 6.0.0 has any known security vulnerabilities"
+- **Project analysis**: "Analyze my .csproj file and identify any issues"
+
+### Using Together with Microsoft Learn MCP
+
+While HandMirror provides exact API signatures from compiled assemblies, [Microsoft Learn MCP Server](https://learn.microsoft.com/en-us/training/support/mcp) brings official Microsoft documentation directly to AI agents. It enables document search, full article retrieval, and code sample search — available as a free remote MCP server with no authentication required.
+
+Using both tools together significantly improves the key weaknesses AI agents exhibit in .NET development:
+
+- **HandMirror**: Identifies exact types, method signatures, and namespaces from actual compiled assemblies
+- **Microsoft Learn MCP**: Provides usage patterns, best practices, and troubleshooting guides from official documentation
+
+With both "what the API looks like" (HandMirror) and "how to use it" (Microsoft Learn MCP) available simultaneously, guesswork caused by training data limitations can be minimized.
 
 ---
 

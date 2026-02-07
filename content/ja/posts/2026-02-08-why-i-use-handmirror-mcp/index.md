@@ -61,7 +61,7 @@ MewUIはまったく新しいコンセプトの新生UIフレームワークで�
 
 ## 別のアプローチ：アセンブリを直接覗く
 
-今回の作業では[HandMirror MCP](https://github.com/pjmagee/handmirror-mcp)を使用しました。HandMirrorは、NuGetパッケージの**コンパイル済みアセンブリを直接検査する**MCP（Model Context Protocol）サーバーです。
+今回の作業では、私自身が開発した[HandMirror MCP](https://github.com/rkttu/HandMirrorMcp)を使用しました。HandMirrorは、NuGetパッケージの**コンパイル済みアセンブリを直接検査する**MCP（Model Context Protocol）サーバーです。
 
 Webドキュメントを検索する代わりに、実際の`.dll`を分析し、次の情報を返します。注目すべきは、HandMirrorが一般的な.NETリフレクション（`System.Reflection`）ではなく[Mono.Cecil](https://github.com/jbevain/cecil)を使用している点です。Cecilは.NETアセンブリのメタデータをランタイムロードなしに直接読み取るため、検査対象アセンブリの.NETランタイムバージョンに影響されません。.NET Framework 4.x用ライブラリでも.NET 10対象でも同様に分析できます：
 
@@ -134,6 +134,73 @@ HandMirrorはMCP（Model Context Protocol）サーバーとして実装されて
 ### 4. AIエージェントとともにあれば、個人開発の限界が変わります
 
 SharpDevelopやMonoDevelopのようなプロジェクトは、数十人のコントリビューターが数年かけて作り上げました。2026年にはAIエージェントがAPI探索、ボイラープレート生成、繰り返し実装を担当してくれます。アーキテクチャの決定と品質判断は依然として人間の役割ですが、コードを物理的にタイピングするボトルネックは大幅に減少しました。オープンソースIDEという夢が、一人のサイドプロジェクトとしても始められるようになったのです。
+
+---
+
+## HandMirror MCPを始める
+
+HandMirror MCPは[NuGet](https://www.nuget.org/packages/HandMirrorMcp)に公開されており、[GitHub](https://github.com/rkttu/HandMirrorMcp)でソースコードを確認できます。.NET 8.0 SDK以上が必要です。
+
+### インストールと設定
+
+NuGetに公開されているため、ソースコードのビルドなしに`dnx`コマンドで直接実行できます。
+
+**VS Code（GitHub Copilot）** — ワークスペースの`.vscode/mcp.json`に追加：
+
+```json
+{
+  "servers": {
+    "HandMirrorMcp": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["HandMirrorMcp", "--yes"]
+    }
+  }
+}
+```
+
+**Claude Desktop** — 設定ファイル（`%APPDATA%\Claude\claude_desktop_config.json`）に追加：
+
+```json
+{
+  "mcpServers": {
+    "handmirror": {
+      "command": "dnx",
+      "args": ["HandMirrorMcp", "--yes"]
+    }
+  }
+}
+```
+
+ソースから直接ビルドする場合：
+
+```bash
+git clone https://github.com/rkttu/HandMirrorMcp.git
+cd HandMirrorMcp
+dotnet build
+dotnet run --project HandMirrorMcp
+```
+
+### 主な使い方
+
+MCPクライアントに接続すれば、自然言語で要求するだけで.NETアセンブリを分析できます：
+
+- **パッケージ検査**：「Aprillz.MewUIパッケージの名前空間と型を見せて」
+- **型の詳細照会**：「MultiLineTextBoxクラスのプロパティとメソッドを教えて」
+- **ビルドエラー解決**：「CS0246エラーが出ている。この型を提供するNuGetパッケージを探して」
+- **脆弱性確認**：「System.Text.Json 6.0.0に既知のセキュリティ脆弱性があるか確認して」
+- **プロジェクト分析**：「私の.csprojファイルを分析して問題点を見つけて」
+
+### Microsoft Learn MCPと併用する
+
+HandMirrorがコンパイル済みアセンブリから正確なAPIシグネチャを提供するのに対し、[Microsoft Learn MCP Server](https://learn.microsoft.com/ja-jp/training/support/mcp)はMicrosoftの公式ドキュメントをAIエージェントに直接提供します。ドキュメント検索、全文取得、コードサンプル検索が可能で、リモートMCPサーバーとして認証不要・無料で利用できます。
+
+両ツールを併用することで、.NET開発におけるAIエージェントの主要な弱点が相当部分改善されます：
+
+- **HandMirror**：実際のコンパイル済みアセンブリから正確な型、メソッドシグネチャ、名前空間を把握
+- **Microsoft Learn MCP**：公式ドキュメントから使用パターン、ベストプラクティス、トラブルシューティングガイドを取得
+
+APIの「どういう形か」（HandMirror）と「どう使うか」（Microsoft Learn MCP）を同時に提供されることで、学習データの限界による推測を最小限に抑えることができます。
 
 ---
 

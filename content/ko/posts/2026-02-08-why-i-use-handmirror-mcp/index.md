@@ -61,7 +61,7 @@ MewUI는 완전히 새로운 컨셉의 신생 UI 프레임워크입니다. XAML 
 
 ## 다른 접근: 어셈블리를 직접 들여다보기
 
-이번 작업에서는 [HandMirror MCP](https://github.com/pjmagee/handmirror-mcp)를 사용했습니다. HandMirror는 NuGet 패키지의 **컴파일된 어셈블리를 직접 검사**하는 MCP(Model Context Protocol) 서버입니다.
+이번 작업에서는 제가 직접 만든 [HandMirror MCP](https://github.com/rkttu/HandMirrorMcp)를 사용했습니다. HandMirror는 NuGet 패키지의 **컴파일된 어셈블리를 직접 검사**하는 MCP(Model Context Protocol) 서버입니다.
 
 웹 문서를 검색하는 대신, 실제 `.dll`을 분석해서 다음 정보를 돌려줍니다. 여기서 주목할 점은 HandMirror가 일반적인 .NET 리플렉션(`System.Reflection`)이 아닌 [Mono.Cecil](https://github.com/jbevain/cecil)을 사용한다는 것입니다. Cecil은 .NET 어셈블리의 메타데이터를 런타임 로딩 없이 직접 읽기 때문에, 검사 대상 어셈블리의 .NET 런타임 버전에 영향을 받지 않습니다. .NET Framework 4.x용 라이브러리든 .NET 10 대상이든 동일하게 분석할 수 있습니다:
 
@@ -134,6 +134,73 @@ HandMirror는 MCP(Model Context Protocol) 서버로 구현되어 있습니다. �
 ### 4. AI 에이전트와 함께라면 1인 개발의 한계가 달라집니다
 
 SharpDevelop이나 MonoDevelop 같은 프로젝트는 수십 명의 기여자가 수년에 걸쳐 만들었습니다. 2026년에는 AI 에이전트가 API 탐색, 보일러플레이트 생성, 반복 구현을 담당해 줍니다. 물론 아키텍처 결정과 품질 판단은 여전히 사람의 몫이지만, 코드를 물리적으로 타이핑하는 병목은 크게 줄어들었습니다. 오픈소스 IDE라는 꿈이 한 사람의 사이드 프로젝트로도 시작할 수 있게 된 것입니다.
+
+---
+
+## HandMirror MCP 시작하기
+
+HandMirror MCP는 [NuGet](https://www.nuget.org/packages/HandMirrorMcp)에 게시되어 있으며, [GitHub](https://github.com/rkttu/HandMirrorMcp)에서 소스 코드를 확인할 수 있습니다. .NET 8.0 SDK 이상이 필요합니다.
+
+### 설치 및 설정
+
+NuGet에 게시되어 있으므로, 소스 코드 빌드 없이 `dnx` 명령어로 바로 실행할 수 있습니다.
+
+**VS Code (GitHub Copilot)** — 워크스페이스의 `.vscode/mcp.json`에 추가:
+
+```json
+{
+  "servers": {
+    "HandMirrorMcp": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["HandMirrorMcp", "--yes"]
+    }
+  }
+}
+```
+
+**Claude Desktop** — 설정 파일(`%APPDATA%\Claude\claude_desktop_config.json`)에 추가:
+
+```json
+{
+  "mcpServers": {
+    "handmirror": {
+      "command": "dnx",
+      "args": ["HandMirrorMcp", "--yes"]
+    }
+  }
+}
+```
+
+소스에서 직접 빌드하려면:
+
+```bash
+git clone https://github.com/rkttu/HandMirrorMcp.git
+cd HandMirrorMcp
+dotnet build
+dotnet run --project HandMirrorMcp
+```
+
+### 주요 사용법
+
+MCP 클라이언트에 연결되면, 자연어로 요청하는 것만으로 .NET 어셈블리를 분석할 수 있습니다:
+
+- **패키지 검사**: "Aprillz.MewUI 패키지의 네임스페이스와 타입을 보여줘"
+- **타입 상세 조회**: "MultiLineTextBox 클래스의 프로퍼티와 메서드를 알려줘"
+- **빌드 오류 해결**: "CS0246 오류가 나는데, 이 타입을 제공하는 NuGet 패키지를 찾아줘"
+- **취약점 확인**: "System.Text.Json 6.0.0에 알려진 보안 취약점이 있는지 확인해줘"
+- **프로젝트 분석**: "내 .csproj 파일을 분석해서 문제점을 찾아줘"
+
+### Microsoft Learn MCP와 함께 사용하기
+
+HandMirror가 어셈블리의 실제 API 시그니처를 제공한다면, [Microsoft Learn MCP Server](https://learn.microsoft.com/ko-kr/training/support/mcp)는 Microsoft 공식 문서를 AI 에이전트에게 직접 제공합니다. 문서 검색, 전체 문서 가져오기, 코드 샘플 검색이 가능하며, 원격 MCP 서버로 인증 없이 무료로 사용할 수 있습니다.
+
+두 도구를 함께 사용하면 .NET 개발에서 AI 에이전트가 보이는 주요 취약점이 상당 부분 개선됩니다:
+
+- **HandMirror**: 실제 컴파일된 어셈블리에서 정확한 타입, 메서드 시그니처, 네임스페이스를 파악
+- **Microsoft Learn MCP**: 공식 문서에서 사용 패턴, 모범 사례, 트러블슈팅 가이드를 획득
+
+API의 “어떻게 생겼는가”(HandMirror)와 “어떻게 써야 하는가”(Microsoft Learn MCP)를 동시에 제공받으면, 학습 데이터의 한계로 인한 추측을 최소화할 수 있습니다.
 
 ---
 
