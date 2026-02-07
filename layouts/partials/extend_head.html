@@ -2,13 +2,12 @@
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 
-{{- /* AI 크롤러 차단 메타 태그 */ -}}
-<meta name="robots" content="max-image-preview:large">
+{{- /* AI 크롤러 허용 메타 태그 */ -}}
+<meta name="robots" content="max-image-preview:large, index, follow">
 <meta name="googlebot" content="index, follow">
-<meta name="GPTBot" content="noindex, nofollow">
-<meta name="Google-Extended" content="noindex, nofollow">
-<meta name="CCBot" content="noindex, nofollow">
-<meta name="anthropic-ai" content="noindex, nofollow">
+
+{{- /* llms.txt 표준 파일 안내 */ -}}
+<link rel="help" href="{{ "llms.txt" | absURL }}" type="text/plain" title="LLM Site Information">
 
 {{- /* x-default hreflang: 기본 언어(한국어)로 지정 */ -}}
 {{- if .IsTranslated -}}
@@ -47,6 +46,28 @@
 
   .ai-attribution-text {
     opacity: 0.9;
+  }
+
+  /* TL;DR 구조화 섹션 스타일 */
+  .post-tldr {
+    margin: 1em 0;
+    padding: 0.8em 1.2em;
+    background-color: var(--code-bg);
+    border-left: 4px solid var(--tertiary);
+    border-radius: 4px;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+
+  .post-tldr summary {
+    cursor: pointer;
+    color: var(--primary);
+    margin-bottom: 0.4em;
+  }
+
+  .post-tldr p {
+    margin: 0.4em 0 0;
+    color: var(--secondary);
   }
 </style>
 {{- /* Head custom content area end */ -}}

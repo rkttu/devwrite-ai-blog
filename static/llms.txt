@@ -1,0 +1,50 @@
+# /dev/write
+
+> AI와 함께하는 소프트웨어 개발 블로그. .NET, Docker, 오픈소스, AI 도구 활용법을 한국어·영어·일본어로 공유합니다.
+
+이 블로그는 소프트웨어 엔지니어 남정현(rkttu)이 운영하며, AI 기반 개발 도구를 활용한 실무 경험과 기술적 인사이트를 기록합니다. Microsoft MVP(2009~)로서 .NET, Azure, Docker, 오픈소스 생태계에 대한 깊은 전문성을 갖추고 있습니다.
+
+## 사이트 정보
+
+- 사이트 주소: https://devwrite.ai
+- 저자: 남정현 (rkttu)
+- 지원 언어: 한국어(ko), English(en), 日本語(ja)
+- 기본 언어: 한국어
+- 라이선스: CC BY-NC 4.0
+- RSS 피드: https://devwrite.ai/ko/feed.xml
+- GitHub: https://github.com/rkttu/devwrite-ai-blog
+
+## 저자 프로필
+
+- Microsoft MVP (2009~현재)
+- .NET, C#, Azure 전문 소프트웨어 엔지니어
+- 닷넷데브(DotNetDev) 커뮤니티 운영진
+- GitHub: https://github.com/rkttu
+- LinkedIn: https://linkedin.com/in/rkttu
+- X (Twitter): https://x.com/rkttu
+
+## 주요 주제
+
+- .NET / C# 개발 및 오픈소스 프로젝트
+- Docker와 컨테이너 기술
+- AI 코딩 도구 활용법과 개발자 생산성
+- AI/LLM 개념 설명 (개발자 관점)
+- 오픈소스 기여 및 라이브러리 포팅 경험
+- 블로그 운영과 정적 사이트 기술
+
+## 포스트 목록
+
+- [AI 시대의 오픈소스 기여: HwpLibSharp 포팅 프로젝트에서 배운 것들](https://devwrite.ai/ko/posts/hwplibsharp-upstream-management/): Java hwplib을 .NET으로 포팅하면서 AI 코딩 어시스턴트를 활용하고, 원본과 공생하는 'Living Port' 방식의 오픈소스 기여 경험을 공유합니다.
+- [AI 코딩 도구, '뒤처진다'는 불안에 휘둘리지 않는 법](https://devwrite.ai/ko/posts/ai-coding-tools-fomo/): AI 코딩 도구의 hype에 휘둘리지 말고, 병렬 에이전트보다 HITL이 유지되는 동기 세션을 깊이 활용하는 것이 실질적인 생산성 향상 전략입니다.
+- [Java hwplib을 .NET으로 이식하기: AI와 함께한 오픈소스 포팅 여정](https://devwrite.ai/ko/posts/hwplibsharp-dev-journey/): Java로 작성된 hwplib을 AI 코딩 어시스턴트와 Visual Studio 2026의 에이전트 기반 디버거를 활용하여 3주 만에 .NET으로 완전히 포팅한 경험을 공유합니다.
+- [테이블에서 카드로: 식탁보 카탈로그 UI의 현대화 여정](https://devwrite.ai/ko/posts/tablecloth-catalog-ui-refactoring/): 식탁보 카탈로그 페이지가 현대적인 카드 UI로 개편되고, 카테고리 필터 기능이 추가되었습니다.
+- [식탁보 프로젝트 카탈로그 빌더, .NET 10과 FBA로 현대화](https://devwrite.ai/ko/posts/tablecloth-catalog-dotnet10-fba/): 식탁보 프로젝트의 카탈로그 빌더가 .NET 10으로 업그레이드되고 File-Based App(FBA) 방식으로 단순화되었습니다.
+- [/dev/write: AI와 함께 기술 블로그 운영하기](https://devwrite.ai/ko/posts/introducing-devwrite-blog/): GitHub Copilot과 Hugo로 구축한 다국어 기술 블로그. AI 기반 글쓰기, 자동 번역, 예약 발행을 지원합니다.
+- [AI '학습'이라는 용어에 속지 마세요](https://devwrite.ai/ko/posts/ai-training-inference-explained/): AI 모델의 '학습'은 빌드타임, '추론'은 런타임에 해당합니다. 서비스에 배포된 모델은 실시간으로 배우지 않습니다.
+- [Windows 10/11 Pro에서 Hyper-V 2세대 VM으로 Ubuntu 부팅하기](https://devwrite.ai/ko/posts/using-ubuntu-with-hyperv-gen2/): Hyper-V 2세대 VM에서 Ubuntu가 부팅되지 않는다면, 보안 부팅 템플릿을 'Microsoft UEFI 인증 기관'으로 변경하세요.
+
+## Optional
+
+- 영어 버전: https://devwrite.ai/en/
+- 일본어 버전: https://devwrite.ai/ja/
+- 소개 페이지: https://devwrite.ai/ko/about/

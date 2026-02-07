@@ -5,12 +5,13 @@ theme = 'PaperMod'
 # Google Analytics
 googleAnalytics = 'G-V1NLDLYHN0'
 
+defaultContentLanguage = 'ko'
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+
 # Naver Search Advisor
 [params.analytics.naver]
   SiteVerificationTag = '06511914e9c94d856dab91ae930a32cf3cc07c6d'
-
-defaultContentLanguage = 'ko'
-defaultContentLanguageInSubdir = true
 
 # 로컬 개발 시 드래프트/미래 포스트 표시
 # CI/CD에서는 플래그로 제외: hugo -D=false --buildFuture=false
@@ -58,7 +59,8 @@ buildFuture = true
       "https://github.com/rkttu",
       "https://linkedin.com/in/rkttu",
       "https://x.com/rkttu",
-      "https://mvp.microsoft.com/ko-KR/MVP/profile/335b80b4-3c9a-e411-93f2-9cb65495d3c4"
+      "https://mvp.microsoft.com/ko-KR/MVP/profile/335b80b4-3c9a-e411-93f2-9cb65495d3c4",
+      "https://forum.dotnetdev.kr"
     ]
 
   [params.opengraph]

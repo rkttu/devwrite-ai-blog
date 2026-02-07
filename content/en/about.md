@@ -8,11 +8,12 @@ hidemeta: true
 ShowBreadCrumbs: false
 ShowPostNavLinks: false
 ShowShareButtons: false
+description: "Microsoft MVP (2009~), .NET/Azure software engineer Junghyun Nam (rkttu)'s technical blog."
 ---
 
 ## 👋 Hello
 
-I'm **Junghyun Nam (rkttu)**, a software engineer, technical writer, and community builder.
+I'm **Junghyun Nam (rkttu)**, a software engineer with over 15 years of experience, a technical writer, and a community builder.
 
 I've been solving complex problems and designing architectures that create business value, primarily based on the Microsoft technology stack. Beyond writing code, I believe in the power of **'connection'** — sharing knowledge and growing together.
 
@@ -26,8 +27,19 @@ This blog is a space where I document the technical depths I've explored and the
 
 I specialize in **C#** and the .NET ecosystem, as well as building cloud-native environments with Microsoft Azure. With hands-on experience at companies like Megazone Cloud and Devsisters, I design stable and efficient systems.
 
-- **Microsoft MVP** — Active since 2009, recognized for continuous technical sharing and contributions.
+### Credentials & Recognition
+
+- **Microsoft MVP** — Active since 2009, 17 consecutive years in the Developer Technologies category, recognized for continuous technical sharing and contributions.
 - **Technical Writing** — I strive to write content that makes technical concepts accessible.
+
+### Areas of Expertise
+
+| Area | Details |
+| ----- | ------- |
+| **Backend & Cloud** | C#, .NET, ASP.NET Core, Microsoft Azure, Docker, Kubernetes |
+| **Desktop & UI** | WPF, Windows Forms, Windows Sandbox |
+| **DevOps** | GitHub Actions, Azure DevOps, CI/CD pipeline design |
+| **AI Tooling** | GitHub Copilot, AI-assisted code review, automated translation workflows |
 
 ---
 
@@ -65,10 +77,24 @@ I create tools that provide practical help in daily life and work, and share the
 
 ---
 
+## � Publication History
+
+This blog regularly covers the following topics:
+
+- **.NET / C# Development** — Open-source library porting, project modernization experiences
+- **AI Tooling** — AI coding assistant best practices, developer productivity strategies
+- **AI/LLM Concepts** — AI terminology and concepts explained from a developer's perspective
+- **Containers & Infrastructure** — Docker, Hyper-V, and other practical guides
+- **Blog Operations** — Hugo-based multilingual static site building experiences
+
+---
+
 ## 📬 Contact
 
 Technical discussions and collaboration proposals are always welcome.
 
 - [LinkedIn](https://linkedin.com/in/rkttu)
 - [GitHub](https://github.com/rkttu)
-- [Microsoft MVP](https://mvp.microsoft.com/en-US/MVP/profile/335b80b4-3c9a-e411-93f2-9cb65495d3c4)
+- [X (Twitter)](https://x.com/rkttu)
+- [Microsoft MVP Profile](https://mvp.microsoft.com/en-US/MVP/profile/335b80b4-3c9a-e411-93f2-9cb65495d3c4)
+- [DotNetDev Community](https://forum.dotnetdev.kr)

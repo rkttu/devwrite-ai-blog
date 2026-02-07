@@ -18,10 +18,10 @@
 
 ## AI 검색엔진 최적화 (AI Search)
 
-- [ ] **11. robots.txt AI 크롤러 차단 정책 재검토** — 선택적 허용 또는 전면 허용 결정
-- [ ] **12. `llms.txt` 파일 생성** — AI에게 사이트 콘텐츠를 설명하는 표준 파일
-- [ ] **13. E-E-A-T 신호 강화** — 저자 페이지 상세화, sameAs JSON-LD에 소셜 프로필 연결
-- [ ] **14. 콘텐츠 구조 AI 친화적 개선** — 질문-답변 소제목, 자기완결적 단락, 리스트/테이블 활용
+- [x] **11. robots.txt AI 크롤러 전면 허용** — 모든 AI 크롤러(GPTBot, Google-Extended, CCBot, anthropic-ai 등) Allow로 변경, enableRobotsTXT 활성화, 메타 태그 차단도 제거
+- [x] **12. `llms.txt` 파일 생성** — static/llms.txt에 사이트·저자·포스트 목록 포함, HTML head에 link[rel=help] 태그 추가
+- [x] **13. E-E-A-T 신호 강화** — 3개 언어 저자 페이지에 경력 연차·자격·전문 분야 테이블·발행 이력 섹션 추가, sameAs에 DotNetDev 커뮤니티 추가
+- [x] **14. 콘텐츠 구조 AI 친화적 개선** — TL;DR을 details/summary로 구조화 표시, JSON-LD BlogPosting에 abstract 필드 추가
 
 ## 낮은 우선순위 (Low Impact)
 

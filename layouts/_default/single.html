@@ -24,6 +24,13 @@
       {{ .Description }}
     </div>
     {{- end }}
+    {{- /* TL;DR 구조화 표시 (AI 친화적) */ -}}
+    {{- with .Params.tldr }}
+    <details class="post-tldr" open>
+      <summary><strong>TL;DR</strong></summary>
+      <p>{{ . }}</p>
+    </details>
+    {{- end }}
     {{- if not (.Param "hideMeta") }}
     <div class="post-meta">
       {{- partial "post_meta.html" . -}}
