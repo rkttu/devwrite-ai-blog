@@ -14,26 +14,37 @@
 ```
 content/
 ├── ko/           # 한국어 (원본)
-│   ├── posts/    # 파일명: {YYYY-MM-DD}-{slug}.md
+│   ├── posts/    # Page Bundle 구조
+│   │   └── {YYYY-MM-DD}-{slug}/
+│   │       ├── index.md      # 포스트 본문
+│   │       └── (이미지 등 리소스 파일)
 │   └── archives.md
 ├── en/           # English (번역)
-│   ├── posts/    # 파일명: {YYYY-MM-DD}-{slug}.md
+│   ├── posts/    # Page Bundle 구조
+│   │   └── {YYYY-MM-DD}-{slug}/
+│   │       ├── index.md
+│   │       └── (이미지 등 리소스 파일)
 │   └── archives.md
 └── ja/           # 日本語 (번역)
-    ├── posts/    # 파일명: {YYYY-MM-DD}-{slug}.md
+    ├── posts/    # Page Bundle 구조
+    │   └── {YYYY-MM-DD}-{slug}/
+    │       ├── index.md
+    │       └── (이미지 등 리소스 파일)
     └── archives.md
 
 static/
 └── images/
-    └── posts/    # Hero 이미지 저장 위치
+    └── posts/    # Hero 이미지 저장 위치 (공용)
 ```
 
 ## 파일 명명 규칙
 
-- **포스트 파일명**: `{YYYY-MM-DD}-{slug}.md` (예: `2025-12-04-docker-basics.md`)
+- **포스트 디렉터리명**: `{YYYY-MM-DD}-{slug}/` (예: `2025-12-04-docker-basics/`)
+- **포스트 파일명**: 각 디렉터리 안에 `index.md` (예: `2025-12-04-docker-basics/index.md`)
+- **포스트 내 이미지**: 같은 디렉터리에 저장 (예: `2025-12-04-docker-basics/diagram.png`)
 - **URL**: `slug` 필드가 결정 (예: `/ko/posts/docker-basics/`)
-- **이미지 파일명**: `{slug}.jpg` (예: `docker-basics.jpg`)
-- **모든 언어에서 동일한 파일명 사용**
+- **Hero 이미지**: `static/images/posts/{slug}.jpg` (예: `docker-basics.jpg`)
+- **모든 언어에서 동일한 디렉터리명 사용**
 
 ## Front Matter 필수 필드
 
@@ -106,7 +117,7 @@ license: "MIT"  # 이 글만 MIT 라이선스 적용
 
 1. **원본은 항상 한국어** (`content/ko/`)
 2. **slug와 translationKey는 모든 언어에서 동일**
-3. **파일명도 모든 언어에서 동일** (예: `hello-world.md`)
+3. **디렉터리명도 모든 언어에서 동일** (예: `2025-12-04-hello-world/index.md`)
 4. **태그/카테고리는 각 언어로 번역**
 5. **license 필드는 모든 언어에서 동일** (번역하지 않음)
 
@@ -216,6 +227,6 @@ python3 scripts/fetch_hero_image.py --slug "my-post" --keywords "coding,tech"
 - [ ] Front matter 필수 필드 확인
 - [ ] `translationKey`가 모든 번역본에서 동일
 - [ ] `slug`가 모든 번역본에서 동일
-- [ ] 파일명이 모든 언어에서 동일
+- [ ] 디렉터리명이 모든 언어에서 동일
 - [ ] Hero 이미지가 존재하면 경로 확인
 - [ ] 내부 링크가 올바른 언어 경로 사용

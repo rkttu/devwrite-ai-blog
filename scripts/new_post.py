@@ -18,16 +18,21 @@ CONTENT_ROOT = PROJECT_ROOT / "content" / "ko" / "posts"
 
 def create_post(slug: str, title: str):
     """새 포스트 생성"""
-    post_path = CONTENT_ROOT / f"{slug}.md"
-    
-    # 이미 존재하는지 확인
-    if post_path.exists():
-        print(f"❌ 이미 존재하는 포스트입니다: {post_path}")
-        sys.exit(1)
-    
     # 날짜 생성 (KST)
     kst = timezone(timedelta(hours=9))
-    date = datetime.now(kst).strftime("%Y-%m-%dT%H:%M:%S%z")
+    now = datetime.now(kst)
+    date_prefix = now.strftime("%Y-%m-%d")
+    
+    post_dir = CONTENT_ROOT / f"{date_prefix}-{slug}"
+    post_path = post_dir / "index.md"
+    
+    # 이미 존재하는지 확인
+    if post_dir.exists():
+        print(f"❌ 이미 존재하는 포스트입니다: {post_dir}")
+        sys.exit(1)
+    
+    # 날짜 형식
+    date = now.strftime("%Y-%m-%dT%H:%M:%S%z")
     # +0900 형식을 +09:00 형식으로 변환
     date = date[:-2] + ":" + date[-2:]
     

@@ -49,16 +49,23 @@ def get_posts() -> dict:
         if not posts_dir.exists():
             continue
         
-        for md_file in posts_dir.glob("*.md"):
-            content = md_file.read_text(encoding="utf-8")
+        for post_dir in posts_dir.iterdir():
+            if not post_dir.is_dir():
+                continue
+            
+            index_file = post_dir / "index.md"
+            if not index_file.exists():
+                continue
+            
+            content = index_file.read_text(encoding="utf-8")
             fm = parse_front_matter(content)
             
-            key = md_file.stem
+            key = post_dir.name
             if key not in posts:
                 posts[key] = {}
             
             posts[key][lang] = {
-                "path": md_file,
+                "path": index_file,
                 "translationKey": fm.get("translationKey"),
                 "slug": fm.get("slug"),
                 "cover_image": fm.get("image"),

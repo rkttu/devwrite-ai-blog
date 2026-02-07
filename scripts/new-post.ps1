@@ -26,22 +26,24 @@ param(
 
 $ErrorActionPreference = "Stop"
 $ContentRoot = Join-Path $PSScriptRoot "..\content\ko\posts"
-$PostPath = Join-Path $ContentRoot "$Slug.md"
+$Date = Get-Date -Format "yyyy-MM-dd"
+$PostDir = Join-Path $ContentRoot "$Date-$Slug"
+$PostPath = Join-Path $PostDir "index.md"
 
 # 이미 존재하는지 확인
-if (Test-Path $PostPath) {
-    Write-Host "❌ 이미 존재하는 포스트입니다: $PostPath" -ForegroundColor Red
+if (Test-Path $PostDir) {
+    Write-Host "❌ 이미 존재하는 포스트입니다: $PostDir" -ForegroundColor Red
     exit 1
 }
 
 # 날짜 생성
-$Date = Get-Date -Format "yyyy-MM-ddTHH:mm:sszzz"
+$DateTime = Get-Date -Format "yyyy-MM-ddTHH:mm:sszzz"
 
 # Front matter 템플릿
 $Content = @"
 ---
 title: "$Title"
-date: $Date
+date: $DateTime
 draft: true
 slug: "$Slug"
 tags: []
@@ -57,9 +59,8 @@ tldr: ""
 "@
 
 # 디렉터리 생성
-$dir = Split-Path $PostPath -Parent
-if (-not (Test-Path $dir)) {
-    New-Item -ItemType Directory -Path $dir -Force | Out-Null
+if (-not (Test-Path $PostDir)) {
+    New-Item -ItemType Directory -Path $PostDir -Force | Out-Null
 }
 
 # 파일 생성

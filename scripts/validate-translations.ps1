@@ -29,26 +29,29 @@ $posts = @{}
 foreach ($lang in $Languages) {
     $postsDir = Join-Path $ContentRoot "$lang\posts"
     if (Test-Path $postsDir) {
-        Get-ChildItem -Path $postsDir -Filter "*.md" | ForEach-Object {
-            $content = Get-Content $_.FullName -Raw
-            
-            # Front matter 파싱 (간단한 YAML 파싱)
-            if ($content -match "(?s)^---\s*\n(.+?)\n---") {
-                $frontMatter = $Matches[1]
+        Get-ChildItem -Path $postsDir -Directory | ForEach-Object {
+            $indexFile = Join-Path $_.FullName "index.md"
+            if (Test-Path $indexFile) {
+                $content = Get-Content $indexFile -Raw
                 
-                $translationKey = if ($frontMatter -match 'translationKey:\s*["\x27]?([^"\x27\n]+)["\x27]?') { $Matches[1].Trim() } else { $null }
-                $slug = if ($frontMatter -match 'slug:\s*["\x27]?([^"\x27\n]+)["\x27]?') { $Matches[1].Trim() } else { $null }
-                $coverImage = if ($frontMatter -match 'image:\s*["\x27]?([^"\x27\n]+)["\x27]?') { $Matches[1].Trim() } else { $null }
-                
-                $key = $_.BaseName
-                if (-not $posts.ContainsKey($key)) {
-                    $posts[$key] = @{}
-                }
-                $posts[$key][$lang] = @{
-                    Path = $_.FullName
-                    TranslationKey = $translationKey
-                    Slug = $slug
-                    CoverImage = $coverImage
+                # Front matter 파싱 (간단한 YAML 파싱)
+                if ($content -match "(?s)^---\s*\n(.+?)\n---") {
+                    $frontMatter = $Matches[1]
+                    
+                    $translationKey = if ($frontMatter -match 'translationKey:\s*["\x27]?([^"\x27\n]+)["\x27]?') { $Matches[1].Trim() } else { $null }
+                    $slug = if ($frontMatter -match 'slug:\s*["\x27]?([^"\x27\n]+)["\x27]?') { $Matches[1].Trim() } else { $null }
+                    $coverImage = if ($frontMatter -match 'image:\s*["\x27]?([^"\x27\n]+)["\x27]?') { $Matches[1].Trim() } else { $null }
+                    
+                    $key = $_.Name
+                    if (-not $posts.ContainsKey($key)) {
+                        $posts[$key] = @{}
+                    }
+                    $posts[$key][$lang] = @{
+                        Path = $indexFile
+                        TranslationKey = $translationKey
+                        Slug = $slug
+                        CoverImage = $coverImage
+                    }
                 }
             }
         }
