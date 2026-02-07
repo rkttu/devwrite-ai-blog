@@ -11,7 +11,7 @@ categories:
   - 開発環境
 translationKey: "docker-basics"
 description: "Dockerの基本概念を理解し、インストールから最初のコンテナ実行までをステップバイステップで学びます。"
-tldr: "Dockerの基本概念を理解し、インストールから最初のコンテナ実行までをステップバイステップで学びます。"
+tldr: "コンテナとVMの違いを比較し、Dockerインストール後にhello-worldとNginxの実習までそのまま追体験できる入門ガイドです。"
 cover:
   image: "images/posts/docker-basics.jpg"
   alt: "コンテナとサーバーインフラを象徴するイメージ"

@@ -14,7 +14,7 @@ categories:
   - 開発経験
 translationKey: "hwplibsharp-upstream-management"
 description: "Java hwplibを.NETにポーティングする過程でAIコーディングアシスタントを活用し、原本と共生する「Living Port」方式のオープンソース貢献経験を共有します。"
-tldr: "Java hwplibを.NETにポーティングする過程でAIコーディングアシスタントを活用し、原本と共生する「Living Port」方式のオープンソース貢献経験を共有します。"
+tldr: "C#ファイルの先頭行に原本Javaファイルのヒントを埋め込み、AIにdiffを分析させることでupstream同期時間を80%以上削減。単純なフォークではなく原本と共生する「Living Port」保守戦略を紹介します。"
 cover:
   image: "images/posts/hwplibsharp-upstream-management.jpg"
   alt: "オープンソースプロジェクト間の協力とコードポーティングを象徴するイメージ"

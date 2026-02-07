@@ -15,7 +15,7 @@ cover:
   image: "images/posts/ai-coding-tools-fomo.jpg"
   alt: "A balanced relationship between AI coding tools and developers"
 description: "Don't be swayed by AI coding tool hype. Deep utilization of synchronous sessions with HITL is a more practical productivity strategy than parallel agents."
-tldr: "Don't be swayed by AI coding tool hype. Deep utilization of synchronous sessions with HITL is a more practical productivity strategy than parallel agents."
+tldr: "Autonomous background agents multiply your review burden N-fold. Depth of use with your current tools—systematic prompts, optimized context, IDE integration—beats chasing new tool hype for real-world productivity."
 ---
 
 When following news from the AI coding tools industry these days, you'll notice that every time a new tool emerges, messages like "this is the future" and "you'll fall behind if you don't use it" are emphasized to an almost excessive degree. Background agents, parallel AI sessions, autonomous coding—new concepts appear every week, making you feel like you're falling behind the times if you don't adopt them.

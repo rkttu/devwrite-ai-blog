@@ -14,7 +14,7 @@ categories:
   - Development Experience
 translationKey: "hwplibsharp-upstream-management"
 description: "Sharing my experience porting Java hwplib to .NET with AI coding assistants, and building a 'Living Port' model of open source contribution that coexists with the upstream project."
-tldr: "Sharing my experience porting Java hwplib to .NET with AI coding assistants, and building a 'Living Port' model of open source contribution that coexists with the upstream project."
+tldr: "By embedding original Java file hints in C# source headers and letting AI analyze diffs, upstream sync time drops by over 80%. This post introduces a 'Living Port' maintenance strategy that coexists with the original rather than simply forking."
 cover:
   image: "images/posts/hwplibsharp-upstream-management.jpg"
   alt: "Image symbolizing collaboration and code porting between open source projects"

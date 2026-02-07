@@ -14,7 +14,7 @@ categories:
   - 개발
 translationKey: "tablecloth-catalog-ui-refactoring"
 description: "식탁보 카탈로그 페이지가 현대적인 카드 UI로 개편되고, 카테고리 필터 기능이 추가되었습니다. 또한 Generic Host 패턴 적용과 품질 관리 도구가 새롭게 도입되었습니다."
-tldr: "식탁보 카탈로그 페이지가 현대적인 카드 UI로 개편되고, 카테고리 필터 기능이 추가되었습니다. 또한 Generic Host 패턴 적용과 품질 관리 도구가 새롭게 도입되었습니다."
+tldr: "100개 이상의 서비스 목록을 XSLT 기반 카드 UI + CSS Grid 반응형 레이아웃으로 전면 개편하고, 바닐라 JS 카테고리 필터와 Generic Host 패턴 리팩토링을 적용한 과정입니다."
 cover:
   image: "images/posts/tablecloth-catalog-ui-refactoring.jpg"
   alt: "식탁보 카탈로그 UI 업데이트"

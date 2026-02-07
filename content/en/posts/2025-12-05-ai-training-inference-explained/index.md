@@ -14,7 +14,7 @@ cover:
   image: "images/posts/ai-training-inference-explained.jpg"
   alt: "Image representing AI and development"
 description: "AI 'training' is build time, 'inference' is runtime. Deployed models don't learn in real-time—developers just need to provide good data (RAG) and prompts."
-tldr: "AI 'training' is build time, 'inference' is runtime. Deployed models don't learn in real-time—developers just need to provide good data (RAG) and prompts."
+tldr: "Deployed models are frozen and never learn in real time. Most business problems can be solved without fine-tuning—just pick a good base model, design clear prompts, and set up structured RAG."
 ---
 
 When talking with colleagues who work on service development, I often notice a vague sense of burden regarding AI adoption. Digging into the root of that burden, it usually stems from misunderstandings caused by the term **'Training'**.

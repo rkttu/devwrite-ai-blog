@@ -14,7 +14,7 @@ categories:
   - Development
 translationKey: "tablecloth-catalog-ui-refactoring"
 description: "The TableCloth catalog page has been redesigned with a modern card UI and category filtering. Generic Host pattern and quality management tools have also been introduced."
-tldr: "The TableCloth catalog page has been redesigned with a modern card UI and category filtering. Generic Host pattern and quality management tools have also been introduced."
+tldr: "A full rebuild of 100+ service listings into an XSLT-based card UI with CSS Grid responsive layout, vanilla JS category filtering, and a backend refactor to the Generic Host pattern."
 cover:
   image: "images/posts/tablecloth-catalog-ui-refactoring.jpg"
   alt: "TableCloth Catalog UI Update"

@@ -18,7 +18,7 @@ cover:
   image: "images/posts/hwplibsharp-dev-journey.jpg"
   alt: "JavaからNETへのコード移植を表現した抽象的なイメージ"
 description: "Javaで作成されたhwplibを、AIコーディングアシスタントとVisual Studio 2026のエージェントベースデバッガーを活用して、わずか3週間で.NETに完全移植した経験を共有します。"
-tldr: "Javaで作成されたhwplibを、AIコーディングアシスタントとVisual Studio 2026のエージェントベースデバッガーを活用して、わずか3週間で.NETに完全移植した経験を共有します。"
+tldr: "641ファイル・5万行のJavaコード移植で最大の難関だったApache POI→OpenMcdfの切り替えとzlib圧縮の差異を、VS 2026エージェントデバッガーが自動ブレークポイントと変数追跡で解決した話です。"
 ---
 
 ## 始まりは単純な好奇心から

@@ -15,7 +15,7 @@ cover:
   image: "images/posts/using-ubuntu-with-hyperv-gen2.jpg"
   alt: "Server virtualization environment image"
 description: "If Ubuntu won't boot on a Hyper-V Gen 2 VM, change the Secure Boot template to 'Microsoft UEFI Certificate Authority'."
-tldr: "If Ubuntu won't boot on a Hyper-V Gen 2 VM, change the Secure Boot template to 'Microsoft UEFI Certificate Authority'."
+tldr: "Gen 2 VMs default to a Windows-only Secure Boot template that blocks the Ubuntu bootloader. Switch it to 'Microsoft UEFI Certificate Authority' in VM settings and you're good to go."
 ---
 
 ## Getting Started

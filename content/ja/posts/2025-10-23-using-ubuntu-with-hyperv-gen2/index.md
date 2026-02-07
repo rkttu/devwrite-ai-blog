@@ -15,7 +15,7 @@ cover:
   image: "images/posts/using-ubuntu-with-hyperv-gen2.jpg"
   alt: "サーバー仮想化環境のイメージ"
 description: "Hyper-V第2世代VMでUbuntuが起動しない場合は、セキュアブートテンプレートを「Microsoft UEFI証明機関」に変更してください。"
-tldr: "Hyper-V第2世代VMでUbuntuが起動しない場合は、セキュアブートテンプレートを「Microsoft UEFI証明機関」に変更してください。"
+tldr: "第2世代VMのデフォルトのセキュアブートテンプレートはWindows専用で、Ubuntuのブートローダーをブロックします。VM設定で「Microsoft UEFI証明機関」に切り替えればすぐ解決します。"
 ---
 
 ## はじめに

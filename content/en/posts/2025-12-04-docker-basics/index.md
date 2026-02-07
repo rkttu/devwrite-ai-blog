@@ -11,7 +11,7 @@ categories:
   - Development Environment
 translationKey: "docker-basics"
 description: "Learn the fundamentals of Docker, from installation to running your first container step by step."
-tldr: "Learn the fundamentals of Docker, from installation to running your first container step by step."
+tldr: "A hands-on beginner guide comparing containers vs VMs, walking through Docker installation, and running hello-world and Nginx exercises you can follow along."
 cover:
   image: "images/posts/docker-basics.jpg"
   alt: "Image representing containers and server infrastructure"

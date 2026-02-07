@@ -18,7 +18,7 @@ cover:
   image: "images/posts/hwplibsharp-dev-journey.jpg"
   alt: "Abstract image representing code porting from Java to .NET"
 description: "I completely ported the Java-based hwplib to .NET in just 3 weeks using AI coding assistants and Visual Studio 2026's agent-based debugger."
-tldr: "I completely ported the Java-based hwplib to .NET in just 3 weeks using AI coding assistants and Visual Studio 2026's agent-based debugger."
+tldr: "The hardest part of porting 641 files and 50K lines of Java was replacing Apache POI with OpenMcdf and fixing zlib compression differences. VS 2026's agent debugger solved it by automatically setting breakpoints and tracing variables."
 ---
 
 ## It Started with Simple Curiosity

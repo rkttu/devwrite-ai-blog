@@ -14,7 +14,7 @@ categories:
   - 開発
 translationKey: "tablecloth-catalog-ui-refactoring"
 description: "TableClothカタログページがモダンなカードUIに刷新され、カテゴリフィルター機能が追加されました。Generic Hostパターンの適用と品質管理ツールも新たに導入されました。"
-tldr: "TableClothカタログページがモダンなカードUIに刷新され、カテゴリフィルター機能が追加されました。Generic Hostパターンの適用と品質管理ツールも新たに導入されました。"
+tldr: "100件以上のサービス一覧をXSLTベースのカードUI + CSS Gridレスポンシブレイアウトで全面的に再構築し、バニラJSカテゴリフィルターとGeneric Hostパターンのリファクタリングを適用した過程です。"
 cover:
   image: "images/posts/tablecloth-catalog-ui-refactoring.jpg"
   alt: "TableClothカタログUIアップデート"

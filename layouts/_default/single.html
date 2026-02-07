@@ -17,19 +17,16 @@
       {{- end }}
     </div>
     {{- end }}
-    {{- /* AI Attribution Notice */ -}}
-    {{- partial "ai_attribution.html" . }}
     {{- if .Description }}
     <div class="post-description">
       {{ .Description }}
     </div>
     {{- end }}
-    {{- /* TL;DR 구조화 표시 (AI 친화적) */ -}}
+    {{- /* 한 줄 요약 (AI 친화적) */ -}}
     {{- with .Params.tldr }}
-    <details class="post-tldr" open>
-      <summary><strong>TL;DR</strong></summary>
-      <p>{{ . }}</p>
-    </details>
+    <div class="post-tldr">
+      <strong>{{ i18n "tldrLabel" | default "TL;DR" }}:</strong> {{ . }}
+    </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}
     <div class="post-meta">

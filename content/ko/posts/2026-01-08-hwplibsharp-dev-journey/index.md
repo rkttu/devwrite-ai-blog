@@ -18,7 +18,7 @@ cover:
   image: "images/posts/hwplibsharp-dev-journey.jpg"
   alt: "Java에서 .NET으로의 코드 포팅을 표현한 추상적인 이미지"
 description: "Java로 작성된 hwplib을 AI 코딩 어시스턴트와 Visual Studio 2026의 에이전트 기반 디버거를 활용하여 3주 만에 .NET으로 완전히 포팅한 경험을 공유합니다."
-tldr: "Java로 작성된 hwplib을 AI 코딩 어시스턴트와 Visual Studio 2026의 에이전트 기반 디버거를 활용하여 3주 만에 .NET으로 완전히 포팅한 경험을 공유합니다."
+tldr: "641개 파일, 5만 줄의 Java 코드를 C#으로 옮기면서 가장 큰 난관이었던 Apache POI→OpenMcdf 전환과 zlib 압축 차이를, VS 2026 에이전트 디버거가 자동 중단점·변수 추적으로 해결해 준 이야기입니다."
 ---
 
 ## 시작은 단순한 호기심에서

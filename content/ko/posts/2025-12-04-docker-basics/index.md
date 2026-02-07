@@ -11,7 +11,7 @@ categories:
   - 개발환경
 translationKey: "docker-basics"
 description: "Docker의 기본 개념을 이해하고, 설치부터 첫 번째 컨테이너 실행까지 단계별로 알아봅니다."
-tldr: "Docker의 기본 개념을 이해하고, 설치부터 첫 번째 컨테이너 실행까지 단계별로 알아봅니다."
+tldr: "컨테이너와 VM의 차이를 비교하고, Docker 설치 후 hello-world와 Nginx 실습까지 직접 따라 할 수 있는 입문 가이드입니다."
 cover:
   image: "images/posts/docker-basics.jpg"
   alt: "컨테이너와 서버 인프라를 상징하는 이미지"
