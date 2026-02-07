@@ -11,6 +11,7 @@ tags:
 categories:
   - 안내
 translationKey: "introducing-devwrite-blog"
+description: "GitHub Copilot과 Hugo로 구축한 다국어 기술 블로그. AI 기반 글쓰기, 자동 번역, 예약 발행을 지원합니다."
 tldr: "GitHub Copilot과 Hugo로 구축한 다국어 기술 블로그. AI 기반 글쓰기, 자동 번역, 예약 발행을 지원합니다."
 cover:
   image: "images/posts/introducing-devwrite-blog.jpg"

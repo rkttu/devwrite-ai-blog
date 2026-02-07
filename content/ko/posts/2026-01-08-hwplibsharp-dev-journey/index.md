@@ -17,6 +17,7 @@ translationKey: "hwplibsharp-dev-journey"
 cover:
   image: "images/posts/hwplibsharp-dev-journey.jpg"
   alt: "Java에서 .NET으로의 코드 포팅을 표현한 추상적인 이미지"
+description: "Java로 작성된 hwplib을 AI 코딩 어시스턴트와 Visual Studio 2026의 에이전트 기반 디버거를 활용하여 3주 만에 .NET으로 완전히 포팅한 경험을 공유합니다."
 tldr: "Java로 작성된 hwplib을 AI 코딩 어시스턴트와 Visual Studio 2026의 에이전트 기반 디버거를 활용하여 3주 만에 .NET으로 완전히 포팅한 경험을 공유합니다."
 ---
 

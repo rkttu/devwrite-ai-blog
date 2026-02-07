@@ -14,6 +14,7 @@ translationKey: "using-ubuntu-with-hyperv-gen2"
 cover:
   image: "images/posts/using-ubuntu-with-hyperv-gen2.jpg"
   alt: "Server virtualization environment image"
+description: "If Ubuntu won't boot on a Hyper-V Gen 2 VM, change the Secure Boot template to 'Microsoft UEFI Certificate Authority'."
 tldr: "If Ubuntu won't boot on a Hyper-V Gen 2 VM, change the Secure Boot template to 'Microsoft UEFI Certificate Authority'."
 ---
 

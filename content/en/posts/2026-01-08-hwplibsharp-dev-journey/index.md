@@ -17,6 +17,7 @@ translationKey: "hwplibsharp-dev-journey"
 cover:
   image: "images/posts/hwplibsharp-dev-journey.jpg"
   alt: "Abstract image representing code porting from Java to .NET"
+description: "I completely ported the Java-based hwplib to .NET in just 3 weeks using AI coding assistants and Visual Studio 2026's agent-based debugger."
 tldr: "I completely ported the Java-based hwplib to .NET in just 3 weeks using AI coding assistants and Visual Studio 2026's agent-based debugger."
 ---
 

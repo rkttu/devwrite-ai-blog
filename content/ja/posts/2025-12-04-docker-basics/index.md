@@ -10,6 +10,7 @@ tags:
 categories:
   - 開発環境
 translationKey: "docker-basics"
+description: "Dockerの基本概念を理解し、インストールから最初のコンテナ実行までをステップバイステップで学びます。"
 tldr: "Dockerの基本概念を理解し、インストールから最初のコンテナ実行までをステップバイステップで学びます。"
 cover:
   image: "images/posts/docker-basics.jpg"

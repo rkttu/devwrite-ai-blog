@@ -14,6 +14,7 @@ translationKey: "ai-coding-tools-fomo"
 cover:
   image: "images/posts/ai-coding-tools-fomo.jpg"
   alt: "A balanced relationship between AI coding tools and developers"
+description: "Don't be swayed by AI coding tool hype. Deep utilization of synchronous sessions with HITL is a more practical productivity strategy than parallel agents."
 tldr: "Don't be swayed by AI coding tool hype. Deep utilization of synchronous sessions with HITL is a more practical productivity strategy than parallel agents."
 ---
 

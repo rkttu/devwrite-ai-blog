@@ -11,6 +11,7 @@ tags:
 categories:
   - 開発
 translationKey: "tablecloth-catalog-dotnet10-fba"
+description: "TableClothプロジェクトのカタログビルダーが.NET 10にアップグレードされ、File-Based App（FBA）方式で簡素化されました。"
 tldr: "TableClothプロジェクトのカタログビルダーが.NET 10にアップグレードされ、File-Based App（FBA）方式で簡素化されました。"
 cover:
   image: "images/posts/tablecloth-catalog-dotnet10-fba.jpg"

@@ -13,6 +13,7 @@ tags:
 categories:
   - 開発
 translationKey: "tablecloth-catalog-ui-refactoring"
+description: "TableClothカタログページがモダンなカードUIに刷新され、カテゴリフィルター機能が追加されました。Generic Hostパターンの適用と品質管理ツールも新たに導入されました。"
 tldr: "TableClothカタログページがモダンなカードUIに刷新され、カテゴリフィルター機能が追加されました。Generic Hostパターンの適用と品質管理ツールも新たに導入されました。"
 cover:
   image: "images/posts/tablecloth-catalog-ui-refactoring.jpg"

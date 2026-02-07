@@ -2,11 +2,11 @@
 
 ## 높은 우선순위 (High Impact)
 
-- [ ] **1. `params.env = "production"` 추가** — OG/Twitter/JSON-LD 활성화 보장
-- [ ] **2. 검색엔진 등록 태그 설정** — Google Search Console, Naver, Bing verification tag
-- [ ] **3. 포스트 `description` 필드 추가** — tldr 값을 description으로 매핑 또는 복사
-- [ ] **4. 사이트 description 확장** — 각 언어별 50~160자 설명 작성
-- [ ] **5. `x-default` hreflang 추가** — extend_head.html에 추가
+- [x] **1. `params.env = "production"` 추가** — OG/Twitter/JSON-LD 활성화 보장
+- [x] **2. 검색엔진 등록 태그 설정** — Google(DNS), Bing(DNS), Naver(meta tag) 완료
+- [x] **3. 포스트 `description` 필드 추가** — tldr 값을 description으로 복사 (24개 전체 완료)
+- [x] **4. 사이트 description 확장** — 각 언어별 50~160자 설명 작성 완료
+- [x] **5. `x-default` hreflang 추가** — extend_head.html에 추가 완료
 
 ## 중간 우선순위 (Medium Impact)
 

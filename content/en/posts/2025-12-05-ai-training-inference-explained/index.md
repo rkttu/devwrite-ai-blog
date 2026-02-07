@@ -13,6 +13,7 @@ translationKey: "ai-training-inference-explained"
 cover:
   image: "images/posts/ai-training-inference-explained.jpg"
   alt: "Image representing AI and development"
+description: "AI 'training' is build time, 'inference' is runtime. Deployed models don't learn in real-time—developers just need to provide good data (RAG) and prompts."
 tldr: "AI 'training' is build time, 'inference' is runtime. Deployed models don't learn in real-time—developers just need to provide good data (RAG) and prompts."
 ---
 

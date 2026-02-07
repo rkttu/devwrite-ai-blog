@@ -13,6 +13,7 @@ translationKey: "ai-training-inference-explained"
 cover:
   image: "images/posts/ai-training-inference-explained.jpg"
   alt: "AIと開発を象徴するイメージ"
+description: "AIモデルの「学習」はビルドタイム、「推論」はランタイムに該当します。デプロイされたモデルはリアルタイムで学習せず、開発者がすべきことは良いデータ（RAG）とプロンプトを提供することです。"
 tldr: "AIモデルの「学習」はビルドタイム、「推論」はランタイムに該当します。デプロイされたモデルはリアルタイムで学習せず、開発者がすべきことは良いデータ（RAG）とプロンプトを提供することです。"
 ---
 

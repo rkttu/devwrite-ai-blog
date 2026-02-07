@@ -14,6 +14,7 @@ translationKey: "ai-coding-tools-fomo"
 cover:
   image: "images/posts/ai-coding-tools-fomo.jpg"
   alt: "AIコーディングツールと開発者のバランスの取れた関係"
+description: "AIコーディングツールのhypeに振り回されず、並列エージェントよりもHITLが維持される同期セッションを深く活用することが実質的な生産性向上戦略です。"
 tldr: "AIコーディングツールのhypeに振り回されず、並列エージェントよりもHITLが維持される同期セッションを深く活用することが実質的な生産性向上戦略です。"
 ---
 

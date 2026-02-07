@@ -5,6 +5,10 @@ theme = 'PaperMod'
 # Google Analytics
 googleAnalytics = 'G-V1NLDLYHN0'
 
+# Naver Search Advisor
+[params.analytics.naver]
+  SiteVerificationTag = '06511914e9c94d856dab91ae930a32cf3cc07c6d'
+
 defaultContentLanguage = 'ko'
 defaultContentLanguageInSubdir = true
 
@@ -28,6 +32,7 @@ buildFuture = true
   limit = 20  # 피드에 포함할 최대 항목 수
 
 [params]
+  env = 'production'
   defaultTheme = 'auto'
   ShowReadingTime = true
   ShowShareButtons = true
@@ -74,7 +79,7 @@ buildFuture = true
     weight = 1
     contentDir = 'content/ko'
     [languages.ko.params]
-      description = '개발 블로그'
+      description = 'AI와 함께하는 소프트웨어 개발 블로그. .NET, Docker, 오픈소스, AI 도구 활용법을 한국어·영어·일본어로 공유합니다.'
     [[languages.ko.menu.main]]
       identifier = 'home'
       name = '홈'
@@ -102,7 +107,7 @@ buildFuture = true
     weight = 2
     contentDir = 'content/en'
     [languages.en.params]
-      description = 'Dev Blog'
+      description = 'A multilingual software development blog. Sharing practical insights on .NET, Docker, open source, and AI-assisted development in Korean, English, and Japanese.'
     [[languages.en.menu.main]]
       identifier = 'home'
       name = 'Home'
@@ -130,7 +135,7 @@ buildFuture = true
     weight = 3
     contentDir = 'content/ja'
     [languages.ja.params]
-      description = '開発ブログ'
+      description = 'AIと共に歩むソフトウェア開発ブログ。.NET、Docker、オープンソース、AIツールの活用法を韓国語・英語・日本語で共有します。'
     [[languages.ja.menu.main]]
       identifier = 'home'
       name = 'ホーム'

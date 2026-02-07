@@ -13,6 +13,7 @@ tags:
 categories:
   - Development
 translationKey: "tablecloth-catalog-ui-refactoring"
+description: "The TableCloth catalog page has been redesigned with a modern card UI and category filtering. Generic Host pattern and quality management tools have also been introduced."
 tldr: "The TableCloth catalog page has been redesigned with a modern card UI and category filtering. Generic Host pattern and quality management tools have also been introduced."
 cover:
   image: "images/posts/tablecloth-catalog-ui-refactoring.jpg"

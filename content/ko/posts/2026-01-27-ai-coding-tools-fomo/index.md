@@ -14,6 +14,7 @@ translationKey: "ai-coding-tools-fomo"
 cover:
   image: "images/posts/ai-coding-tools-fomo.jpg"
   alt: "AI 코딩 도구와 개발자의 균형 잡힌 관계"
+description: "AI 코딩 도구의 hype에 휘둘리지 말고, 병렬 에이전트보다 HITL이 유지되는 동기 세션을 깊이 활용하는 것이 실질적인 생산성 향상 전략입니다."
 tldr: "AI 코딩 도구의 hype에 휘둘리지 말고, 병렬 에이전트보다 HITL이 유지되는 동기 세션을 깊이 활용하는 것이 실질적인 생산성 향상 전략입니다."
 ---
 

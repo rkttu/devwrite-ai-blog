@@ -10,6 +10,7 @@ tags:
 categories:
   - 개발환경
 translationKey: "docker-basics"
+description: "Docker의 기본 개념을 이해하고, 설치부터 첫 번째 컨테이너 실행까지 단계별로 알아봅니다."
 tldr: "Docker의 기본 개념을 이해하고, 설치부터 첫 번째 컨테이너 실행까지 단계별로 알아봅니다."
 cover:
   image: "images/posts/docker-basics.jpg"

@@ -17,6 +17,7 @@ translationKey: "hwplibsharp-dev-journey"
 cover:
   image: "images/posts/hwplibsharp-dev-journey.jpg"
   alt: "JavaからNETへのコード移植を表現した抽象的なイメージ"
+description: "Javaで作成されたhwplibを、AIコーディングアシスタントとVisual Studio 2026のエージェントベースデバッガーを活用して、わずか3週間で.NETに完全移植した経験を共有します。"
 tldr: "Javaで作成されたhwplibを、AIコーディングアシスタントとVisual Studio 2026のエージェントベースデバッガーを活用して、わずか3週間で.NETに完全移植した経験を共有します。"
 ---
 

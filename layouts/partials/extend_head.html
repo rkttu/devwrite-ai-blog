@@ -10,6 +10,23 @@
 <meta name="CCBot" content="noindex, nofollow">
 <meta name="anthropic-ai" content="noindex, nofollow">
 
+{{- /* x-default hreflang: 기본 언어(한국어)로 지정 */ -}}
+{{- if .IsTranslated -}}
+  {{- $koPage := false -}}
+  {{- range .Translations -}}
+    {{- if eq .Lang "ko" -}}
+      {{- $koPage = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq .Lang "ko" -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{- else if $koPage -}}
+<link rel="alternate" hreflang="x-default" href="{{ $koPage.Permalink }}">
+  {{- end -}}
+{{- else if eq .Lang "ko" -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{- end -}}
+
 <style>
   .ai-attribution {
     display: inline-flex;

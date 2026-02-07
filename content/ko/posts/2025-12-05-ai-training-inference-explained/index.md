@@ -13,6 +13,7 @@ translationKey: "ai-training-inference-explained"
 cover:
   image: "images/posts/ai-training-inference-explained.jpg"
   alt: "AI와 개발을 상징하는 이미지"
+description: "AI 모델의 '학습'은 빌드타임, '추론'은 런타임에 해당합니다. 서비스에 배포된 모델은 실시간으로 배우지 않으며, 개발자가 할 일은 좋은 데이터(RAG)와 프롬프트를 제공하는 것입니다."
 tldr: "AI 모델의 '학습'은 빌드타임, '추론'은 런타임에 해당합니다. 서비스에 배포된 모델은 실시간으로 배우지 않으며, 개발자가 할 일은 좋은 데이터(RAG)와 프롬프트를 제공하는 것입니다."
 ---
 

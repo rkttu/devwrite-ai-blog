@@ -11,6 +11,7 @@ tags:
 categories:
   - 개발
 translationKey: "tablecloth-catalog-dotnet10-fba"
+description: "식탁보 프로젝트의 카탈로그 빌더가 .NET 10으로 업그레이드되고 File-Based App(FBA) 방식으로 단순화되었습니다."
 tldr: "식탁보 프로젝트의 카탈로그 빌더가 .NET 10으로 업그레이드되고 File-Based App(FBA) 방식으로 단순화되었습니다."
 cover:
   image: "images/posts/tablecloth-catalog-dotnet10-fba.jpg"

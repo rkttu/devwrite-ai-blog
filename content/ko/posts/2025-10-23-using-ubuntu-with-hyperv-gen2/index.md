@@ -14,6 +14,7 @@ translationKey: "using-ubuntu-with-hyperv-gen2"
 cover:
   image: "images/posts/using-ubuntu-with-hyperv-gen2.jpg"
   alt: "서버 가상화 환경 이미지"
+description: "Hyper-V 2세대 VM에서 Ubuntu가 부팅되지 않는다면, 보안 부팅 템플릿을 'Microsoft UEFI 인증 기관'으로 변경하세요."
 tldr: "Hyper-V 2세대 VM에서 Ubuntu가 부팅되지 않는다면, 보안 부팅 템플릿을 'Microsoft UEFI 인증 기관'으로 변경하세요."
 ---
 

@@ -11,6 +11,7 @@ tags:
 categories:
   - Guide
 translationKey: "introducing-devwrite-blog"
+description: "A multilingual tech blog built with GitHub Copilot and Hugo. Supports AI-powered writing, automatic translation, and scheduled publishing."
 tldr: "A multilingual tech blog built with GitHub Copilot and Hugo. Supports AI-powered writing, automatic translation, and scheduled publishing."
 cover:
   image: "images/posts/introducing-devwrite-blog.jpg"
