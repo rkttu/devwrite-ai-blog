@@ -34,6 +34,7 @@
 
 ## 포스트 목록
 
+- [AI가 본 적 없는 .NET UI 프레임워크로 IDE를 만들 때, 에이전트는 어떻게 API를 파악하는가](https://devwrite.ai/ko/posts/why-i-use-handmirror-mcp/) — AI 학습 데이터에 없는 신생 .NET UI 프레임워크로 IDE를 만들 때, HandMirror MCP로 어셈블리를 직접 검사해 첫 빌드 오류를 3개로 줄인 경험을 공유합니다.
 - [AI 시대의 오픈소스 기여: HwpLibSharp 포팅 프로젝트에서 배운 것들](https://devwrite.ai/ko/posts/hwplibsharp-upstream-management/): Java hwplib을 .NET으로 포팅하면서 AI 코딩 어시스턴트를 활용하고, 원본과 공생하는 'Living Port' 방식의 오픈소스 기여 경험을 공유합니다.
 - [AI 코딩 도구, '뒤처진다'는 불안에 휘둘리지 않는 법](https://devwrite.ai/ko/posts/ai-coding-tools-fomo/): AI 코딩 도구의 hype에 휘둘리지 말고, 병렬 에이전트보다 HITL이 유지되는 동기 세션을 깊이 활용하는 것이 실질적인 생산성 향상 전략입니다.
 - [Java hwplib을 .NET으로 이식하기: AI와 함께한 오픈소스 포팅 여정](https://devwrite.ai/ko/posts/hwplibsharp-dev-journey/): Java로 작성된 hwplib을 AI 코딩 어시스턴트와 Visual Studio 2026의 에이전트 기반 디버거를 활용하여 3주 만에 .NET으로 완전히 포팅한 경험을 공유합니다.
