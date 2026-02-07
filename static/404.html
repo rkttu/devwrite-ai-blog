@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>404 — Page Not Found | /dev/write</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        :root {
+            --bg: #1d1e20;
+            --primary: #d4d4d4;
+            --secondary: #8b8b8b;
+            --tertiary: #65a3db;
+            --border: #3a3a3a;
+            --code-bg: #282a36;
+        }
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #fafafa;
+                --primary: #1d1e20;
+                --secondary: #6b6b6b;
+                --tertiary: #1a73e8;
+                --border: #e0e0e0;
+                --code-bg: #f5f5f5;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            padding: 4em 1em;
+            line-height: 1.6;
+        }
+        .container { max-width: 700px; width: 100%; }
+        h1 { font-size: 4em; font-weight: 700; margin-bottom: 0.1em; }
+        .subtitle { font-size: 1.2em; color: var(--secondary); margin-bottom: 1.5em; }
+        .description { color: var(--secondary); margin-bottom: 2em; }
+        .buttons { display: flex; gap: 1em; flex-wrap: wrap; }
+        .btn {
+            padding: 0.6em 1.4em;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.85; }
+        .btn-primary { background: var(--tertiary); color: #fff; }
+        .btn-secondary { border: 1px solid var(--tertiary); color: var(--tertiary); }
+    </style>
+    <script>
+        (function() {
+            var lang = (navigator.language || navigator.userLanguage || 'ko').toLowerCase();
+            var supported = { ko: true, en: true, ja: true };
+            var detected = 'ko';
+            if (lang.startsWith('en')) detected = 'en';
+            else if (lang.startsWith('ja')) detected = 'ja';
+            else if (lang.startsWith('ko')) detected = 'ko';
+
+            var i18n = {
+                ko: {
+                    subtitle: '페이지를 찾을 수 없습니다',
+                    description: '요청하신 페이지가 존재하지 않거나 이동되었습니다.',
+                    home: '홈으로',
+                    search: '검색'
+                },
+                en: {
+                    subtitle: 'Page not found',
+                    description: "The page you're looking for doesn't exist or has been moved.",
+                    home: 'Go Home',
+                    search: 'Search'
+                },
+                ja: {
+                    subtitle: 'ページが見つかりません',
+                    description: 'お探しのページは存在しないか、移動された可能性があります。',
+                    home: 'ホームへ',
+                    search: '検索'
+                }
+            };
+
+            var t = i18n[detected];
+            document.addEventListener('DOMContentLoaded', function() {
+                document.documentElement.lang = detected;
+                document.getElementById('subtitle').textContent = t.subtitle;
+                document.getElementById('description').textContent = t.description;
+                var homeBtn = document.getElementById('btn-home');
+                homeBtn.textContent = t.home;
+                homeBtn.href = '/' + detected + '/';
+                var searchBtn = document.getElementById('btn-search');
+                searchBtn.textContent = t.search;
+                searchBtn.href = '/' + detected + '/search/';
+            });
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p class="subtitle" id="subtitle">페이지를 찾을 수 없습니다</p>
+        <p class="description" id="description">요청하신 페이지가 존재하지 않거나 이동되었습니다.</p>
+        <div class="buttons">
+            <a id="btn-home" class="btn btn-primary" href="/ko/">홈으로</a>
+            <a id="btn-search" class="btn btn-secondary" href="/ko/search/">검색</a>
+        </div>
+    </div>
+</body>
+</html>
