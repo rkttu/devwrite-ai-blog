@@ -14,8 +14,10 @@ Change a draft post's status from `draft: true` to `draft: false` to publish it.
 
 1. `/review-draft`로 검토 완료
 2. 모든 번역본 존재 (ko, en, ja)
-3. Hero 이미지 존재
+3. Hero 이미지 존재 (WebP 변환 완료)
 4. TL;DR 작성 완료
+5. `description` 필드 존재 (50~160자, 각 언어별)
+6. `static/llms.txt`에 포스트 추가 완료
 
 ## Actions
 
@@ -31,11 +33,11 @@ draft: true
 draft: false
 ```
 
-### Files to Update
+### Files to Update (Page Bundle 구조)
 
-- `content/ko/posts/{slug}.md`
-- `content/en/posts/{slug}.md`
-- `content/ja/posts/{slug}.md`
+- `content/ko/posts/{YYYY-MM-DD}-{slug}/index.md`
+- `content/en/posts/{YYYY-MM-DD}-{slug}/index.md`
+- `content/ja/posts/{YYYY-MM-DD}-{slug}/index.md`
 
 ### 2. Verify Publication
 

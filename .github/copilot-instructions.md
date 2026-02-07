@@ -62,10 +62,11 @@ tags:
 categories:
   - category
 translationKey: "unique-key-for-linking-translations"
+description: "SEO용 1문장 요약, 50~160자 (각 언어로)"
 cover:
   image: "images/posts/slug-name.jpg"
   alt: "이미지 설명"
-tldr: "이 글의 핵심 요약 (1-2문장)"
+tldr: "이 글의 핵심 요약 (1-2문장, description보다 상세)"
 license: "CC BY-NC 4.0"  # 선택사항, 기본값: CC BY-NC 4.0
 ---
 ```
@@ -73,17 +74,27 @@ license: "CC BY-NC 4.0"  # 선택사항, 기본값: CC BY-NC 4.0
 ### 필드 설명
 
 | 필드 | 필수 | 설명 |
-|------|------|------|
+| --- | --- | --- |
 | `title` | ✅ | 사람이 읽기 좋은 제목 (각 언어로) |
 | `date` | ✅ | ISO 8601 형식, 타임존 포함 |
 | `draft` | ✅ | 발행 여부 |
 | `slug` | ✅ | URL에 사용될 영문 슬러그 (모든 언어에서 동일) |
 | `translationKey` | ✅ | 번역본 연결 키 (모든 언어에서 동일) |
+| `description` | ✅ | SEO 메타 태그용 요약, 50~160자 (각 언어로) |
 | `tags` | ⚪ | 태그 목록 (각 언어로 번역) |
 | `categories` | ⚪ | 카테고리 (각 언어로 번역) |
 | `cover.image` | ⚪ | Hero 이미지 경로 |
-| `tldr` | ⚪ | 요약 (각 언어로) |
+| `cover.alt` | ⚪ | 이미지 대체 텍스트 (각 언어로) |
+| `tldr` | ⚪ | 독자용 핵심 요약 (각 언어로, description보다 상세) |
 | `license` | ⚪ | 개별 라이선스 (기본값: CC BY-NC 4.0) |
+
+### `description`과 `tldr`의 차이
+
+| 항목 | `description` | `tldr` |
+| --- | --- | --- |
+| **용도** | SEO 메타 태그 (`<meta name="description">`, OG, Twitter) | 본문 상단 표시, JSON-LD `"abstract"` |
+| **길이** | 50~160자 (검색 스니펫 최적) | 1~2문장 (description보다 상세) |
+| **톤** | 클릭을 유도하는 매력적 표현 | 핵심 내용을 정확히 전달 |
 
 ## 라이선스 설정
 
@@ -119,7 +130,8 @@ license: "MIT"  # 이 글만 MIT 라이선스 적용
 2. **slug와 translationKey는 모든 언어에서 동일**
 3. **디렉터리명도 모든 언어에서 동일** (예: `2025-12-04-hello-world/index.md`)
 4. **태그/카테고리는 각 언어로 번역**
-5. **license 필드는 모든 언어에서 동일** (번역하지 않음)
+5. **description과 tldr은 각 언어로 번역** (SEO에 중요)
+6. **license 필드는 모든 언어에서 동일** (번역하지 않음)
 
 ### 번역 시 주의사항
 
@@ -155,7 +167,15 @@ tags:
 
 ### 저장 위치
 ```
-static/images/posts/{slug}.jpg
+static/images/posts/{slug}.jpg   ← 원본 (다운로드 시)
+static/images/posts/{slug}.webp  ← 최적화 후 (권장)
+```
+
+### WebP 변환 (권장)
+
+다운로드 후 `scripts/optimize-images.ps1` 또는 `scripts/optimize_images.py`로 WebP 변환:
+```powershell
+.\scripts\optimize-images.ps1 -Slug "{slug}" -DeleteOriginals -UpdateFrontmatter
 ```
 
 ### Unsplash 사용 시
@@ -229,13 +249,16 @@ python3 scripts/optimize_images.py --slug "my-post" --delete-originals --update-
 
 새 포스트 또는 번역 추가 시:
 
-- [ ] Front matter 필수 필드 확인
+- [ ] Front matter 필수 필드 확인 (`title`, `date`, `draft`, `slug`, `translationKey`, `description`)
+- [ ] `description`이 50~160자이고 SEO에 적합한지 확인
+- [ ] `description`과 `tldr`이 서로 다른 문장인지 확인
 - [ ] `translationKey`가 모든 번역본에서 동일
 - [ ] `slug`가 모든 번역본에서 동일
 - [ ] 디렉터리명이 모든 언어에서 동일
 - [ ] Hero 이미지가 존재하면 경로 확인
 - [ ] Hero 이미지 WebP 변환 완료 (`scripts/optimize_images.py`)
 - [ ] 내부 링크가 올바른 언어 경로 사용
+- [ ] `static/llms.txt`에 새 포스트 추가
 
 ## 마크다운 작성 규칙
 

@@ -18,9 +18,10 @@ Review a draft post for quality, accuracy, and completeness before publishing.
 - [ ] `slug`: URL에 적합한 영문인가?
 - [ ] `tags`: 적절한 태그가 있는가?
 - [ ] `categories`: 올바른 카테고리인가?
-- [ ] `tldr`: 핵심을 잘 요약했는가?
+- [ ] `description`: 50~160자 SEO 요약이 있는가? 검색 결과에 매력적인가?
+- [ ] `tldr`: 핵심을 잘 요약했는가? (description과 다른 내용)
 - [ ] `translationKey`: 모든 번역본에서 동일한가?
-- [ ] `cover.image`: 이미지가 존재하고 경로가 맞는가?
+- [ ] `cover.image`: 이미지가 존재하고 경로가 맞는가? (WebP 형식 권장)
 - [ ] `cover.alt`: 이미지 설명이 있는가?
 
 ### 2. 내용 검증
@@ -38,11 +39,15 @@ Review a draft post for quality, accuracy, and completeness before publishing.
 - [ ] 번역이 자연스러운가?
 - [ ] 기술 용어가 일관되게 사용되었는가?
 - [ ] 코드 블록이 번역되지 않았는가?
+- [ ] `description`이 각 언어로 번역되었는가?
 
 ### 4. SEO/메타데이터
 
 - [ ] 제목이 검색에 적합한가?
-- [ ] 설명(tldr)이 검색 결과에 매력적으로 보이는가?
+- [ ] `description`이 검색 결과에 매력적으로 보이는가? (50~160자)
+- [ ] `description`과 `tldr`이 서로 다른 문장인가?
+- [ ] Hero 이미지가 WebP로 최적화되었는가?
+- [ ] `static/llms.txt`에 해당 포스트가 추가되었는가?
 
 ## Validation Command
 

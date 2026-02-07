@@ -72,13 +72,29 @@ Invoke-WebRequest -Uri $url -OutFile $output
 curl -L "https://images.unsplash.com/photo-XXXXXXXXXX?w=1200&h=630&fit=crop" -o static/images/posts/{slug}.jpg
 ```
 
+## Optimize Image (WebP 변환)
+
+다운로드 후 WebP로 변환하여 최적화:
+
+**Windows (PowerShell)**:
+```powershell
+.\scripts\optimize-images.ps1 -Slug "{slug}" -DeleteOriginals -UpdateFrontmatter
+```
+
+**macOS/Linux**:
+```bash
+python3 scripts/optimize_images.py --slug "{slug}" --delete-originals --update-frontmatter
+```
+
+이 스크립트는 이미지를 WebP로 변환하고, 모든 언어 버전의 front matter에서 `.jpg` → `.webp`로 경로를 자동 업데이트합니다.
+
 ## Update Front Matter
 
-After downloading, add to all language versions:
+스크립트를 사용하지 않는 경우, 수동으로 모든 언어 버전에 추가:
 
 ```yaml
 cover:
-  image: "images/posts/{slug}.jpg"
+  image: "images/posts/{slug}.webp"
   alt: "Brief description of the image"
 ```
 
@@ -87,3 +103,4 @@ cover:
 - Use `images.unsplash.com` direct URLs (not `source.unsplash.com` which is deprecated)
 - Always include `?w=1200&h=630&fit=crop` for consistent sizing
 - The same image is shared across all language versions of a post
+- WebP 변환 후 원본 `.jpg` 파일은 삭제 권장

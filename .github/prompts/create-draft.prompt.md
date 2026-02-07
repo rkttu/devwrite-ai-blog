@@ -16,17 +16,27 @@ Create a complete blog post with all translations, TL;DR, and hero image.
 
 ### Step 1: Create Korean (Original) Post
 
-1. Create file: `content/ko/posts/{YYYY-MM-DD}-{slug}.md`
-2. Generate front matter with all required fields
-3. Write the full content in Korean
+1. Create directory: `content/ko/posts/{YYYY-MM-DD}-{slug}/`
+2. Create file: `content/ko/posts/{YYYY-MM-DD}-{slug}/index.md`
+3. Generate front matter with all required fields
+4. Write the full content in Korean
 
-**File naming**: `{date}-{slug}.md` (e.g., `2025-12-04-docker-basics.md`)
+**디렉터리 구조**: Page Bundle — `{date}-{slug}/index.md` (예: `2025-12-04-docker-basics/index.md`)
 
-### Step 2: Generate TL;DR
+### Step 2: Generate TL;DR and Description
 
 1. Analyze the post content
-2. Write 1-2 sentence summary
-3. Must be specific, not generic
+2. Write `description`: SEO용 1문장 요약, 50~160자 (검색 결과 스니펫)
+3. Write `tldr`: 독자용 핵심 요약, 1-2문장 (description보다 상세하고 구체적)
+
+**`description` vs `tldr` 차이**:
+
+| 항목 | `description` | `tldr` |
+| --- | --- | --- |
+| **용도** | SEO 메타 태그 (`<meta name="description">`, OG, Twitter) | 본문 상단 표시 (독자용 요약) |
+| **길이** | 50~160자 (검색 스니펫 최적) | 1~2문장 (더 상세하고 기술적) |
+| **JSON-LD** | `"description"` 필드 | `"abstract"` 필드 |
+| **톤** | 클릭을 유도하는 매력적인 표현 | 핵심 내용을 정확히 전달 |
 
 ### Step 3: Select Hero Image
 
@@ -48,16 +58,30 @@ curl -L "https://images.unsplash.com/photo-XXXXX?w=1200&h=630&fit=crop" -o stati
 
 ### Step 4: Create Translations
 
-Create translated versions for all configured languages:
+Create translated versions for all configured languages (Page Bundle 구조):
 
 | Language | Path | Notes |
-|----------|------|-------|
-| English (en) | `content/en/posts/{YYYY-MM-DD}-{slug}.md` | Translate content, tags, categories, tldr, cover.alt |
-| Japanese (ja) | `content/ja/posts/{YYYY-MM-DD}-{slug}.md` | Translate content, tags, categories, tldr, cover.alt |
+| --- | --- | --- |
+| English (en) | `content/en/posts/{YYYY-MM-DD}-{slug}/index.md` | Translate content, tags, categories, description, tldr, cover.alt |
+| Japanese (ja) | `content/ja/posts/{YYYY-MM-DD}-{slug}/index.md` | Translate content, tags, categories, description, tldr, cover.alt |
 
-**Important**: Use the same date and filename across all languages.
+**Important**: Use the same date and directory name across all languages.
 
-### Step 5: Validate
+### Step 5: Optimize Hero Image
+
+이미지를 WebP로 변환하여 최적화:
+
+**Windows**: `.\scripts\optimize-images.ps1 -Slug "{slug}" -DeleteOriginals -UpdateFrontmatter`
+**macOS/Linux**: `python3 scripts/optimize_images.py --slug "{slug}" --delete-originals --update-frontmatter`
+
+### Step 6: Update llms.txt
+
+새 포스트를 `static/llms.txt`의 포스트 목록에 추가:
+```
+- [포스트 제목](/ko/posts/{slug}/) — description 내용
+```
+
+### Step 7: Validate
 
 Run validation script:
 
@@ -78,7 +102,8 @@ tags:
 categories:
   - category (각 언어로)
 translationKey: "{slug}"
-tldr: "핵심 요약 (각 언어로)"
+description: "SEO용 1문장 요약, 50~160자 (각 언어로)"
+tldr: "핵심 요약, 1-2문장 (각 언어로, description보다 상세)"
 cover:
   image: "images/posts/{slug}.jpg"
   alt: "이미지 설명 (각 언어로)"
@@ -94,12 +119,14 @@ cover:
 - `slug`
 - `translationKey`
 - `cover.image`
+- `license` (사용 시)
 
 ## Fields That Must Be Translated
 
 - `title`
 - `tags`
 - `categories`
+- `description`
 - `tldr`
 - `cover.alt`
 - All body content (except code blocks)
@@ -108,19 +135,22 @@ cover:
 
 ```
 content/
-├── ko/posts/{YYYY-MM-DD}-{slug}.md    ✅ Created (original)
-├── en/posts/{YYYY-MM-DD}-{slug}.md    ✅ Created (translation)
-└── ja/posts/{YYYY-MM-DD}-{slug}.md    ✅ Created (translation)
+├── ko/posts/{YYYY-MM-DD}-{slug}/
+│   └── index.md                       ✅ Created (original)
+├── en/posts/{YYYY-MM-DD}-{slug}/
+│   └── index.md                       ✅ Created (translation)
+└── ja/posts/{YYYY-MM-DD}-{slug}/
+    └── index.md                       ✅ Created (translation)
 
 static/images/posts/
-└── {slug}.jpg                         ✅ Downloaded
+└── {slug}.webp                        ✅ Downloaded & optimized
 ```
 
 **Example**: For a post with slug `docker-basics` created on 2025-12-04:
-- `content/ko/posts/2025-12-04-docker-basics.md`
-- `content/en/posts/2025-12-04-docker-basics.md`
-- `content/ja/posts/2025-12-04-docker-basics.md`
-- URL: `/ko/posts/docker-basics/` (slug determines URL, not filename)
+- `content/ko/posts/2025-12-04-docker-basics/index.md`
+- `content/en/posts/2025-12-04-docker-basics/index.md`
+- `content/ja/posts/2025-12-04-docker-basics/index.md`
+- URL: `/ko/posts/docker-basics/` (slug determines URL, not directory name)
 
 ## Translation Guidelines
 
