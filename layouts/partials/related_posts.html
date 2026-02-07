@@ -1,0 +1,18 @@
+{{- /* 관련 포스트 섹션 - 내부 링크 강화 */ -}}
+{{- $related := site.RegularPages.Related . | first 5 -}}
+{{- with $related }}
+<nav class="related-posts" aria-label="Related posts">
+  {{- $i18n := dict "ko" "관련 글" "en" "Related Posts" "ja" "関連記事" -}}
+  <h2>{{ index $i18n $.Lang | default "Related Posts" }}</h2>
+  <ul>
+    {{- range . }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        <span class="related-title">{{ .Title }}</span>
+        <span class="related-date">{{ .Date | time.Format "2006-01-02" }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</nav>
+{{- end }}

@@ -195,6 +195,7 @@ chore(images): Add hero image for "slug-name"
 | 새 포스트 생성 | `scripts/new-post.ps1` | `scripts/new_post.py` |
 | 번역 검증 | `scripts/validate-translations.ps1` | `scripts/validate_translations.py` |
 | Hero 이미지 다운로드 | `scripts/fetch-hero-image.ps1` | `scripts/fetch_hero_image.py` |
+| 이미지 WebP 변환 | `scripts/optimize-images.ps1` | `scripts/optimize_images.py` |
 
 ### 스크립트 선택 규칙
 
@@ -211,6 +212,8 @@ chore(images): Add hero image for "slug-name"
 .\scripts\new-post.ps1 -Slug "my-post" -Title "새 포스트"
 .\scripts\validate-translations.ps1
 .\scripts\fetch-hero-image.ps1 -Slug "my-post" -Keywords "coding,tech"
+.\scripts\optimize-images.ps1
+.\scripts\optimize-images.ps1 -Slug "my-post" -DeleteOriginals -UpdateFrontmatter
 ```
 
 **macOS/Linux (Python)**:
@@ -218,6 +221,8 @@ chore(images): Add hero image for "slug-name"
 python3 scripts/new_post.py --slug "my-post" --title "새 포스트"
 python3 scripts/validate_translations.py
 python3 scripts/fetch_hero_image.py --slug "my-post" --keywords "coding,tech"
+python3 scripts/optimize_images.py
+python3 scripts/optimize_images.py --slug "my-post" --delete-originals --update-frontmatter
 ```
 
 ## 검증 체크리스트
@@ -229,6 +234,7 @@ python3 scripts/fetch_hero_image.py --slug "my-post" --keywords "coding,tech"
 - [ ] `slug`가 모든 번역본에서 동일
 - [ ] 디렉터리명이 모든 언어에서 동일
 - [ ] Hero 이미지가 존재하면 경로 확인
+- [ ] Hero 이미지 WebP 변환 완료 (`scripts/optimize_images.py`)
 - [ ] 내부 링크가 올바른 언어 경로 사용
 
 ## 마크다운 작성 규칙

@@ -86,12 +86,13 @@ buildFuture = true
 # 언어별 설정
 [languages]
   [languages.ko]
-    languageName = '가'
+    languageName = '한국어'
     languageCode = 'ko-KR'
     weight = 1
     contentDir = 'content/ko'
     [languages.ko.params]
       description = 'AI와 함께하는 소프트웨어 개발 블로그. .NET, Docker, 오픈소스, AI 도구 활용법을 한국어·영어·일본어로 공유합니다.'
+      keywords = ['.NET', 'C#', 'Docker', 'Azure', 'AI', '오픈소스', '개발 블로그', 'Hugo', 'Microsoft MVP']
     [[languages.ko.menu.main]]
       identifier = 'home'
       name = '홈'
@@ -119,12 +120,13 @@ buildFuture = true
       weight = 50
 
   [languages.en]
-    languageName = 'A'
+    languageName = 'English'
     languageCode = 'en-US'
     weight = 2
     contentDir = 'content/en'
     [languages.en.params]
       description = 'A multilingual software development blog. Sharing practical insights on .NET, Docker, open source, and AI-assisted development in Korean, English, and Japanese.'
+      keywords = ['.NET', 'C#', 'Docker', 'Azure', 'AI', 'open source', 'dev blog', 'Hugo', 'Microsoft MVP']
     [[languages.en.menu.main]]
       identifier = 'home'
       name = 'Home'
@@ -152,12 +154,13 @@ buildFuture = true
       weight = 50
 
   [languages.ja]
-    languageName = 'あ'
+    languageName = '日本語'
     languageCode = 'ja-JP'
     weight = 3
     contentDir = 'content/ja'
     [languages.ja.params]
       description = 'AIと共に歩むソフトウェア開発ブログ。.NET、Docker、オープンソース、AIツールの活用法を韓国語・英語・日本語で共有します。'
+      keywords = ['.NET', 'C#', 'Docker', 'Azure', 'AI', 'オープンソース', '開発ブログ', 'Hugo', 'Microsoft MVP']
     [[languages.ja.menu.main]]
       identifier = 'home'
       name = 'ホーム'
@@ -189,3 +192,18 @@ buildFuture = true
   default = "CC BY-NC 4.0"
   name = "Creative Commons Attribution-NonCommercial 4.0 International"
   url = "https://creativecommons.org/licenses/by-nc/4.0/"
+
+# 관련 포스트 설정
+[related]
+  includeNewer = true
+  threshold = 50
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10

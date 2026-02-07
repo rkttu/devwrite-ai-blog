@@ -65,6 +65,9 @@
   {{- /* 라이선스 표시 */ -}}
   {{- partial "post_license.html" . -}}
 
+  {{- /* 관련 포스트 */ -}}
+  {{- partial "related_posts.html" . -}}
+
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
