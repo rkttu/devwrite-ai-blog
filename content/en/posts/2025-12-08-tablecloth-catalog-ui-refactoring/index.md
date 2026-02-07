@@ -31,7 +31,7 @@ The [TableCloth](https://yourtablecloth.app) project is an open-source tool that
 Five commits have been applied to the TableCloth Catalog project. This update is a comprehensive improvement across three areas: **Frontend**, **Backend**, and **DevOps**.
 
 | Area | Changes | Key Technologies |
-|------|---------|------------------|
+| ------ | --------- | ------------------ |
 | **Frontend** | Complete catalog page redesign | Card UI, Category Filters, Responsive Layout |
 | **Backend** | Build tool architecture refactoring | Generic Host, Dependency Injection, Structured Logging |
 | **DevOps** | Quality management automation tools | Image Validation, Unused Resource Cleanup, Favicon Collection |

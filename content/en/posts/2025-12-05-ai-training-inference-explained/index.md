@@ -31,7 +31,7 @@ The first thing to correct is that **the AI models we deploy to services are mos
 In development terms, it works like this:
 
 | Concept | AI Term | Development Analogy | Description |
-|---------|---------|---------------------|-------------|
+| --------- | --------- | --------------------- | ------------- |
 | Creating a Model | Training | Build Time | Requires enormous resources and time |
 | Using a Model | Inference | Runtime | Receives requests and returns results |
 
@@ -44,7 +44,7 @@ Once a model is deployed, it's no longer a 'learning student' but a **'worker fo
 So how do we reflect the latest information, and what role does AI play? I often compare this structure to a **'library'**.
 
 | Component | Library Analogy | Description |
-|-----------|-----------------|-------------|
+| ----------- | ----------------- | ------------- |
 | AI Model (LLM) | Librarian | An entity with language and reasoning abilities |
 | RAG / DB | Book Stacks | Space where service data and latest information is stored |
 | Prompt | Work Instructions | Guidelines given to the librarian when assigning tasks |
@@ -66,7 +66,7 @@ Once you understand this structure, AI is no longer a fearful unknown entity. It
 The history of computing has been about 'accelerating processing'.
 
 | Hardware | What it Accelerates |
-|----------|---------------------|
+| ---------- | --------------------- |
 | CPU | Computation and logic (if-else) processing |
 | GPU | Graphics and pixel processing |
 | AI (LLM) | Semantics and Context processing |

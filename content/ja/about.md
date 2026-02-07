@@ -46,7 +46,7 @@ Microsoftの技術スタックを基盤に、複雑な問題を解決し、ビ�
 日常生活や業務に役立つツールを作り、オープンソースとして公開しています。
 
 | プロジェクト | 説明 |
-|-------------|------|
+| ------------- | ------ |
 | **[TableCloth（食卓布）](https://github.com/dotnetdev-kr/TableCloth)** | インターネットバンキングのセキュリティプログラムをWindows Sandboxで安全に実行 |
 | **[TossSharp](https://github.com/rkttu/TossSharp)** | .NET用Toss Paymentsクライアントライブラリ |
 | **[LINQPadDialogs](https://github.com/rkttu/LINQPadDialogs)** | LINQPad用インタラクティブUI拡張ライブラリ |
@@ -58,7 +58,7 @@ Microsoftの技術スタックを基盤に、複雑な問題を解決し、ビ�
 ## 💻 Tech Stack
 
 | 分類 | 技術 |
-|-----|-----|
+| ----- | ----- |
 | **Languages & Frameworks** | C#, .NET, ASP.NET Core, WPF |
 | **Cloud & Infrastructure** | Microsoft Azure, Docker, Kubernetes |
 | **DevOps & Tools** | Azure DevOps, GitHub Actions |

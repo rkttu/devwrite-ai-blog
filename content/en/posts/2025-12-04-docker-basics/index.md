@@ -26,7 +26,7 @@ Docker is a container-based virtualization platform. Unlike traditional virtual 
 ### Containers vs Virtual Machines
 
 | Feature | Container | Virtual Machine |
-|---------|-----------|-----------------|
+| --------- | ----------- | ----------------- |
 | Startup time | Seconds | Minutes |
 | Resource usage | Low | High |
 | Isolation level | Process level | Full OS level |

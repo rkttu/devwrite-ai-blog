@@ -230,3 +230,26 @@ python3 scripts/fetch_hero_image.py --slug "my-post" --keywords "coding,tech"
 - [ ] 디렉터리명이 모든 언어에서 동일
 - [ ] Hero 이미지가 존재하면 경로 확인
 - [ ] 내부 링크가 올바른 언어 경로 사용
+
+## 마크다운 작성 규칙
+
+markdownlint 호환성을 위해 다음 규칙을 준수합니다:
+
+### 테이블 작성 (MD060)
+
+- 파이프(`|`) 좌우에 반드시 **공백 1개 이상**을 포함합니다.
+- 구분선(`---`)도 파이프 좌우에 공백을 포함합니다.
+
+**올바른 예시:**
+```markdown
+| Feature | Container | Virtual Machine |
+| ------- | --------- | --------------- |
+| Startup | Seconds   | Minutes         |
+```
+
+**잘못된 예시:**
+```markdown
+|Feature|Container|Virtual Machine|
+|-------|---------|---------------|
+|Startup|Seconds  |Minutes        |
+```

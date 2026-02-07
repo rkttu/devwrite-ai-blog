@@ -46,7 +46,7 @@ I dream of an ecosystem where we grow together rather than alone.
 I create tools that provide practical help in daily life and work, and share them as open source.
 
 | Project | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **[TableCloth](https://github.com/dotnetdev-kr/TableCloth)** | Run internet banking security programs safely in Windows Sandbox |
 | **[TossSharp](https://github.com/rkttu/TossSharp)** | Toss Payments client library for .NET |
 | **[LINQPadDialogs](https://github.com/rkttu/LINQPadDialogs)** | Interactive UI extension library for LINQPad |
@@ -58,7 +58,7 @@ I create tools that provide practical help in daily life and work, and share the
 ## 💻 Tech Stack
 
 | Category | Technologies |
-|----------|--------------|
+| ---------- | -------------- |
 | **Languages & Frameworks** | C#, .NET, ASP.NET Core, WPF |
 | **Cloud & Infrastructure** | Microsoft Azure, Docker, Kubernetes |
 | **DevOps & Tools** | Azure DevOps, GitHub Actions |

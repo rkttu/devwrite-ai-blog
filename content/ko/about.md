@@ -46,7 +46,7 @@ Microsoft 기술 스택을 기반으로 복잡한 문제를 해결하고, 비즈
 실생활과 업무에 도움이 되는 도구를 만들고, 오픈 소스로 공개하고 있습니다.
 
 | 프로젝트 | 설명 |
-|---------|------|
+| --------- | ------ |
 | **[TableCloth (식탁보)](https://github.com/dotnetdev-kr/TableCloth)** | 인터넷 뱅킹 보안 프로그램을 Windows Sandbox에서 안전하게 실행 |
 | **[TossSharp](https://github.com/rkttu/TossSharp)** | .NET용 토스 페이먼츠(Toss Payments) 클라이언트 라이브러리 |
 | **[LINQPadDialogs](https://github.com/rkttu/LINQPadDialogs)** | LINQPad를 위한 대화형 UI 확장 라이브러리 |
@@ -58,7 +58,7 @@ Microsoft 기술 스택을 기반으로 복잡한 문제를 해결하고, 비즈
 ## 💻 Tech Stack
 
 | 분류 | 기술 |
-|-----|-----|
+| ----- | ----- |
 | **Languages & Frameworks** | C#, .NET, ASP.NET Core, WPF |
 | **Cloud & Infrastructure** | Microsoft Azure, Docker, Kubernetes |
 | **DevOps & Tools** | Azure DevOps, GitHub Actions |
