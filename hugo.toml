@@ -19,7 +19,7 @@ buildFuture = true
 
 # RSS 설정
 [outputs]
-  home = ['HTML', 'RSS']
+  home = ['HTML', 'RSS', 'JSON']
   section = ['HTML', 'RSS']
   taxonomy = ['HTML']
   term = ['HTML']
@@ -51,6 +51,16 @@ buildFuture = true
     name = 'rkttu'
     url = '/about/'
 
+  # Schema.org 설정
+  [params.schema]
+    publisherType = "Person"
+    sameAs = [
+      "https://github.com/rkttu",
+      "https://linkedin.com/in/rkttu",
+      "https://x.com/rkttu",
+      "https://mvp.microsoft.com/ko-KR/MVP/profile/335b80b4-3c9a-e411-93f2-9cb65495d3c4"
+    ]
+
   [params.opengraph]
     # 선택 사항: Facebook/Meta 관련 설정
     # facebookAppID = "your-app-id"
@@ -59,8 +69,8 @@ buildFuture = true
   [params.twitter]
     # X(Twitter) Cards 설정
     card = "summary_large_image"  # summary, summary_large_image, app, player
-    # site = "@your_twitter_handle"  # 사이트 계정
-    # creator = "@your_twitter_handle"  # 작성자 계정
+    site = "@rkttu"  # 사이트 계정
+    creator = "@rkttu"  # 작성자 계정
 
   # Utterances 댓글 시스템
   # 사전 설정: https://github.com/apps/utterances 앱을 리포지토리에 설치해야 합니다
@@ -100,6 +110,11 @@ buildFuture = true
       name = '아카이브'
       url = '/archives/'
       weight = 40
+    [[languages.ko.menu.main]]
+      identifier = 'search'
+      name = '검색'
+      url = '/search/'
+      weight = 50
 
   [languages.en]
     languageName = 'A'
@@ -128,6 +143,11 @@ buildFuture = true
       name = 'Archives'
       url = '/archives/'
       weight = 40
+    [[languages.en.menu.main]]
+      identifier = 'search'
+      name = 'Search'
+      url = '/search/'
+      weight = 50
 
   [languages.ja]
     languageName = 'あ'
@@ -156,6 +176,11 @@ buildFuture = true
       name = 'アーカイブ'
       url = '/archives/'
       weight = 40
+    [[languages.ja.menu.main]]
+      identifier = 'search'
+      name = '検索'
+      url = '/search/'
+      weight = 50
 
 # 라이선스 설정
 [params.license]

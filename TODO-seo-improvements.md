@@ -10,11 +10,11 @@
 
 ## 중간 우선순위 (Medium Impact)
 
-- [ ] **6. 검색 페이지 활성화** — 각 언어별 search.md 생성 + 메뉴 추가
-- [ ] **7. 커스텀 404 페이지** — 홈 링크, 인기 포스트, 검색 포함
-- [ ] **8. JSON-LD author 구조 수정** — schema_json.html 오버라이드
-- [ ] **9. 언어별 조건부 폰트 로딩** — 불필요한 CJK 폰트 제거
-- [ ] **10. Twitter/X site/creator 설정** — 계정 정보 추가
+- [x] **6. 검색 페이지 활성화** — 각 언어별 search.md 생성 + 메뉴 추가 + JSON 출력 포맷 활성화 완료
+- [x] **7. 커스텀 404 페이지** — 홈 링크, 최근 포스트, 검색 포함 + 3개 언어 i18n 완료
+- [x] **8. JSON-LD author 구조 수정** — schema_json.html 오버라이드 + sameAs 소셜 프로필 추가 완료
+- [ ] **9. 언어별 조건부 폰트 로딩** — 테마 head.html 전체 오버라이드 필요 (위험도 높아 보류)
+- [x] **10. Twitter/X site/creator 설정** — @rkttu 계정 설정 완료
 
 ## AI 검색엔진 최적화 (AI Search)
 

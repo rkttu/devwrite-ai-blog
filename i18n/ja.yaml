@@ -1,5 +1,12 @@
 aiAttribution: "AIの支援により作成されました"
 
+# 404 ページ
+404_message: "ページが見つかりません"
+404_description: "お探しのページは存在しないか、移動された可能性があります。"
+404_home: "ホームへ"
+404_search: "検索する"
+404_recent: "最新の記事"
+
 # ライセンス関連
 licenseLabel: "ライセンス"
 licenseAllRightsReserved: "All Rights Reserved（全権利留保）"

@@ -1,0 +1,42 @@
+{{- define "main" }}
+<article class="not-found">
+    <header>
+        <h1>404</h1>
+        <p style="font-size: 1.2em; color: var(--secondary); margin-top: 0.5em;">
+            {{ i18n "404_message" | default "Page not found" }}
+        </p>
+    </header>
+
+    <div style="margin: 2em 0;">
+        <p>{{ i18n "404_description" | default "The page you're looking for doesn't exist or has been moved." }}</p>
+        <div style="margin-top: 1.5em; display: flex; gap: 1em; flex-wrap: wrap;">
+            <a href="{{ site.Home.Permalink }}" style="padding: 0.5em 1.2em; background: var(--tertiary); color: var(--theme); border-radius: 6px; text-decoration: none; font-weight: 500;">
+                {{ i18n "404_home" | default "Go Home" }}
+            </a>
+            <a href="{{ relLangURL "/search/" }}" style="padding: 0.5em 1.2em; border: 1px solid var(--tertiary); color: var(--primary); border-radius: 6px; text-decoration: none; font-weight: 500;">
+                {{ i18n "404_search" | default "Search" }}
+            </a>
+        </div>
+    </div>
+
+    {{- /* 최근 포스트 표시 */}}
+    {{- $recentPosts := (where site.RegularPages "Section" "posts") }}
+    {{- $recentPosts = ($recentPosts | lang.Merge site.RegularPages) }}
+    {{- $recentPosts = (first 5 $recentPosts) }}
+    {{- if $recentPosts }}
+    <div style="margin-top: 2.5em;">
+        <h2 style="font-size: 1.1em; margin-bottom: 1em;">{{ i18n "404_recent" | default "Recent Posts" }}</h2>
+        <ul style="list-style: none; padding: 0;">
+            {{- range $recentPosts }}
+            <li style="margin-bottom: 0.8em; padding-bottom: 0.8em; border-bottom: 1px solid var(--border);">
+                <a href="{{ .Permalink }}" style="font-weight: 500;">{{ .Title }}</a>
+                <span style="color: var(--secondary); font-size: 0.85em; margin-left: 0.5em;">
+                    {{ .Date.Format "2006-01-02" }}
+                </span>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+    {{- end }}
+</article>
+{{- end }}{{/* end main */}}
