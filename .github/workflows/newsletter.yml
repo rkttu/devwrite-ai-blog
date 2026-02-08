@@ -1,0 +1,67 @@
+name: Kit Newsletter Broadcast
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/ko/posts/**/index.md'
+
+  workflow_dispatch:
+    inputs:
+      post_path:
+        description: '수동 발송할 포스트 경로 (예: content/ko/posts/2026-02-08-my-post/index.md)'
+        required: false
+      send_at:
+        description: '예약 발송 시각 ISO8601 (비우면 드래프트 저장)'
+        required: false
+
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    # 빌드/배포 워크플로가 성공한 뒤에만 실행하고 싶다면
+    # needs: 를 사용하되, 별도 워크플로이므로 여기서는 독립 실행
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # 직전 커밋과 비교하기 위해
+
+      - name: Detect new posts
+        id: detect
+        run: |
+          if [ -n "${{ github.event.inputs.post_path }}" ]; then
+            # 수동 트리거: 지정된 경로 사용
+            echo "${{ github.event.inputs.post_path }}" > /tmp/changed_posts.txt
+          else
+            # 자동 트리거: git diff로 새로 추가된 포스트 감지
+            # A (Added) 상태인 파일만 필터링하여 기존 포스트 수정 시에는 발송하지 않음
+            git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'content/ko/posts/**/index.md' > /tmp/changed_posts.txt || true
+          fi
+
+          if [ -s /tmp/changed_posts.txt ]; then
+            echo "has_posts=true" >> "$GITHUB_OUTPUT"
+            echo "📬 New posts detected:"
+            cat /tmp/changed_posts.txt
+          else
+            echo "has_posts=false" >> "$GITHUB_OUTPUT"
+            echo "ℹ️ No new posts detected"
+          fi
+
+      - name: Setup Python
+        if: steps.detect.outputs.has_posts == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Create Kit broadcast
+        if: steps.detect.outputs.has_posts == 'true'
+        env:
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+          KIT_SEND_AT: ${{ github.event.inputs.send_at || '' }}
+          CHANGED_FILES: ${{ steps.detect.outputs.has_posts == 'true' && '' || '' }}
+          BASE_URL: 'https://devwrite.ai'
+          DEFAULT_LANG: 'ko'
+        run: |
+          export CHANGED_FILES="$(cat /tmp/changed_posts.txt)"
+          python scripts/kit_broadcast.py
