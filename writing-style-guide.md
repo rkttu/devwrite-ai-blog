@@ -69,6 +69,17 @@ hideAiAttribution: true
 - Hero 이미지는 `cover.image` 필드에 경로 지정
 - 본문 내 이미지는 상대 경로 또는 절대 경로 사용
 
+### Parenthetical dashes (em dash를 사용한 삽입구 표현)
+
+영어에서는 em dash 한 쌍으로 삽입구를 감싸는 parenthetical dashes 용법을 허용한다.
+
+예: `dotnet run file.cs — the so-called file-based app — lets you run a single .cs file without a .csproj.`
+
+한국어와 일본어에서는 이 용법을 사용하지 않는다. 동격 삽입구는 괄호로 처리하거나, 문장 구조를 재편하여 삽입구 자체를 없앤다.
+
+- **괄호 처리**: `.NET 10에서 도입된 dotnet run file.cs(이른바 file-based app)는 .csproj 파일 없이 단일 .cs 파일만으로 C# 코드를 실행할 수 있게 해주는 기능입니다.`
+- **문장 재편**: `.NET 10에서 도입된 file-based app 기능은 dotnet run file.cs 명령 하나로, .csproj 파일 없이 단일 .cs 파일만으로 C# 코드를 실행할 수 있게 해줍니다.`
+
 ---
 
 ## 한국어 (ko) 스타일
