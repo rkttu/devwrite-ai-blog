@@ -59,7 +59,7 @@ using System.Collections.Concurrent;
 // ...
 ```
 
-これが.NETの**File-Based App（FBA）**方式です。FBAは以下のような利点を提供します：
+これが.NETの** File-Based App（FBA）** 方式です。FBAは以下のような利点を提供します：
 
 - **プロジェクトファイル不要**：`.csproj`なしで単一の`.cs`ファイルでアプリケーション実行可能
 - **インラインパッケージ参照**：`#:package`ディレクティブでNuGetパッケージを直接参照
@@ -96,7 +96,7 @@ Console.CancelKeyPress += (sender, e) =>
 
 - **1回目のCtrl+C**：Graceful shutdown開始（5秒タイムアウト）
 - **2回目のCtrl+C**：即時強制終了
-- **SIGINT標準終了コード（130）**を返却
+- **SIGINT標準終了コード（130）** を返却
 
 #### ビルドプロセスの簡素化
 

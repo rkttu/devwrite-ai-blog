@@ -44,7 +44,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 この問題を解決するには、仮想マシンを作成した後、必ず「設定→セキュリティ」に移動してください。
 
-ここで**「セキュアブートを有効にする（Enable Secure Boot）」**にチェックを入れ、下の「テンプレート」オプションを**「Microsoft UEFI証明機関（Microsoft UEFI Certificate Authority）」**に変更してください。
+ここで**「セキュアブートを有効にする（Enable Secure Boot）」** にチェックを入れ、下の「テンプレート」オプションを**「Microsoft UEFI証明機関（Microsoft UEFI Certificate Authority）」** に変更してください。
 この設定が正しく行われていないと、Ubuntuのブートローダーが署名されていないイメージとして認識され、UEFIによって起動がブロックされます。
 つまり、ISOファイルやディスク構成をいくら作り直しても、この設定がなければUbuntuは絶対に起動しません。
 

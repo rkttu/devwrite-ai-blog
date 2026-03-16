@@ -45,7 +45,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 이 문제를 해결하려면, 가상 머신을 만든 뒤 반드시 “설정 → 보안(Security)” 항목으로 이동하셔야 합니다.
 
-여기서 **‘보안 부팅 사용(Enable Secure Boot)’**을 체크하시고, 아래쪽의 ‘템플릿(Template)’ 옵션을 “Microsoft UEFI 인증 기관(Microsoft UEFI Certificate Authority)” 으로 변경해주십시오.
+여기서 **‘보안 부팅 사용(Enable Secure Boot)’** 을 체크하시고, 아래쪽의 ‘템플릿(Template)’ 옵션을 “Microsoft UEFI 인증 기관(Microsoft UEFI Certificate Authority)” 으로 변경해주십시오.
 이 설정이 올바르게 되어 있지 않으면, Ubuntu의 부트로더가 서명되지 않은 이미지로 인식되어 UEFI에서 부팅을 차단하게 됩니다.
 즉, ISO 파일이나 디스크 구성을 아무리 다시 만들어도 이 설정이 빠져 있으면 Ubuntu는 절대 부팅되지 않습니다.
 
