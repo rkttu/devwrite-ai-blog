@@ -34,6 +34,7 @@
 
 ## 포스트 목록
 
+- [RoleEntryPoint에서 FoundryCBAgent까지 — .NET 개발자가 본 Microsoft Foundry Hosted Agent의 아키텍처](https://devwrite.ai/ko/posts/hosted-agent-deep-dive/) — Microsoft Foundry Hosted Agent의 아키텍처를 Windows Azure Cloud Services부터 이어온 .NET PaaS 계보 속에서 분석합니다.
 - [.NET의 새로운 장르: NuGet-Free Single File C# 코딩의 시대](https://devwrite.ai/ko/posts/nuget-free-single-file-csharp/) — .NET 10의 file-based app과 Runtime Async가 만나면, NuGet 없이 BCL만으로 빠르고 타입 안전한 단일 파일 C# 코딩이 가능해집니다.
 - [AI가 본 적 없는 .NET UI 프레임워크로 IDE를 만들 때, 에이전트는 어떻게 API를 파악하는가](https://devwrite.ai/ko/posts/why-i-use-handmirror-mcp/) — AI 학습 데이터에 없는 신생 .NET UI 프레임워크로 IDE를 만들 때, HandMirror MCP로 어셈블리를 직접 검사해 첫 빌드 오류를 3개로 줄인 경험을 공유합니다.
 - [AI 시대의 오픈소스 기여: HwpLibSharp 포팅 프로젝트에서 배운 것들](https://devwrite.ai/ko/posts/hwplibsharp-upstream-management/): Java hwplib을 .NET으로 포팅하면서 AI 코딩 어시스턴트를 활용하고, 원본과 공생하는 'Living Port' 방식의 오픈소스 기여 경험을 공유합니다.
