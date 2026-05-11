@@ -21,3 +21,9 @@ Thumbs.db
 
 # Node (테마에서 사용할 수 있음)
 node_modules/
+
+# Claude Code
+# 팀 공유 항목 (CLAUDE.md, .claude/commands/, .claude/settings.json) 은 커밋합니다.
+# 개인 환경/메모는 아래 항목으로 제외합니다.
+CLAUDE.local.md
+.claude/settings.local.json
