@@ -34,6 +34,7 @@
 
 ## 포스트 목록
 
+- [OpenAI Codex CLI를 Claude·Gemini·Llama 위에서 돌리기 — C# 50줄로](https://devwrite.ai/ko/posts/cadenza-agent/) — OpenAI Codex CLI는 Responses API에 lock-in 돼 있습니다. Cadenza.Agent로 IChatClient 앞단에 Responses 호환 서버를 세우면, OpenRouter를 통해 Codex의 두뇌를 자유롭게 고를 수 있습니다.
 - [C#에서 허깅페이스 모델 호출하기: DotNetPy 0.6.0으로 Whisper · sentence-transformers · Stable Diffusion 돌려보기](https://devwrite.ai/ko/posts/dotnetpy-huggingface-from-csharp/) — DotNetPy 0.6.0으로 C# 앱 안에서 CPython C API를 직접 호출해 Whisper, sentence-transformers, Stable Diffusion을 실행한 경험과, PEP 703 free-threaded 빌드까지 검증한 설계 과정을 정리합니다.
 - [RoleEntryPoint에서 FoundryCBAgent까지 — .NET 개발자가 본 Microsoft Foundry Hosted Agent의 아키텍처](https://devwrite.ai/ko/posts/hosted-agent-deep-dive/) — Microsoft Foundry Hosted Agent의 아키텍처를 Windows Azure Cloud Services부터 이어온 .NET PaaS 계보 속에서 분석합니다.
 - [.NET의 새로운 장르: NuGet-Free Single File C# 코딩의 시대](https://devwrite.ai/ko/posts/nuget-free-single-file-csharp/) — .NET 10의 file-based app과 Runtime Async가 만나면, NuGet 없이 BCL만으로 빠르고 타입 안전한 단일 파일 C# 코딩이 가능해집니다.
