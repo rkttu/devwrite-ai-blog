@@ -6,8 +6,13 @@
 
 - id: read_time
   translation:
-    one : "1 min"
-    other: "{{ .Count }} min"
+    one : "1 minut"
+    other: "{{ .Count }} minuts"
+
+- id: words
+  translation:
+    one : "paraula"
+    other: "{{ .Count }} paraules"
 
 - id: toc
   translation: "Taula de Continguts"
@@ -17,3 +22,12 @@
 
 - id: home
   translation: "Inici"
+
+- id: edit_post
+  translation: "Editar"
+
+- id: code_copy
+  translation: "copiar"
+
+- id: code_copied
+  translation: "copiat!"
