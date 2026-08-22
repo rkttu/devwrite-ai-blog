@@ -29,6 +29,7 @@ class DocumentParser(HTMLParser):
         self.json_documents: list[dict] = []
         self.json_errors: list[str] = []
         self.image_errors: list[str] = []
+        self.help_references: list[str] = []
         self._in_json = False
         self._json_buffer: list[str] = []
 
@@ -36,6 +37,8 @@ class DocumentParser(HTMLParser):
         attributes = dict(attrs)
         if tag in {"a", "link"} and attributes.get("href"):
             self.references.append(attributes["href"] or "")
+        if tag == "link" and "help" in (attributes.get("rel") or "").split():
+            self.help_references.append(attributes.get("href") or "")
         if tag in {"img", "script"} and attributes.get("src"):
             self.references.append(attributes["src"] or "")
         if tag == "img" and not attributes.get("alt"):
@@ -131,10 +134,20 @@ def validate(public_dir: Path) -> list[str]:
         llms_file = public_dir / language / "llms.txt"
         if not llms_file.is_file():
             errors.append(f"{language}/llms.txt: 언어별 목록 누락")
+        else:
+            llms_text = llms_file.read_text(encoding="utf-8", errors="replace")
+            if f"/{language}/posts/" not in llms_text:
+                errors.append(f"{language}/llms.txt: 발행 글 목록 누락")
+
+        home_file = public_dir / language / "index.html"
+        if not home_file.is_file():
+            errors.append(f"{language}/index.html: 언어별 홈페이지 누락")
             continue
-        llms_text = llms_file.read_text(encoding="utf-8", errors="replace")
-        if f"/{language}/posts/" not in llms_text:
-            errors.append(f"{language}/llms.txt: 발행 글 목록 누락")
+        home_parser = DocumentParser(home_file.relative_to(public_dir))
+        home_parser.feed(home_file.read_text(encoding="utf-8", errors="replace"))
+        expected_help = f"https://{SITE_HOST}/{language}/llms.txt"
+        if expected_help not in home_parser.help_references:
+            errors.append(f"{language}/index.html: 언어별 llms.txt help 링크 누락")
 
     if json_count == 0:
         errors.append("JSON-LD 문서가 생성되지 않음")

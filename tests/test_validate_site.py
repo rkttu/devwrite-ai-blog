@@ -25,6 +25,10 @@ def create_valid_site(root: Path) -> None:
     for language in ("ko", "en", "ja"):
         language_root = root / language
         language_root.mkdir()
+        (language_root / "index.html").write_text(
+            f'<link rel="help" href="https://devwrite.ai/{language}/llms.txt">',
+            encoding="utf-8",
+        )
         (language_root / "llms.txt").write_text(
             f"https://devwrite.ai/{language}/posts/sample/",
             encoding="utf-8",
@@ -67,6 +71,19 @@ class SiteValidationTests(unittest.TestCase):
             errors = validate(public_dir)
 
             self.assertTrue(any("JSON-LD 파싱 실패" in error for error in errors))
+
+    def test_reports_wrong_language_llms_help_link(self):
+        with tempfile.TemporaryDirectory() as directory:
+            public_dir = Path(directory)
+            create_valid_site(public_dir)
+            (public_dir / "en" / "index.html").write_text(
+                '<link rel="help" href="https://devwrite.ai/llms.txt">',
+                encoding="utf-8",
+            )
+
+            errors = validate(public_dir)
+
+            self.assertIn("en/index.html: 언어별 llms.txt help 링크 누락", errors)
 
 
 if __name__ == "__main__":
