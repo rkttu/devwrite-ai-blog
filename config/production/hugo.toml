@@ -1,4 +1,5 @@
 googleAnalytics = 'G-V1NLDLYHN0'
+enableGitInfo = true
 
 [params]
   comments = true
