@@ -29,4 +29,4 @@
 - [x] **16. 홈페이지 `keywords` 설정** — 각 언어별 params.keywords 추가 완료
 - [x] **17. 관련 포스트(Related Content) 섹션** — Hugo related 설정 + related_posts.html partial + CSS 스타일 추가 완료
 - [x] **18. 이미지 최적화** — scripts/optimize_images.py (Pillow 기반 WebP 변환 + 리사이즈 + front matter 업데이트) 구현 완료
-- [ ] **19. HTTP 보안 헤더 설정** — Hugo의 meta 요소로 대체할 수 없는 X-Content-Type-Options, X-Frame-Options, Permissions-Policy는 CDN 또는 호스팅 계층에서 설정
+- [x] **19. HTTP 보안 헤더 적용 경로 결정** — GitHub.com Pages의 저장소별 헤더 설정 제약을 기록하고 CDN 또는 프록시 도입 시 적용할 정책 정의

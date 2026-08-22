@@ -205,7 +205,7 @@ tldr: "이 글의 핵심 요약 (1-2문장)"
 
 이 블로그는 **GitHub Pages**로 호스팅되며, `main` 브랜치에 푸시하면 **GitHub Actions**가 자동으로 빌드하고 배포합니다.
 
-Hugo 템플릿은 HTTP 응답 헤더를 설정하지 않습니다. `X-Content-Type-Options`, `X-Frame-Options`, `Permissions-Policy` 같은 정책을 적용하려면 GitHub Pages 앞단의 CDN이나 프록시에서 응답 헤더를 구성합니다.
+Hugo 템플릿은 HTTP 응답 헤더를 설정하지 않습니다. `X-Content-Type-Options`, `X-Frame-Options`, `Permissions-Policy` 같은 정책은 GitHub Pages 앞단의 CDN이나 프록시를 도입할 때 구성합니다. 현재 제약과 적용 기준은 [HTTP 보안 헤더 적용 경로](docs/decisions/0003-plan-http-security-headers.md)에 정리했습니다.
 
 배포 과정:
 
