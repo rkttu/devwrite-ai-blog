@@ -6,11 +6,8 @@
 <meta name="robots" content="max-image-preview:large, index, follow">
 <meta name="googlebot" content="index, follow">
 
-{{- /* 보안 헤더 (GitHub Pages 호환) */ -}}
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
+{{- /* Referrer 정책은 meta 요소로 적용할 수 있습니다. */ -}}
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
 {{- /* llms.txt 표준 파일 안내 */ -}}
 <link rel="help" href="{{ "llms.txt" | absURL }}" type="text/plain" title="LLM Site Information">
