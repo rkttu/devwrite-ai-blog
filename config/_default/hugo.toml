@@ -40,11 +40,9 @@ enableRobotsTXT = true
   ShareButtons = ["facebook", "x", "threads", "linkedin", "share"]
   displayFullLangName = true
 
-  # 외부 실행 코드의 기본값. 운영 환경에서 필요한 항목만 활성화합니다.
+  # 외부 서비스의 기본값. 운영 환경에서 필요한 항목만 활성화합니다.
   [params.integrations]
     googleanalytics = false
-    kakaoadfit = false
-    utterances = false
     googlefonts = true
 
   # OpenGraph / Twitter Cards 설정
@@ -82,20 +80,6 @@ enableRobotsTXT = true
     card = "summary_large_image"  # summary, summary_large_image, app, player
     site = "@rkttu"  # 사이트 계정
     creator = "@rkttu"  # 작성자 계정
-
-  # Utterances 댓글 시스템
-  # 사전 설정: https://github.com/apps/utterances 앱을 리포지토리에 설치해야 합니다
-  [params.utterances]
-    enable = true
-    repo = "rkttu/devwrite-ai-blog"  # GitHub 리포지토리 (owner/repo 형식)
-    issueTerm = "pathname"  # pathname, url, title, og:title 또는 특정 issue 번호
-    label = "comments"  # GitHub issue에 붙을 라벨 (선택사항)
-    theme = "preferred-color-scheme"  # github-light, github-dark, preferred-color-scheme 등
-
-  [params.kakaoadfit]
-    adunit = "DAN-XeV9GaQmn3qSogzK"
-    width = 300
-    height = 250
 
 # 언어별 설정
 [languages]

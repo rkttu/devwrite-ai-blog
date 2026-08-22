@@ -43,9 +43,6 @@
   {{- partial "toc.html" . }}
   {{- end }}
 
-  {{- /* 상단 광고 */ -}}
-  {{- partial "ads/kakao_adfit.html" . }}
-
   {{- if .Content }}
   <div class="post-content md-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
@@ -76,10 +73,6 @@
     {{- partial "share_icons.html" . -}}
     {{- end }}
   </footer>
-
-  {{- if (.Param "comments") }}
-  {{- partial "comments.html" . }}
-  {{- end }}
 </article>
 
 {{- end }}{{/* end main */}}

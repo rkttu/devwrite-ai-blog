@@ -17,8 +17,6 @@
 | 서비스 | 리소스와 용도 | 출력 범위 | 설정 |
 | --- | --- | --- | --- |
 | Google Analytics | [Google tag](https://developers.google.com/tag-platform/gtagjs/reference) 방문 분석 스크립트 | 운영 환경의 전체 페이지 | `params.integrations.googleanalytics`, `googleAnalytics` |
-| Kakao AdFit | [AdFit Web SDK](https://github.com/adfit/adfit-web-sdk) 광고 스크립트 | 운영 환경의 공개 포스트 | `params.integrations.kakaoadfit`, `params.kakaoadfit` |
-| Utterances | [Utterances](https://utteranc.es/) 댓글 스크립트 | 운영 환경에서 댓글을 활성화한 페이지 | `params.integrations.utterances`, `params.utterances`, 페이지 `comments` |
 | Google Fonts | 언어별 본문 폰트와 코드 폰트 스타일시트 | 모든 환경의 전체 페이지 | `params.integrations.googlefonts` |
 | Creative Commons 배지 | 라이선스 이미지 | 공개 포스트 | `params.license` |
 
@@ -26,7 +24,7 @@
 
 ## 운영 시 점검 항목
 
-1. 개발 빌드에서 Google Analytics, Kakao AdFit, Utterances 스크립트가 출력되지 않는지 검사합니다.
+1. 개발 빌드에서 Google Analytics 스크립트가 출력되지 않는지 검사합니다.
 2. 운영 빌드에서 활성화한 서비스의 HTTPS 주소가 출력되는지 검사합니다.
 3. 서비스를 비활성화한 뒤 해당 도메인의 요청이 사라지는지 브라우저 네트워크 기록으로 확인합니다.
 4. CDN이나 프록시를 도입하면 [HTTP 보안 헤더 적용 경로](decisions/0003-plan-http-security-headers.md)의 Content Security Policy 허용 출처를 이 목록과 맞춥니다.
