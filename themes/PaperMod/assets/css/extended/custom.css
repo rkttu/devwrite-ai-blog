@@ -15,7 +15,7 @@ code, pre, .highlight code, kbd, samp {
     opacity: 0.8;
 }
 
-/* ===== Draft & Scheduled Post Styles ===== */
+/* ===== Draft Post Styles ===== */
 
 /* Warning text in single post view */
 .post-warning {
@@ -30,17 +30,9 @@ code, pre, .highlight code, kbd, samp {
     color: #e67e22;
 }
 
-.warning-scheduled {
-    color: #3498db;
-}
-
 /* Badge colors */
 .draft-badge {
     color: #e67e22 !important;
-}
-
-.scheduled-badge {
-    color: #3498db !important;
 }
 
 /* Badge positioning - closer to title */

@@ -6,15 +6,10 @@
     <h1 class="post-title">
       {{ .Title }}
     </h1>
-    {{- /* Draft/Scheduled Warning Text */ -}}
-    {{- if or .Draft (gt .Date now) }}
+    {{- /* Draft Warning Text */ -}}
+    {{- if .Draft }}
     <div class="post-warning">
-      {{- if .Draft }}
       <span class="warning-draft">📝 Draft</span>
-      {{- end }}
-      {{- if gt .Date now }}
-      <span class="warning-scheduled">⏰ Scheduled: {{ .Date | time.Format "2006-01-02 15:04" }}</span>
-      {{- end }}
     </div>
     {{- end }}
     {{- if .Description }}

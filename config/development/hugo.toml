@@ -1,5 +1,4 @@
 buildDrafts = true
-buildFuture = true
 
 [params]
   comments = false

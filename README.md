@@ -32,7 +32,7 @@ Hugo 정적 사이트 생성기와 PaperMod 테마를 기반으로 구축된 다
 git clone https://github.com/rkttu/devwrite-ai-blog.git
 cd devwrite-ai-blog
 
-# 개발 서버 실행 (development 설정이 드래프트와 예약 글을 표시)
+# 개발 서버 실행 (development 설정이 드래프트를 표시)
 hugo server
 
 # 브라우저에서 http://localhost:1313 접속
@@ -43,7 +43,7 @@ hugo server
 배포용 정적 파일을 생성합니다. `--gc` 플래그로 사용하지 않는 캐시를 정리하고, `--minify`로 파일 크기를 최적화합니다.
 
 ```bash
-hugo --gc --minify --buildDrafts=false --buildFuture=false
+hugo --gc --minify --buildDrafts=false
 cp public/ko/404.html public/404.html
 cp public/ko/llms.txt public/llms.txt
 ```
@@ -205,6 +205,12 @@ Hugo 템플릿은 HTTP 응답 헤더를 설정하지 않습니다. `X-Content-Ty
 4. 수 분 내로 변경사항이 라이브 사이트에 반영
 
 수동 배포가 필요한 경우 GitHub Actions 탭에서 "Run workflow" 버튼을 클릭할 수 있습니다.
+
+### 예약 발행 철회
+
+초기 구현은 미래의 `date` 값과 GitHub Actions cron 실행을 조합해 예약 발행을 시도했습니다. 그러나 GitHub Actions는 지정한 시각에 정확히 실행된다고 보장하지 않습니다. 공개 저장소와 정적 파일로 구성한 사이트에서는 서버 수준의 접근 제어도 제공할 수 없습니다.
+
+이러한 플랫폼 특성 때문에 예약 발행 기능을 철회했습니다. 현재 `date`에는 미래 시각을 입력하지 않으며 `draft: false`로 바꾼 커밋을 `main`에 반영할 때 글을 발행합니다. 결정 배경은 [예약 발행 철회 기록](docs/decisions/0001-retire-scheduled-publishing.md)에 정리했습니다.
 
 ## 📜 라이선스
 

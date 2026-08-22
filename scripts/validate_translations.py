@@ -8,6 +8,7 @@
 
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
@@ -68,6 +69,7 @@ def get_posts() -> dict:
                 "path": index_file,
                 "translationKey": fm.get("translationKey"),
                 "slug": fm.get("slug"),
+                "date": fm.get("date"),
                 "cover_image": fm.get("image"),
             }
 
@@ -99,6 +101,21 @@ def validate():
         if not base_post["slug"]:
             errors.append(f"❌ [{post_name}] slug가 없습니다. (ko)")
 
+        # 예약 발행을 지원하지 않으므로 미래 날짜를 허용하지 않습니다.
+        if not base_post["date"]:
+            errors.append(f"❌ [{post_name}] date가 없습니다. (ko)")
+        else:
+            try:
+                published_at = datetime.fromisoformat(base_post["date"].replace("Z", "+00:00"))
+                if published_at.tzinfo is None:
+                    raise ValueError("timezone required")
+                if published_at.astimezone(timezone.utc) > datetime.now(timezone.utc):
+                    errors.append(
+                        f"❌ [{post_name}] 미래 날짜는 사용할 수 없습니다: {base_post['date']}"
+                    )
+            except ValueError:
+                errors.append(f"❌ [{post_name}] date 형식이 올바르지 않습니다: {base_post['date']}")
+
         # 4. 번역본 확인
         for lang in LANGUAGES:
             if lang == BASE_LANGUAGE:
@@ -121,6 +138,12 @@ def validate():
                     errors.append(
                         f"❌ [{post_name}] slug 불일치: "
                         f"ko='{base_post['slug']}' vs {lang}='{lang_post['slug']}'"
+                    )
+
+                if lang_post["date"] != base_post["date"]:
+                    errors.append(
+                        f"❌ [{post_name}] date 불일치: "
+                        f"ko='{base_post['date']}' vs {lang}='{lang_post['date']}'"
                     )
 
         # 5. Hero 이미지 확인

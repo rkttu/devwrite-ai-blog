@@ -11,8 +11,8 @@ tags:
 categories:
   - Guide
 translationKey: "introducing-devwrite-blog"
-description: "A multilingual tech blog built with GitHub Copilot and Hugo. Supports AI-powered writing, automatic translation, and scheduled publishing."
-tldr: "Escaping the multilingual and automation limits of existing blog platforms, this is a build log of automating everything from draft generation to translation validation and social-media-timed scheduled publishing with Hugo + GitHub Copilot."
+description: "A multilingual tech blog built with GitHub Copilot and Hugo, covering AI-assisted writing, automated translation, validation, and deployment."
+tldr: "This build log covers automating drafts and translation validation with Hugo and GitHub Copilot, then retiring scheduled publishing after evaluating GitHub Actions timing and static-site access control."
 cover:
   image: "images/posts/introducing-devwrite-blog.jpg"
   alt: "Laptop and coffee for blog writing"
@@ -107,28 +107,13 @@ The most important thing in a tech blog is **accuracy**. Especially when coverin
 
 The MCP server queries Microsoft's official documentation to check if you're using the latest API versions, if any features are deprecated, and if your content aligns with official recommendations. It helps prevent those "this method is no longer recommended" comments on your blog posts.
 
-## Scheduled Publishing with Social Media in Mind
+## Why Scheduled Publishing Was Retired
 
-Once you've written your post, it's time to publish. /dev/write supports **scheduled publishing**. Set a future date in the `date` field, and it automatically publishes at that time.
+The first implementation combined a future `date` value with a GitHub Actions cron schedule. In practice, GitHub Actions did not always start at the requested time. Runner queues and service conditions could delay publication.
 
-```yaml
-date: 2025-12-10T08:00:00+09:00  # Publishes on Dec 10 at 8 AM
-```
+The access model of a static site was another mismatch. Hugo can omit future posts from lists and build output, but a public Git repository does not provide server-side authentication or private content storage.
 
-Scheduled publishing works via GitHub Actions cron triggers. Running it all day would waste runner costs, so I configured it to run **three times daily, aligned with social media peak times**.
-
-- **8:00 AM**: When people check their phones during the commute
-- **12:00 PM**: Quick browsing during lunch break
-- **5:00 PM**: Last feed check before leaving work
-
-```yaml
-schedule:
-  - cron: '0 23 * * *'  # KST 08:00
-  - cron: '0 3 * * *'   # KST 12:00
-  - cron: '0 8 * * *'   # KST 17:00
-```
-
-If you need a more precise publishing schedule, you can set up triggers locally. Using Windows Task Scheduler or crontab, you can adjust to hourly, every 30 minutes, or whatever interval you want. Save on GitHub Actions free tier usage while getting more precise publishing timing.
+Scheduled publishing was therefore retired. A post now uses a current or past `date`, and publication happens when a commit changing all three translations to `draft: false` reaches `main`. A platform designed for timed release and pre-publication access control would be a better fit if those capabilities become necessary.
 
 ## Blocking AI Crawlers
 
@@ -150,6 +135,6 @@ The `-D` flag shows posts with `draft: true`. Access `http://localhost:1313` in 
 
 /dev/write isn't perfect yet. But I think it's achieved the goal of **focusing on writing and automating the rest**.
 
-Multilingual support, AI-assisted editing, scheduled publishing, crawler blocking—the basics for running a tech blog are in place. I'll keep improving it.
+Multilingual support, AI-assisted editing, translation validation, and automated deployment now provide the core publishing flow. Features that do not fit the platform will continue to be removed based on operational evidence.
 
 If you're interested, check out the [GitHub repository](https://github.com/rkttu/devwrite-ai-blog). Feedback is always welcome! 🚀

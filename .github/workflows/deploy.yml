@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-  # 예약 발행을 위한 스케줄 (KST 기준 08:00, 12:00, 17:00)
-  schedule:
-    - cron: '0 23 * * *'  # KST 08:00 (UTC 23:00 전날)
-    - cron: '0 3 * * *'   # KST 12:00 (UTC 03:00)
-    - cron: '0 8 * * *'   # KST 17:00 (UTC 08:00)
   workflow_dispatch:
 
 # GitHub Pages 배포를 위한 권한 설정
@@ -82,8 +77,7 @@ jobs:
             --minify \
             --panicOnWarning \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --buildDrafts=false \
-            --buildFuture=false
+            --buildDrafts=false
 
       - name: Publish root fallback files
         run: |

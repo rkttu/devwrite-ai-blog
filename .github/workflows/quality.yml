@@ -53,8 +53,7 @@ jobs:
             --gc \
             --minify \
             --panicOnWarning \
-            --buildDrafts=false \
-            --buildFuture=false
+            --buildDrafts=false
           cp public/ko/404.html public/404.html
           cp public/ko/llms.txt public/llms.txt
 
