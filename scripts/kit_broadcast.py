@@ -12,18 +12,23 @@ Hugo 블로그에 새 포스트가 추가되면 Kit API를 통해
   DEFAULT_LANG      - 기본 언어 (기본값: ko)
 """
 
+import html as html_lib
 import json
 import os
 import re
 import sys
 import urllib.request
 import urllib.error
+from datetime import datetime, timezone
 from pathlib import Path
 
 
-def parse_front_matter(file_path: Path) -> dict:
+API_URL = "https://api.kit.com/v4/broadcasts"
+REQUEST_TIMEOUT_SECONDS = 30
+
+
+def parse_front_matter_text(text: str) -> dict:
     """YAML front matter를 간단히 파싱합니다."""
-    text = file_path.read_text(encoding="utf-8")
     match = re.match(r"^---\s*\n(.*?)\n---", text, re.DOTALL)
     if not match:
         return {}
@@ -53,11 +58,17 @@ def parse_front_matter(file_path: Path) -> dict:
     return fm
 
 
+def parse_front_matter(file_path: Path) -> dict:
+    """파일의 YAML front matter를 파싱합니다."""
+    return parse_front_matter_text(file_path.read_text(encoding="utf-8"))
+
+
 def build_broadcast_html(meta: dict, post_url: str, lang: str) -> str:
     """포스트 메타데이터로 브로드캐스트 HTML을 생성합니다."""
-    title = meta.get("title", "New Post")
-    description = meta.get("description", "")
-    tldr = meta.get("tldr", "")
+    title = html_lib.escape(meta.get("title", "New Post"))
+    description = html_lib.escape(meta.get("description", ""))
+    tldr = html_lib.escape(meta.get("tldr", ""))
+    escaped_post_url = html_lib.escape(post_url, quote=True)
 
     if lang == "ko":
         read_more = "계속 읽기"
@@ -69,30 +80,53 @@ def build_broadcast_html(meta: dict, post_url: str, lang: str) -> str:
         read_more = "Read more"
         greeting = "A new post has been published."
 
-    html = f"""<h2>{title}</h2>
+    broadcast_html = f"""<h2>{title}</h2>
 <p>{greeting}</p>
 """
     if tldr:
-        html += f"<p><strong>TL;DR:</strong> {tldr}</p>\n"
+        broadcast_html += f"<p><strong>TL;DR:</strong> {tldr}</p>\n"
     elif description:
-        html += f"<p>{description}</p>\n"
+        broadcast_html += f"<p>{description}</p>\n"
 
-    html += f"""<p><a href="{post_url}">{read_more} →</a></p>
+    broadcast_html += f"""<p><a href="{escaped_post_url}">{read_more} →</a></p>
 """
-    return html
+    return broadcast_html
+
+
+def request_json(req: urllib.request.Request) -> dict:
+    """Kit API 요청을 실행하고 JSON 응답을 반환합니다."""
+    try:
+        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_SECONDS) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"❌ Kit API error {e.code}: {body}", file=sys.stderr)
+        raise
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+        print(f"❌ Kit API request failed: {e}", file=sys.stderr)
+        raise
+
+
+def broadcast_exists(api_key: str, subject: str) -> bool:
+    """최근 브로드캐스트에 같은 제목이 있는지 확인합니다."""
+    req = urllib.request.Request(
+        API_URL,
+        headers={"X-Kit-Api-Key": api_key},
+        method="GET",
+    )
+    result = request_json(req)
+    return any(item.get("subject") == subject for item in result.get("broadcasts", []))
 
 
 def create_broadcast(api_key: str, subject: str, content: str,
                      description: str, send_at: str | None = None) -> dict:
     """Kit API v4를 호출하여 브로드캐스트를 생성합니다."""
-    url = "https://api.kit.com/v4/broadcasts"
-
     payload = {
         "subject": subject,
         "content": content,
         "description": description,
         "public": True,
-        "published_at": send_at or "",
+        "published_at": send_at or datetime.now(timezone.utc).isoformat(),
         "send_at": send_at,
         "preview_text": description[:150] if description else "",
         "subscriber_filter": [],
@@ -100,7 +134,7 @@ def create_broadcast(api_key: str, subject: str, content: str,
 
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
-        url,
+        API_URL,
         data=data,
         headers={
             "Content-Type": "application/json",
@@ -109,19 +143,14 @@ def create_broadcast(api_key: str, subject: str, content: str,
         method="POST",
     )
 
-    try:
-        with urllib.request.urlopen(req) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
-            print(f"✅ Broadcast created: id={result['broadcast']['id']}")
-            if send_at:
-                print(f"   Scheduled for: {send_at}")
-            else:
-                print("   Saved as draft (no send_at provided)")
-            return result
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8")
-        print(f"❌ Kit API error {e.code}: {body}", file=sys.stderr)
-        sys.exit(1)
+    result = request_json(req)
+    broadcast_id = result.get("broadcast", {}).get("id", "unknown")
+    print(f"✅ Broadcast created: id={broadcast_id}")
+    if send_at:
+        print(f"   Scheduled for: {send_at}")
+    else:
+        print("   Saved as draft (no send_at provided)")
+    return result
 
 
 def find_new_posts(changed_files: str, lang: str = "ko") -> list[Path]:
@@ -172,6 +201,10 @@ def main():
         post_url = f"{base_url}/{default_lang}/posts/{slug}/"
         subject = f"[/dev/write] {title}"
         content = build_broadcast_html(meta, post_url, default_lang)
+
+        if broadcast_exists(api_key, subject):
+            print(f"   Skipping existing broadcast: {subject}")
+            continue
 
         print(f"   → Creating broadcast for: {title}")
         create_broadcast(api_key, subject, content, description, send_at)
