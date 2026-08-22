@@ -5,6 +5,17 @@
 {{- /* Referrer 정책은 meta 요소로 적용할 수 있습니다. */ -}}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
+{{- /* 현재 언어의 본문 폰트와 공통 코드 폰트만 로드합니다. */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{- if eq .Lang "ko" }}
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+{{- else if eq .Lang "ja" }}
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+{{- else }}
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+{{- end }}
+
 {{- /* llms.txt 표준 파일 안내 */ -}}
 <link rel="help" href="{{ "llms.txt" | absURL }}" type="text/plain" title="LLM Site Information">
 

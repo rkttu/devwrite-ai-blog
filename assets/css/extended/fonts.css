@@ -1,0 +1,20 @@
+html[lang="ko"] body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html[lang="en"] body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+html[lang="ja"] body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+code,
+pre,
+.highlight code,
+kbd,
+samp {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.05em;
+}
