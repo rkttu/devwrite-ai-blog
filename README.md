@@ -38,6 +38,14 @@ hugo server
 # 브라우저에서 http://localhost:1313 접속
 ```
 
+Hero 이미지 변환 도구를 사용한다면 저장소 루트에서 Python 의존성을 설치합니다. 블로그 실행과 Hugo 빌드에는 이 의존성이 필요하지 않습니다.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-tools.txt
+```
+
 ### 프로덕션 빌드
 
 배포용 정적 파일을 생성합니다. `--gc` 플래그로 사용하지 않는 캐시를 정리하고, `--minify`로 파일 크기를 최적화합니다.

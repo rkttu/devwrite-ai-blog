@@ -23,6 +23,7 @@ Thumbs.db
 node_modules/
 
 # Python
+.venv/
 __pycache__/
 *.pyc
 

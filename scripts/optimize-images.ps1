@@ -5,7 +5,7 @@
 
 .DESCRIPTION
     Python 스크립트 optimize_images.py를 호출합니다.
-    Pillow 패키지가 필요합니다: pip install Pillow
+    Pillow 패키지가 필요합니다. 가상 환경에서 requirements-tools.txt를 설치합니다.
 
 .PARAMETER Slug
     특정 포스트 슬러그의 이미지만 변환

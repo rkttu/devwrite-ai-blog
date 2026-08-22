@@ -6,7 +6,9 @@ assets/images/posts/ 디렉터리의 JPG/PNG Hero 이미지를 WebP로 변환합
 변환 후 front matter의 cover.image 경로를 .webp로 업데이트할 수 있습니다.
 
 의존성:
-    pip install Pillow
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python -m pip install -r requirements-tools.txt
 
 사용법:
     # 모든 Hero 이미지를 WebP로 변환
@@ -36,8 +38,10 @@ from pathlib import Path
 try:
     from PIL import Image
 except ImportError:
-    print("❌ Pillow 패키지가 필요합니다. 다음 명령으로 설치하세요:")
-    print("   pip install Pillow")
+    print("❌ Pillow 패키지가 필요합니다. 가상 환경에서 의존성을 설치하세요:")
+    print("   python3 -m venv .venv")
+    print("   source .venv/bin/activate")
+    print("   python -m pip install -r requirements-tools.txt")
     sys.exit(1)
 
 SCRIPT_DIR = Path(__file__).parent
