@@ -30,6 +30,7 @@ Claude Code는 `.agents/skills/` 를 직접 탐색하지 않으므로 `.claude/s
 | `/deploy-blog-post` | 커밋, 푸시, GitHub Pages 배포 검증 | `<slug>` |
 | `/publish-blog-to-dotnetdev` | 닷넷데브 게시 초안 생성과 브라우저 인계 | `<slug>` |
 | `/share-blog-on-linkedin` | LinkedIn 문안 생성과 공유 화면 인계 | `<slug>` |
+| `/publish-blog-post` | 글 준비부터 배포와 외부 채널 공유까지 전체 발행 | `<slug 또는 주제>` |
 
 ## 환경 메모
 

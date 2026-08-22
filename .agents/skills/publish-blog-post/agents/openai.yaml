@@ -1,0 +1,3 @@
+interface:
+  display_name: "블로그 글 전체 발행"
+  short_description: "글 준비부터 배포와 외부 채널 공유까지 순서대로 조정합니다"
