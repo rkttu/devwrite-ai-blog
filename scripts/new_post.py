@@ -1,50 +1,45 @@
 #!/usr/bin/env python3
-"""
-새 블로그 포스트를 생성하는 스크립트
-
-사용법:
-    python scripts/new_post.py --slug "my-first-post" --title "나의 첫 번째 포스트"
-"""
+"""한국어 기본 포스트 번들을 생성합니다."""
 
 import argparse
-import sys
-from datetime import datetime, timezone, timedelta
+import json
+import re
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).parent
-PROJECT_ROOT = SCRIPT_DIR.parent
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_ROOT = PROJECT_ROOT / "content" / "ko" / "posts"
+KST = timezone(timedelta(hours=9))
+SLUG_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
-def create_post(slug: str, title: str):
-    """새 포스트 생성"""
-    # 날짜 생성 (KST)
-    kst = timezone(timedelta(hours=9))
-    now = datetime.now(kst)
-    date_prefix = now.strftime("%Y-%m-%d")
-    
-    post_dir = CONTENT_ROOT / f"{date_prefix}-{slug}"
-    post_path = post_dir / "index.md"
-    
-    # 이미 존재하는지 확인
-    if post_dir.exists():
-        print(f"❌ 이미 존재하는 포스트입니다: {post_dir}")
-        sys.exit(1)
-    
-    # 날짜 형식
-    date = now.strftime("%Y-%m-%dT%H:%M:%S%z")
-    # +0900 형식을 +09:00 형식으로 변환
-    date = date[:-2] + ":" + date[-2:]
-    
-    # Front matter 템플릿
-    content = f'''---
-title: "{title}"
-date: {date}
+def validate_slug(slug: str) -> str:
+    """URL과 파일 경로에 안전한 slug를 반환합니다."""
+    if not SLUG_PATTERN.fullmatch(slug):
+        raise ValueError("slug는 영문 소문자, 숫자, 단일 하이픈만 사용할 수 있습니다.")
+    return slug
+
+
+def render_post(slug: str, title: str, now: datetime) -> str:
+    """YAML 호환 문자열 이스케이프를 적용한 포스트 초안을 만듭니다."""
+    validate_slug(slug)
+    title = title.strip()
+    if not title:
+        raise ValueError("제목을 입력해 주세요.")
+
+    timestamp = now.astimezone(KST).isoformat(timespec="seconds")
+    quoted_title = json.dumps(title, ensure_ascii=False)
+    quoted_slug = json.dumps(slug)
+    return f'''---
+title: {quoted_title}
+date: {timestamp}
 draft: true
-slug: "{slug}"
+slug: {quoted_slug}
+description: ""
 tags: []
 categories: []
-translationKey: "{slug}"
+translationKey: {quoted_slug}
 cover:
   image: ""
   alt: ""
@@ -53,32 +48,41 @@ tldr: ""
 
 여기에 내용을 작성하세요.
 '''
-    
-    # 디렉터리 생성
-    post_path.parent.mkdir(parents=True, exist_ok=True)
-    
-    # 파일 생성
+
+
+def create_post(
+    slug: str,
+    title: str,
+    content_root: Path = CONTENT_ROOT,
+    now: datetime | None = None,
+) -> Path:
+    """현재 날짜를 포함한 페이지 번들을 생성하고 경로를 반환합니다."""
+    now = now or datetime.now(KST)
+    content = render_post(slug, title, now)
+    post_dir = content_root / f"{now.astimezone(KST):%Y-%m-%d}-{slug}"
+    post_path = post_dir / "index.md"
+
+    if post_dir.exists():
+        raise FileExistsError(f"이미 존재하는 포스트입니다: {post_dir}")
+
+    post_dir.mkdir(parents=True)
     post_path.write_text(content, encoding="utf-8")
-    
-    print(f"✅ 새 포스트가 생성되었습니다:")
-    print(f"   {post_path}")
-    print()
-    print("다음 단계:")
-    print("  1. 포스트 내용 작성")
-    print("  2. tags, categories 추가")
-    print("  3. tldr 작성")
-    print("  4. Hero 이미지 추가 (선택)")
-    print("  5. draft: false로 변경")
-    print("  6. 번역본 생성 (en, ja)")
+    return post_path
 
 
-def main():
-    parser = argparse.ArgumentParser(description="새 블로그 포스트 생성")
-    parser.add_argument("--slug", required=True, help="URL에 사용될 슬러그 (영문, 하이픈 사용)")
-    parser.add_argument("--title", required=True, help="포스트 제목 (한국어)")
-    
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--slug", required=True, help="영문 소문자와 하이픈으로 구성한 URL 식별자")
+    parser.add_argument("--title", required=True, help="한국어 포스트 제목")
     args = parser.parse_args()
-    create_post(args.slug, args.title)
+
+    try:
+        post_path = create_post(args.slug, args.title)
+    except (ValueError, FileExistsError) as error:
+        parser.exit(1, f"오류: {error}\n")
+
+    print(f"새 포스트를 생성했습니다: {post_path}")
+    print("내용, description, tags, tldr, Hero 이미지를 작성한 뒤 draft를 false로 바꾸면 됩니다.")
 
 
 if __name__ == "__main__":
