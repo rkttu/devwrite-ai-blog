@@ -85,8 +85,10 @@ jobs:
             --buildDrafts=false \
             --buildFuture=false
 
-      - name: Publish root 404 page
-        run: cp public/ko/404.html public/404.html
+      - name: Publish root fallback files
+        run: |
+          cp public/ko/404.html public/404.html
+          cp public/ko/llms.txt public/llms.txt
 
       - name: Validate production output
         run: python scripts/validate_site.py public

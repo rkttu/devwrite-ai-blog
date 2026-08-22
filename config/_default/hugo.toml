@@ -12,7 +12,7 @@ enableRobotsTXT = true
 
 # RSS 설정
 [outputs]
-  home = ['HTML', 'RSS', 'JSON']
+  home = ['HTML', 'RSS', 'JSON', 'LLMS']
   section = ['HTML', 'RSS']
   taxonomy = ['HTML']
   term = ['HTML']
@@ -20,6 +20,12 @@ enableRobotsTXT = true
 [outputFormats.RSS]
   mediaType = 'application/rss+xml'
   baseName = 'feed'  # index.xml 대신 feed.xml로 생성
+
+[outputFormats.LLMS]
+  mediaType = 'text/plain'
+  baseName = 'llms'
+  isPlainText = true
+  notAlternative = true
 
 [services.rss]
   limit = 20  # 피드에 포함할 최대 항목 수

@@ -74,14 +74,7 @@ Create translated versions for all configured languages (Page Bundle 구조):
 **Windows**: `.\scripts\optimize-images.ps1 -Slug "{slug}" -DeleteOriginals -UpdateFrontmatter`
 **macOS/Linux**: `python3 scripts/optimize_images.py --slug "{slug}" --delete-originals --update-frontmatter`
 
-### Step 6: Update llms.txt
-
-새 포스트를 `static/llms.txt`의 포스트 목록에 추가:
-```
-- [포스트 제목](/ko/posts/{slug}/) — description 내용
-```
-
-### Step 7: Validate
+### Step 6: Validate
 
 Run validation script:
 

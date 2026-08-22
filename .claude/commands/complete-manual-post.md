@@ -120,14 +120,6 @@ Follow translation guidelines from `/translate-post`:
 - Preserve: `date`, `draft`, `slug`, `translationKey`, `cover.image`, `license`, code blocks, URLs
 - Translate: `title`, `tags`, `categories`, `description`, `tldr`, `cover.alt`, body content
 
-### Step 7: Update llms.txt
-
-새 포스트를 `static/llms.txt` 의 포스트 목록에 추가:
-
-```
-- [포스트 제목](/ko/posts/{slug}/) — description 내용
-```
-
 ## Checklist
 
 After completion, verify:
@@ -143,4 +135,3 @@ After completion, verify:
 - [ ] `description` is translated for each language version
 - [ ] Code blocks are not translated
 - [ ] Internal links use correct language paths
-- [ ] `static/llms.txt` updated with new post entry

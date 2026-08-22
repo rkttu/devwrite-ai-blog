@@ -255,7 +255,6 @@ python3 scripts/optimize_images.py --slug "my-post" --delete-originals --update-
 - [ ] Hero 이미지가 존재하면 경로 확인
 - [ ] Hero 이미지 WebP 변환 완료 (`scripts/optimize_images.py`)
 - [ ] 내부 링크가 올바른 언어 경로 사용
-- [ ] `static/llms.txt`에 새 포스트 추가
 
 ## 마크다운 작성 규칙
 

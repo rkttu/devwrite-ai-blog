@@ -127,6 +127,15 @@ def validate(public_dir: Path) -> list[str]:
             if f"data-lang={language}" not in text and f'data-lang="{language}"' not in text:
                 errors.append(f"404.html: {language} 최근 글 영역 누락")
 
+    for language in ("ko", "en", "ja"):
+        llms_file = public_dir / language / "llms.txt"
+        if not llms_file.is_file():
+            errors.append(f"{language}/llms.txt: 언어별 목록 누락")
+            continue
+        llms_text = llms_file.read_text(encoding="utf-8", errors="replace")
+        if f"/{language}/posts/" not in llms_text:
+            errors.append(f"{language}/llms.txt: 발행 글 목록 누락")
+
     if json_count == 0:
         errors.append("JSON-LD 문서가 생성되지 않음")
     return sorted(set(errors))

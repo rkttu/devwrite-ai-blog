@@ -45,6 +45,7 @@ hugo server
 ```bash
 hugo --gc --minify --buildDrafts=false --buildFuture=false
 cp public/ko/404.html public/404.html
+cp public/ko/llms.txt public/llms.txt
 ```
 
 `defaultContentLanguageInSubdir` 설정으로 Hugo는 언어 디렉터리마다 404 페이지를 생성합니다. GitHub Pages가 사용하는 루트 404 페이지는 한국어 산출물을 복사하며, 페이지 안의 스크립트가 요청 경로와 브라우저 언어에 맞춰 내용을 전환합니다.

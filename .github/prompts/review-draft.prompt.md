@@ -47,7 +47,6 @@ Review a draft post for quality, accuracy, and completeness before publishing.
 - [ ] `description`이 검색 결과에 매력적으로 보이는가? (50~160자)
 - [ ] `description`과 `tldr`이 서로 다른 문장인가?
 - [ ] Hero 이미지가 WebP로 최적화되었는가?
-- [ ] `static/llms.txt`에 해당 포스트가 추가되었는가?
 
 ## Validation Command
 

@@ -1,0 +1,19 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+## Site
+
+- URL: {{ site.BaseURL }}
+- Language: {{ site.Language.Locale }}
+{{- with site.Home.OutputFormats.Get "RSS" }}
+- RSS: {{ .Permalink }}
+{{- end }}
+{{- with site.GetPage "/about" }}
+- About: {{ .Permalink }}
+{{- end }}
+
+## Posts
+{{ range where site.RegularPages.ByDate.Reverse "Section" "posts" }}
+- [{{ .Title | plainify }}]({{ .Permalink }}){{ with .Description }}: {{ . | plainify }}{{ end }}
+{{- end }}

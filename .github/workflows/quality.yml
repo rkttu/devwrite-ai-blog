@@ -56,6 +56,7 @@ jobs:
             --buildDrafts=false \
             --buildFuture=false
           cp public/ko/404.html public/404.html
+          cp public/ko/llms.txt public/llms.txt
 
       - name: Validate production output
         run: python scripts/validate_site.py public

@@ -17,7 +17,6 @@ Change a draft post's status from `draft: true` to `draft: false` to publish it.
 3. Hero 이미지 존재 (WebP 변환 완료)
 4. TL;DR 작성 완료
 5. `description` 필드 존재 (50~160자, 각 언어별)
-6. `static/llms.txt`에 포스트 추가 완료
 
 ## Actions
 
