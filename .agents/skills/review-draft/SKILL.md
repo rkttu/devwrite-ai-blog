@@ -7,7 +7,7 @@ description: Hugo 블로그 초안의 사실성, 문장, 구조, SEO 메타데�
 
 ## 검토 자료
 
-대상 slug의 한국어, 영어, 일본어 파일과 관련 이미지를 확인합니다. `CLAUDE.md`, `.github/copilot-instructions.md`, `writing-style-guide.md`를 리뷰 기준으로 사용합니다.
+대상 slug의 한국어, 영어, 일본어 파일과 관련 이미지를 확인합니다. `CLAUDE.md`, `.github/copilot-instructions.md`, `writing-style-guide.md` 전체를 읽습니다. 한국어 원문은 완결된 배포 문서에 해당하는 규칙과 탈고 체크리스트로 검토하고 영어와 일본어는 각 언어의 자연스러운 기술 문체를 기준으로 검토합니다.
 
 변경 가능성이 있는 사실, 외부 문서, 제품 버전, API는 공식 1차 출처로 다시 확인합니다. 확인하지 못한 정보는 단정하지 않습니다.
 

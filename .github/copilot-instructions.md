@@ -15,6 +15,8 @@
 
 Copilot이 요청에 맞는 스킬을 자동으로 선택하도록 작업 내용을 설명하거나 `/스킬 이름`으로 직접 호출할 수 있습니다. 전체 발행에는 `/publish-blog-post`를 사용합니다. 특정 단계만 수행할 때에는 `/prepare-blog-post`, `/deploy-blog-post`, `/publish-blog-to-dotnetdev`, `/share-blog-on-linkedin` 또는 해당 하위 스킬을 사용합니다.
 
+한국어 문안을 작성, 번역, 윤문 또는 리뷰하는 작업에서는 먼저 저장소 루트의 `writing-style-guide.md` 전체를 읽고 산출물의 종류에 맞는 적용 등급을 사용합니다. 사용자가 별도 문체를 지정했다면 사용자 지시를 우선합니다.
+
 ## 디렉터리 구조
 
 ```

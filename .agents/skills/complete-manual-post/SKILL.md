@@ -7,7 +7,7 @@ description: 직접 작성한 한국어 Hugo 글에 누락된 front matter, 요�
 
 ## 원문 보존
 
-대상은 `content/ko/posts/<날짜>-<slug>/index.md`의 한국어 원고입니다. 전체 본문과 `CLAUDE.md`, `.github/copilot-instructions.md`, `writing-style-guide.md`를 읽습니다.
+대상은 `content/ko/posts/<날짜>-<slug>/index.md`의 한국어 원고입니다. 전체 본문과 `CLAUDE.md`, `.github/copilot-instructions.md`, `writing-style-guide.md` 전체를 읽습니다. 한국어 본문 전체를 보완하거나 윤문할 때에는 완결된 배포 문서 규칙을 적용하고 짧은 메타데이터에는 길이에 해당하는 등급만 적용합니다.
 
 필자의 주장과 문체를 유지합니다. 확인할 수 없는 수치, 경험, 의도, 결론을 추가하지 않습니다. 원고의 논지를 크게 바꾸는 편집은 먼저 제안하고 사용자 승인을 받습니다.
 

@@ -9,7 +9,7 @@ description: 새 Hugo 블로그 글을 한국어 원문과 영어 및 일본어 
 
 사용자가 지정한 slug와 주제, 개요, 참고 자료를 사용합니다. 입력이 불충분해도 글의 방향을 바꿀 정도가 아니라면 합리적으로 가정하고 그 내용을 알립니다.
 
-먼저 `CLAUDE.md`, `.github/copilot-instructions.md`, `writing-style-guide.md`를 읽습니다. 같은 slug나 디렉터리가 이미 있으면 새 글을 만들지 않고 기존 글 보완 요청인지 확인합니다.
+먼저 `CLAUDE.md`, `.github/copilot-instructions.md`, `writing-style-guide.md` 전체를 읽습니다. 한국어 원문에는 완결된 배포 문서에 해당하는 규칙을 적용합니다. 같은 slug나 디렉터리가 이미 있으면 새 글을 만들지 않고 기존 글 보완 요청인지 확인합니다.
 
 ## 초안 작성
 

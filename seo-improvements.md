@@ -8,41 +8,41 @@
 
 ## 검색 결과를 구성하는 메타데이터
 
-1. **운영 환경 판별**: [배포 워크플로](.github/workflows/deploy.yml)는 `--environment production`으로 Hugo를 실행합니다. PaperMod는 `hugo.IsProduction`으로 Open Graph, Twitter Card와 JSON-LD를 활성화합니다.
-2. **검색엔진 소유권 확인**: 운영 도메인의 DNS TXT 레코드에서 Google과 Bing 확인 값을 점검했습니다. Naver 확인 값은 [Hugo 기본 설정](config/_default/hugo.toml)의 `params.analytics.naver.SiteVerificationTag`로 관리합니다.
-3. **포스트 설명**: 한국어, 영어, 일본어 포스트 42개가 `description`을 포함합니다. 각 언어에는 14개 포스트가 있으며 이 중 13개를 발행 상태로 관리합니다.
-4. **사이트 설명**: [언어별 설정](config/_default/hugo.toml)은 세 언어의 독자와 주제를 반영한 사이트 설명을 제공합니다.
-5. **기본 언어 대체 링크**: [head 확장 템플릿](layouts/_partials/extend_head.html)은 한국어 URL을 `hreflang="x-default"`로 출력합니다.
-6. **Twitter Card 계정**: 기본 설정은 `site`와 `creator`에 `@rkttu`를 사용합니다.
-7. **홈페이지 키워드**: 언어별 `params.keywords`가 .NET, C#, Azure, AI와 블로그의 주요 주제를 제공합니다.
+- **운영 환경 판별**: [배포 워크플로](.github/workflows/deploy.yml)는 `--environment production`으로 Hugo를 실행합니다. PaperMod는 `hugo.IsProduction`으로 Open Graph, Twitter Card와 JSON-LD를 활성화합니다.
+- **검색엔진 소유권 확인**: 운영 도메인의 DNS TXT 레코드에서 Google과 Bing 확인 값을 점검했습니다. Naver 확인 값은 [Hugo 기본 설정](config/_default/hugo.toml)의 `params.analytics.naver.SiteVerificationTag`로 관리합니다.
+- **포스트 설명**: 한국어, 영어, 일본어 포스트 42개가 `description`을 포함합니다. 각 언어에는 14개 포스트가 있으며 이 중 13개를 발행 상태로 관리합니다.
+- **사이트 설명**: [언어별 설정](config/_default/hugo.toml)은 세 언어의 독자와 주제를 반영한 사이트 설명을 제공합니다.
+- **기본 언어 대체 링크**: [head 확장 템플릿](layouts/_partials/extend_head.html)은 한국어 URL을 `hreflang="x-default"`로 출력합니다.
+- **Twitter Card 계정**: 기본 설정은 `site`와 `creator`에 `@rkttu`를 사용합니다.
+- **홈페이지 키워드**: 언어별 `params.keywords`가 .NET, C#, Azure, AI와 블로그의 주요 주제를 제공합니다.
 
 ## 검색과 내부 탐색 경로
 
-1. **언어별 검색 페이지**: [한국어](content/ko/search.md), [영어](content/en/search.md), [일본어](content/ja/search.md) 검색 페이지와 JSON 홈 출력을 활성화했습니다.
-2. **다국어 404 페이지**: [404 템플릿](layouts/404.html)은 요청 경로와 브라우저 언어에 맞춰 홈, 검색, 최근 글 링크를 제공합니다.
-3. **언어 이름 표시**: 언어 선택기는 `한국어`, `English`, `日本語`를 전체 이름으로 표시합니다.
-4. **관련 글 연결**: [관련 글 설정](config/_default/hugo.toml)과 [관련 글 템플릿](layouts/_partials/related_posts.html)은 태그, 카테고리, 날짜를 기준으로 내부 링크를 생성합니다.
+- **언어별 검색 페이지**: [한국어](content/ko/search.md), [영어](content/en/search.md), [일본어](content/ja/search.md) 검색 페이지와 JSON 홈 출력을 활성화했습니다.
+- **다국어 404 페이지**: [404 템플릿](layouts/404.html)은 요청 경로와 브라우저 언어에 맞춰 홈, 검색, 최근 글 링크를 제공합니다.
+- **언어 이름 표시**: 언어 선택기는 `한국어`, `English`, `日本語`를 전체 이름으로 표시합니다.
+- **관련 글 연결**: [관련 글 설정](config/_default/hugo.toml)과 [관련 글 템플릿](layouts/_partials/related_posts.html)은 태그, 카테고리, 날짜를 기준으로 내부 링크를 생성합니다.
 
 ## 구조화 데이터와 저자 신호
 
-1. **저자 구조**: [JSON-LD 템플릿](layouts/_partials/templates/schema_json.html)은 저자를 `Person`으로 표현하고 동일한 식별자를 글의 `author`와 `publisher`에서 참조합니다.
-2. **외부 프로필 연결**: `sameAs`는 GitHub, LinkedIn, X, Microsoft MVP 프로필과 닷넷데브 커뮤니티를 연결합니다.
-3. **저자 정보**: 세 언어의 소개 페이지는 경력, 자격, 전문 분야, 오픈소스 활동과 발행 주제를 제공합니다.
-4. **글 요약 구조**: 포스트의 `tldr`은 본문 상단에 표시되며 `BlogPosting.abstract`에도 반영됩니다.
+- **저자 구조**: [JSON-LD 템플릿](layouts/_partials/templates/schema_json.html)은 저자를 `Person`으로 표현하고 동일한 식별자를 글의 `author`와 `publisher`에서 참조합니다.
+- **외부 프로필 연결**: `sameAs`는 GitHub, LinkedIn, X, Microsoft MVP 프로필과 닷넷데브 커뮤니티를 연결합니다.
+- **저자 정보**: 세 언어의 소개 페이지는 경력, 자격, 전문 분야, 오픈소스 활동과 발행 주제를 제공합니다.
+- **글 요약 구조**: 포스트의 `tldr`은 본문 상단에 표시되며 `BlogPosting.abstract`에도 반영됩니다.
 
 ## AI 검색을 위한 공개 정보
 
-1. **AI 크롤러 정책**: [robots.txt 템플릿](layouts/robots.txt)은 GPTBot, Google-Extended, CCBot, anthropic-ai를 포함한 주요 크롤러에 `Allow: /`를 명시합니다.
-2. **언어별 llms.txt**: [llms.txt 템플릿](layouts/llms.txt)은 사이트 정보, RSS, 저자 페이지와 발행 글 목록을 언어별로 생성합니다.
-3. **llms.txt 탐색 링크**: 모든 HTML 문서의 head에서 `rel="help"`로 해당 언어의 `llms.txt`를 안내합니다.
-4. **콘텐츠 요약 구분**: 검색 스니펫용 `description`과 독자 및 AI 검색용 `tldr`을 별도 필드로 관리합니다.
+- **AI 크롤러 정책**: [robots.txt 템플릿](layouts/robots.txt)은 GPTBot, Google-Extended, CCBot, anthropic-ai를 포함한 주요 크롤러에 `Allow: /`를 명시합니다.
+- **언어별 llms.txt**: [llms.txt 템플릿](layouts/llms.txt)은 사이트 정보, RSS, 저자 페이지와 발행 글 목록을 언어별로 생성합니다.
+- **llms.txt 탐색 링크**: 모든 HTML 문서의 head에서 `rel="help"`로 해당 언어의 `llms.txt`를 안내합니다.
+- **콘텐츠 요약 구분**: 검색 스니펫용 `description`과 독자 및 AI 검색용 `tldr`을 별도 필드로 관리합니다.
 
 ## 성능과 운영 정책
 
-1. **언어별 폰트**: head 확장 템플릿은 현재 언어에 맞는 Noto Sans 계열 하나와 공통 코드 폰트만 불러옵니다.
-2. **히어로 이미지 최적화**: [이미지 최적화 스크립트](scripts/optimize_images.py)는 크기 조정, WebP 변환과 front matter 갱신을 지원합니다.
-3. **HTTP 보안 헤더**: GitHub.com Pages에서는 저장소가 응답 헤더를 지정할 수 없습니다. [결정 기록](docs/decisions/0003-plan-http-security-headers.md)은 현재 제약과 CDN 또는 프록시 도입 이후 적용할 정책을 정의합니다.
-4. **Referrer Policy**: HTTP 헤더와 동등하게 적용할 수 있는 `strict-origin-when-cross-origin` 값을 HTML meta 요소로 제공합니다.
+- **언어별 폰트**: head 확장 템플릿은 현재 언어에 맞는 Noto Sans 계열 하나와 공통 코드 폰트만 불러옵니다.
+- **히어로 이미지 최적화**: [이미지 최적화 스크립트](scripts/optimize_images.py)는 크기 조정, WebP 변환과 front matter 갱신을 지원합니다.
+- **HTTP 보안 헤더**: GitHub.com Pages에서는 저장소가 응답 헤더를 지정할 수 없습니다. [결정 기록](docs/decisions/0003-plan-http-security-headers.md)은 현재 제약과 CDN 또는 프록시 도입 이후 적용할 정책을 정의합니다.
+- **Referrer Policy**: HTTP 헤더와 동등하게 적용할 수 있는 `strict-origin-when-cross-origin` 값을 HTML meta 요소로 제공합니다.
 
 ## 저장소와 운영 사이트 검증
 
