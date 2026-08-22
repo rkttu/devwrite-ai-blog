@@ -58,7 +58,7 @@ cp public/ko/llms.txt public/llms.txt
 
 `defaultContentLanguageInSubdir` 설정으로 Hugo는 언어 디렉터리마다 404 페이지를 생성합니다. GitHub Pages가 사용하는 루트 404 페이지는 한국어 산출물을 복사하며, 페이지 안의 스크립트가 요청 경로와 브라우저 언어에 맞춰 내용을 전환합니다.
 
-## 📁 프로젝트 구조
+## 프로젝트 구조
 
 ```text
 content/
@@ -72,14 +72,19 @@ assets/
 
 scripts/          # 포스트 생성, 번역 검증 등 유틸리티 스크립트
 
+.agents/
+└── skills/       # GitHub Copilot과 Claude Code가 공유하는 Agent Skills 원본
+
 .github/
 ├── workflows/    # GitHub Actions CI/CD 파이프라인
 └── copilot-instructions.md  # GitHub Copilot 작업 가이드
 ```
 
-## 🤖 GitHub Copilot으로 글 작성하기
+## GitHub Copilot으로 글 작성하기
 
-이 블로그는 GitHub Copilot(또는 AI 에이전트)과의 협업을 염두에 두고 설계되었습니다. `.github/copilot-instructions.md` 파일에 정의된 규칙을 통해 Copilot이 프로젝트 구조와 컨벤션을 이해하고 일관된 결과물을 생성합니다.
+이 블로그는 GitHub Copilot 또는 다른 AI 에이전트와의 협업을 염두에 두고 설계되었습니다. `.github/copilot-instructions.md`에 프로젝트 규칙을 정의하고 `.agents/skills/`에 콘텐츠 준비, 배포, 외부 채널 공유 절차를 둡니다.
+
+GitHub Copilot은 `.agents/skills/`를 직접 탐색합니다. 작업 내용을 일반 문장으로 요청하면 Copilot이 관련 스킬을 선택하며 `/create-draft`, `/review-draft`, `/publish-blog-post`처럼 스킬 이름을 직접 호출할 수도 있습니다. 기존 `.github/prompts/`의 Prompt Files는 같은 절차를 중복해서 관리하지 않도록 Agent Skills로 통합했습니다.
 
 ### 새 포스트 작성 요청
 

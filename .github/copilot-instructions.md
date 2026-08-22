@@ -9,6 +9,12 @@
 - **지원 언어**: 한국어(ko), English(en), 日本語(ja)
 - **기본 언어**: 한국어 (ko)
 
+## 공용 Agent Skills
+
+블로그 작업 스킬의 원본은 `.agents/skills/`에 있습니다. GitHub Copilot은 이 경로를 직접 탐색하므로 `.github/prompts/`나 `.github/skills/`에 같은 내용을 복제하지 않습니다. 스킬을 수정할 때에는 `.agents/skills/<스킬 이름>/SKILL.md`와 해당 디렉터리의 리소스만 갱신합니다.
+
+Copilot이 요청에 맞는 스킬을 자동으로 선택하도록 작업 내용을 설명하거나 `/스킬 이름`으로 직접 호출할 수 있습니다. 전체 발행에는 `/publish-blog-post`를 사용합니다. 특정 단계만 수행할 때에는 `/prepare-blog-post`, `/deploy-blog-post`, `/publish-blog-to-dotnetdev`, `/share-blog-on-linkedin` 또는 해당 하위 스킬을 사용합니다.
+
 ## 디렉터리 구조
 
 ```

@@ -14,6 +14,7 @@ GitHub Copilot 과 동일한 원본 (`.github/copilot-instructions.md`, `writing
 ## 프로젝트 스킬
 
 블로그 작업 스킬의 원본은 여러 에이전트가 공유할 수 있도록 `.agents/skills/` 에 있습니다.
+GitHub Copilot은 이 경로를 직접 탐색합니다.
 Claude Code는 `.agents/skills/` 를 직접 탐색하지 않으므로 `.claude/skills/` 의 심볼릭 링크를 통해 같은 원본을 불러옵니다.
 Windows에서는 Developer Mode를 활성화하고 Git이 심볼릭 링크를 보존하도록 설정해야 합니다. `.claude/skills/<스킬 이름>/SKILL.md`가 일반 텍스트 링크가 아닌 실제 파일로 열리는지 확인합니다.
 
