@@ -46,6 +46,12 @@ buildFuture = true
 
   # OpenGraph / Twitter Cards 설정
   images = ["/images/site-cover.jpg"]  # 기본 공유 이미지 (포스트에 cover가 없을 때 사용)
+
+  [params.assets]
+    favicon = "/favicon.ico"
+    favicon16x16 = "/favicon-16x16.png"
+    favicon32x32 = "/favicon-32x32.png"
+    apple_touch_icon = "/apple-touch-icon.png"
   
   # 저자 정보
   [params.author]
