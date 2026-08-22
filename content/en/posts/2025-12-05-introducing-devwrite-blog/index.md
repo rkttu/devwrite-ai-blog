@@ -115,11 +115,11 @@ The access model of a static site was another mismatch. Hugo can omit future pos
 
 Scheduled publishing was therefore retired. A post now uses a current or past `date`, and publication happens when a commit changing all three translations to `draft: false` reaches `main`. A platform designed for timed release and pre-publication access control would be a better fit if those capabilities become necessary.
 
-## Blocking AI Crawlers
+## AI Crawler Policy
 
-These days, AI training crawlers scraping websites is a hot topic. /dev/write includes settings to block major AI crawlers by default.
+/dev/write allows major AI crawlers so that published content can be discovered and cited. The `robots.txt` file explicitly allows GPTBot, Google-Extended, CCBot, anthropic-ai, and other named crawlers.
 
-GPTBot, Google-Extended, CCBot, anthropic-ai, and most other AI training crawlers are blocked via `robots.txt`, with meta tags as a second layer of defense. Sure, malicious crawlers can ignore this, but at least you've officially stated "please don't use my content for AI training."
+The `robots.txt` file communicates a request to crawlers rather than enforcing access control. The CC BY-NC 4.0 license terms still apply independently of this crawler policy.
 
 ## Local Preview
 
@@ -137,4 +137,4 @@ The `-D` flag shows posts with `draft: true`. Access `http://localhost:1313` in 
 
 Multilingual support, AI-assisted editing, translation validation, and automated deployment now provide the core publishing flow. Features that do not fit the platform will continue to be removed based on operational evidence.
 
-If you're interested, check out the [GitHub repository](https://github.com/rkttu/devwrite-ai-blog). Feedback is always welcome! 🚀
+If you're interested, check out the [GitHub repository](https://github.com/rkttu/devwrite-ai-blog). Feedback is always welcome.

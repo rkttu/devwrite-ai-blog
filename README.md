@@ -35,10 +35,10 @@ cd devwrite-ai-blog
 # 개발 서버 실행 (development 설정이 드래프트를 표시)
 hugo server
 
-# 브라우저에서 http://localhost:1313 접속
+# 브라우저에서 http://localhost:1313/ko/ 접속
 ```
 
-Hero 이미지 변환 도구를 사용한다면 저장소 루트에서 Python 의존성을 설치합니다. 블로그 실행과 Hugo 빌드에는 이 의존성이 필요하지 않습니다.
+Hero 이미지 변환 도구를 사용한다면 저장소 루트에서 Python 의존성을 설치합니다. 블로그 실행과 Hugo 빌드는 이 의존성을 사용하지 않습니다.
 
 ```bash
 python3 -m venv .venv
@@ -51,7 +51,7 @@ python -m pip install -r requirements-tools.txt
 배포용 정적 파일을 생성합니다. `--gc` 플래그로 사용하지 않는 캐시를 정리하고, `--minify`로 파일 크기를 최적화합니다.
 
 ```bash
-hugo --gc --minify --buildDrafts=false
+hugo --environment production --cleanDestinationDir --gc --minify --panicOnWarning --buildDrafts=false
 cp public/ko/404.html public/404.html
 cp public/ko/llms.txt public/llms.txt
 ```
@@ -92,16 +92,16 @@ slug는 "docker-basics"로 하고, 태그는 Docker, 컨테이너, DevOps로 해
 
 Copilot은 `copilot-instructions.md`의 규칙에 따라:
 
-- 올바른 파일명 형식(`2025-12-04-docker-basics.md`)으로 생성
+- 올바른 Page Bundle 형식(`2025-12-04-docker-basics/index.md`)으로 생성
 - 필수 Front Matter 필드 자동 포함
-- 세 언어 디렉터리에 각각 파일 생성
+- 세 언어의 `posts` 디렉터리에 같은 이름의 Page Bundle 생성
 
 ### 번역 요청
 
 기존 한국어 포스트를 영어나 일본어로 번역해달라고 요청할 수 있습니다:
 
 ```text
-content/ko/posts/2025-12-04-docker-basics.md 파일을 영어와 일본어로 번역해줘.
+content/ko/posts/2025-12-04-docker-basics/index.md 파일을 영어와 일본어로 번역해줘.
 ```
 
 Copilot은 다음 규칙을 자동으로 준수합니다:
@@ -198,6 +198,8 @@ tldr: "이 글의 핵심 요약 (1-2문장)"
 | 한국어 | `https://devwrite.ai/ko/feed.xml` |
 | English | `https://devwrite.ai/en/feed.xml` |
 | 日本語 | `https://devwrite.ai/ja/feed.xml` |
+
+현재 외부 뉴스레터 서비스는 연동하지 않습니다. 이전 Kit 연동을 제거한 배경은 [Kit 뉴스레터 연동 제거 기록](docs/decisions/0002-remove-kit-newsletter.md)에 정리했습니다.
 
 ## 🚀 배포
 
