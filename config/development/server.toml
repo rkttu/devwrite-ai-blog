@@ -1,0 +1,19 @@
+[[redirects]]
+  from = '/en/**'
+  to = '/en/404.html'
+  status = 404
+
+[[redirects]]
+  from = '/ja/**'
+  to = '/ja/404.html'
+  status = 404
+
+[[redirects]]
+  from = '/ko/**'
+  to = '/ko/404.html'
+  status = 404
+
+[[redirects]]
+  from = '/**'
+  to = '/ko/404.html'
+  status = 404

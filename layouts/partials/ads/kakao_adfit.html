@@ -1,5 +1,5 @@
 {{- /* 카카오 애드핏 광고 */ -}}
-{{- if not .Draft }}
+{{- if and hugo.IsProduction (not .Draft) }}
 <div class="kakao-adfit-container" style="text-align: center; margin: 1.5em 0;">
   <ins class="kakao_ad_area" style="display:none;"
     data-ad-unit="DAN-XeV9GaQmn3qSogzK"

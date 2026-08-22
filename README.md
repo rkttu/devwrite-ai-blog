@@ -32,8 +32,8 @@ Hugo 정적 사이트 생성기와 PaperMod 테마를 기반으로 구축된 다
 git clone https://github.com/rkttu/devwrite-ai-blog.git
 cd devwrite-ai-blog
 
-# 개발 서버 실행 (-D 플래그로 드래프트 포스트도 표시)
-hugo server -D
+# 개발 서버 실행 (development 설정이 드래프트와 예약 글을 표시)
+hugo server
 
 # 브라우저에서 http://localhost:1313 접속
 ```

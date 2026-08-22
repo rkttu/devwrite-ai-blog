@@ -2,9 +2,6 @@ baseURL = 'https://devwrite.ai/'
 title = '/dev/write'
 theme = 'PaperMod'
 
-# Google Analytics
-googleAnalytics = 'G-V1NLDLYHN0'
-
 defaultContentLanguage = 'ko'
 defaultContentLanguageInSubdir = true
 enableRobotsTXT = true
@@ -12,11 +9,6 @@ enableRobotsTXT = true
 # Naver Search Advisor
 [params.analytics.naver]
   SiteVerificationTag = '06511914e9c94d856dab91ae930a32cf3cc07c6d'
-
-# 로컬 개발 시 드래프트/미래 포스트 표시
-# CI/CD에서는 플래그로 제외: hugo -D=false --buildFuture=false
-buildDrafts = true
-buildFuture = true
 
 # RSS 설정
 [outputs]
@@ -33,7 +25,6 @@ buildFuture = true
   limit = 20  # 피드에 포함할 최대 항목 수
 
 [params]
-  env = 'production'
   defaultTheme = 'auto'
   ShowReadingTime = true
   ShowShareButtons = true
@@ -42,7 +33,6 @@ buildFuture = true
   ShowCodeCopyButtons = true
   ShareButtons = ["facebook", "x", "threads", "linkedin", "share"]
   displayFullLangName = true
-  comments = true  # 모든 포스트에서 댓글 활성화
 
   # OpenGraph / Twitter Cards 설정
   images = ["/images/site-cover.jpg"]  # 기본 공유 이미지 (포스트에 cover가 없을 때 사용)
