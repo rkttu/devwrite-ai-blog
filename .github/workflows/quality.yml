@@ -14,26 +14,40 @@ jobs:
       HUGO_VERSION: 0.165.0
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
 
       - name: Cache Hugo binary
         id: cache-hugo
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
-          path: ${{ runner.temp }}/hugo.deb
+          path: ${{ runner.temp }}/hugo_extended_${{ env.HUGO_VERSION }}_linux-amd64.deb
           key: hugo-${{ env.HUGO_VERSION }}
 
       - name: Download Hugo CLI
         if: steps.cache-hugo.outputs.cache-hit != 'true'
-        run: wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+        run: |
+          wget \
+            -O "${RUNNER_TEMP}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+
+      - name: Verify Hugo CLI checksum
+        run: |
+          package="hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          wget \
+            -O "${RUNNER_TEMP}/hugo_checksums.txt" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          (
+            cd "${RUNNER_TEMP}"
+            grep "  ${package}$" hugo_checksums.txt | sha256sum --check --strict
+          )
 
       - name: Install Hugo CLI
-        run: sudo dpkg -i ${{ runner.temp }}/hugo.deb
+        run: sudo dpkg -i "${RUNNER_TEMP}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
 
       - name: Setup Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: '3.12'
 
@@ -50,6 +64,7 @@ jobs:
         run: |
           hugo \
             --environment production \
+            --cleanDestinationDir \
             --gc \
             --minify \
             --panicOnWarning \
