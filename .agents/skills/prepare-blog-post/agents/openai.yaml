@@ -1,0 +1,3 @@
+interface:
+  display_name: "블로그 글 발행 준비"
+  short_description: "글 작성, 번역, 리뷰와 로컬 검증을 단계별로 수행합니다"

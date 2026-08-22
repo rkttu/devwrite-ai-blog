@@ -1,0 +1,3 @@
+interface:
+  display_name: "블로그 글 GitHub Pages 배포"
+  short_description: "커밋과 푸시 이후 Actions와 운영 URL을 검증합니다"

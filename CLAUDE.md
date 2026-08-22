@@ -26,6 +26,10 @@ Claude Code는 `.agents/skills/` 를 직접 탐색하지 않으므로 `.claude/s
 | `/review-draft` | 발행 전 체크리스트 검토 | `<slug-or-path>` |
 | `/publish-draft` | `draft: true`에서 `false`로 일괄 변경 | `<slug>` |
 | `/unpublish-post` | `draft: false`에서 `true`로 일괄 변경 | `<slug>` |
+| `/prepare-blog-post` | 글 작성, 보완, 번역, 리뷰와 발행 전 검증 | `<slug 또는 경로>` |
+| `/deploy-blog-post` | 커밋, 푸시, GitHub Pages 배포 검증 | `<slug>` |
+| `/publish-blog-to-dotnetdev` | 닷넷데브 게시 초안 생성과 브라우저 인계 | `<slug>` |
+| `/share-blog-on-linkedin` | LinkedIn 문안 생성과 공유 화면 인계 | `<slug>` |
 
 ## 환경 메모
 
