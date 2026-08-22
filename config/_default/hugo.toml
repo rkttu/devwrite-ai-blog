@@ -40,6 +40,13 @@ enableRobotsTXT = true
   ShareButtons = ["facebook", "x", "threads", "linkedin", "share"]
   displayFullLangName = true
 
+  # 외부 실행 코드의 기본값. 운영 환경에서 필요한 항목만 활성화합니다.
+  [params.integrations]
+    googleanalytics = false
+    kakaoadfit = false
+    utterances = false
+    googlefonts = true
+
   # OpenGraph / Twitter Cards 설정
   images = ["/images/site-cover.jpg"]  # 기본 공유 이미지 (포스트에 cover가 없을 때 사용)
 
@@ -84,6 +91,11 @@ enableRobotsTXT = true
     issueTerm = "pathname"  # pathname, url, title, og:title 또는 특정 issue 번호
     label = "comments"  # GitHub issue에 붙을 라벨 (선택사항)
     theme = "preferred-color-scheme"  # github-light, github-dark, preferred-color-scheme 등
+
+  [params.kakaoadfit]
+    adunit = "DAN-XeV9GaQmn3qSogzK"
+    width = 300
+    height = 250
 
 # 언어별 설정
 [languages]

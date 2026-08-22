@@ -209,7 +209,9 @@
 
 {{- /* Misc */}}
 {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+{{- if site.Params.integrations.googleanalytics }}
 {{- partial "google_analytics.html" . }}
+{{- end }}
 {{- partial "templates/opengraph.html" . }}
 {{- partial "templates/twitter_cards.html" . }}
 {{- partial "templates/schema_json.html" . }}
