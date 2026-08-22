@@ -280,7 +280,3 @@ Hosted Agent의 아키텍처를 지금 이해해두는 것은, GA 이후의 마�
 그리고 이 아키텍처가 안정화되었을 때 가장 큰 혜택을 받는 것은, 복잡한 에이전트 로직을 코드로 정밀하게 제어하면서도 엔터프라이즈 거버넌스 요구사항을 충족해야 하는 조직입니다. 바로 지금 "선언적 에이전트로는 부족하고, 자체 컨테이너로는 감당이 안 되는" 사이에 끼어 있는 팀들입니다.
 
 Microsoft는 Cloud Services에서 App Service로, App Service에서 Azure Functions로, Functions에서 Container Apps로 이어지는 관리형 컴퓨트의 추상화 수준을 꾸준히 높여왔습니다. Hosted Agent는 그 계보의 최신 지점에서, AI 에이전트라는 특정 워크로드에 맞춘 도메인 특화 PaaS를 시도하고 있습니다. `RoleEntryPoint`에서 `FoundryCBAgent`까지, 15년에 걸친 "플랫폼이 호스트 프로세스를 제공하고 개발자는 비즈니스 로직에 집중한다"는 약속이 AI 시대에도 유효한지 검증하는 실험이 지금 진행 중입니다.
-
----
-
-*이 글은 [/dev/write](https://devwrite.ai) 뉴스레터에서 발행되었습니다.*

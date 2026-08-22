@@ -280,7 +280,3 @@ Even when running a PoC with self-hosted containers, if you design the agent's b
 And when this architecture stabilizes, the organizations that benefit most are those that need to precisely control complex agent logic through code while meeting enterprise governance requirements. Exactly the teams currently stuck between "declarative agents aren't enough" and "self-hosted containers are too much to handle."
 
 Microsoft has steadily raised the abstraction level of managed compute from Cloud Services to App Service, from App Service to Azure Functions, from Functions to Container Apps. Hosted Agent is attempting a domain-specific PaaS tailored for the AI agent workload, at the latest point in that lineage. From `RoleEntryPoint` to `FoundryCBAgent`, the 15-year-old promise of "the platform provides the host process and developers focus on business logic" is now being tested for validity in the AI era.
-
----
-
-*This article was published in the [/dev/write](https://devwrite.ai) newsletter.*

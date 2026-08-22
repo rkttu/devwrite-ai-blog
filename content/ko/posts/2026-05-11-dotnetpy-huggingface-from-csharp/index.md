@@ -327,7 +327,3 @@ free-threaded CPython 빌드 위에서 이 루프는 **진짜로 병렬로 돕�
 - **영문 원문**: [dev.to](https://dev.to/rkttu/speech-search-and-stable-diffusion-calling-huggingface-from-c-2bkk)
 
 "C# 으로 지금 막 발표된 허깅페이스 모델을 어떻게 돌리지" 라는 질문에 한 가지 답이 될 수 있었으면 좋겠습니다. 이슈, PR, 댓글 모두 환영합니다. 한국 닷넷 커뮤니티에서 같은 고민을 하고 계신 분들이 있다면 한 번 시도해 보시고 피드백 주세요.
-
----
-
-*이 글은 [/dev/write](https://devwrite.ai) 뉴스레터에서 발행되었습니다.*

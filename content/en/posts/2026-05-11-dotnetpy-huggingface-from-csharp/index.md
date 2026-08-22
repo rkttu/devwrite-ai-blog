@@ -326,7 +326,3 @@ A few things are worth calling out explicitly.
 - **Original English version on dev.to**: [dev.to](https://dev.to/rkttu/speech-search-and-stable-diffusion-calling-huggingface-from-c-2bkk)
 
 I'd be happy if this turns into one possible answer to "how do I actually run a just-released Hugging Face model from C#?" Issues, PRs, and comments are all welcome. If you're in the .NET community and have been wrestling with the same problem, please give it a try and let me know how it goes.
-
----
-
-*This article was published in the [/dev/write](https://devwrite.ai) newsletter.*
