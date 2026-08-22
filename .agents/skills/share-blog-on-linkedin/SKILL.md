@@ -1,13 +1,13 @@
 ---
 name: share-blog-on-linkedin
-description: 운영 중인 블로그 글에서 LinkedIn 일반 포스트용 문안과 해시태그를 만들고 공유 화면을 열어 사용자의 최종 편집과 게시로 넘깁니다. API 자동 게시에는 사용하지 않습니다.
+description: 운영 중인 블로그 글에서 LinkedIn 일반 포스트용 문안과 해시태그를 만들고 새 게시물 작성 흐름으로 안내해 사용자의 최종 편집과 게시로 넘깁니다. API 자동 게시에는 사용하지 않습니다.
 ---
 
 # LinkedIn 블로그 글 공유
 
 ## 자동화 경계
 
-이 스킬은 문안 생성, 사용자 미리보기, 클립보드 복사, LinkedIn 공유 화면 열기까지 수행합니다. LinkedIn 웹사이트에서 자동 입력, 클릭, 게시, 스크래핑을 수행하지 않습니다. 사용자가 `Post` 버튼을 누르고 결과를 확인합니다.
+이 스킬은 문안 생성, 사용자 미리보기, 클립보드 복사, LinkedIn 홈페이지 열기까지 수행합니다. LinkedIn 웹사이트에서 자동 입력, 클릭, 게시, 스크래핑을 수행하지 않습니다. 사용자가 `Start a post`를 선택하고 클립보드 문안을 붙여 넣은 뒤 `Post` 버튼을 누릅니다.
 
 LinkedIn은 제3자 도구가 웹사이트 활동을 자동화하는 행위를 금지합니다. 현재 정책은 [LinkedIn 자동 활동 안내](https://www.linkedin.com/help/linkedin/answer/a1340567/automated-activity-on-linkedin?lang=en)에서 확인합니다.
 
@@ -48,6 +48,8 @@ LinkedIn 일반 포스트는 Markdown을 렌더링한다고 전제하지 않습�
 
 브라우저를 열기 전에 문안 전체, 해시태그, canonical URL을 사용자에게 보여 주고 수정을 반영합니다. 승인된 문안을 현재 운영체제의 클립보드 도구로 복사합니다. 도구가 없다면 설치하지 않고 추적되지 않는 임시 텍스트 파일 경로를 제공합니다.
 
-검증한 블로그 페이지의 LinkedIn 공유 링크를 기본 브라우저로 엽니다. 공유 링크가 동작하지 않으면 LinkedIn의 `Start a post` 화면과 canonical URL을 안내합니다. URL 파라미터가 본문과 해시태그를 채운다고 가정하지 않으며 사용자가 클립보드 내용을 붙여넣고 최종 문체를 다듬도록 안내합니다.
+기본 브라우저에서 [LinkedIn 홈페이지](https://www.linkedin.com/feed/)를 엽니다. 사용자가 [LinkedIn의 공식 게시 절차](https://www.linkedin.com/help/linkedin/answer/a527227)에 따라 `Start a post`를 선택하고 클립보드 문안을 붙여 넣은 뒤 최종 문체와 링크 미리보기를 검토하도록 안내합니다.
+
+`sharing/share-offsite` 주소와 Share Plugin은 공유할 URL을 전달하는 용도로만 사용하고 본문 작성 흐름에는 사용하지 않습니다. URL 파라미터가 본문이나 해시태그를 채운다고 가정하지 않습니다. 본문에 포함한 canonical URL을 사용자가 편집기에 붙여 넣으면 LinkedIn이 링크 미리보기를 만들 수 있습니다.
 
 사용자가 게시 완료를 확인하기 전에는 LinkedIn 게시를 완료로 보고하지 않습니다. 가능하면 사용자가 제공한 게시물 URL을 최종 보고에 포함합니다.
