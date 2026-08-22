@@ -1,8 +1,0 @@
-{
-  "servers": {
-    "ms-learn": {
-      "type": "sse",
-      "url": "https://learn.microsoft.com/api/mcp"
-    }
-  }
-}

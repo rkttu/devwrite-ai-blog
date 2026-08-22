@@ -75,10 +75,28 @@ scripts/          # 포스트 생성, 번역 검증 등 유틸리티 스크립�
 .agents/
 └── skills/       # GitHub Copilot과 Claude Code가 공유하는 Agent Skills 원본
 
+.codex/
+└── config.toml   # 여러 에이전트가 사용할 MCP 서버 설정 원본
+
+.mcp.json         # GitHub Copilot과 Claude Code가 읽는 파생 설정
+
 .github/
 ├── workflows/    # GitHub Actions CI/CD 파이프라인
 └── copilot-instructions.md  # GitHub Copilot 작업 가이드
 ```
+
+## AI 에이전트용 MCP 설정
+
+OpenAI Codex는 프로젝트의 [`.codex/config.toml`](.codex/config.toml)을 MCP 서버 설정 원본으로 읽습니다. GitHub Copilot의 Agent Host와 CLI, Claude Code는 같은 TOML 파일을 직접 읽지 못하므로 변환한 [`.mcp.json`](.mcp.json)을 함께 사용합니다. 기존 `.vscode/mcp.json`은 같은 서버를 중복 등록할 수 있어 제거했습니다.
+
+MCP 서버를 추가하거나 수정했다면 원본을 바꾼 다음 공용 설정을 다시 생성합니다. `--check` 옵션은 두 파일의 불일치를 검사하며 CI 테스트에도 같은 검사를 포함했습니다.
+
+```bash
+python3 scripts/sync_mcp_config.py
+python3 scripts/sync_mcp_config.py --check
+```
+
+세 도구는 처음 프로젝트 설정을 사용할 때 저장소나 MCP 서버에 대한 신뢰 여부를 확인할 수 있습니다. 비밀 값은 저장소 설정에 직접 넣지 않고 각 도구가 지원하는 환경 변수 참조를 사용합니다.
 
 ## GitHub Copilot으로 글 작성하기
 

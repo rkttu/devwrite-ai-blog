@@ -17,6 +17,10 @@ Copilot이 요청에 맞는 스킬을 자동으로 선택하도록 작업 내용
 
 한국어 문안을 작성, 번역, 윤문 또는 리뷰하는 작업에서는 먼저 저장소 루트의 `writing-style-guide.md` 전체를 읽고 산출물의 종류에 맞는 적용 등급을 사용합니다. 사용자가 별도 문체를 지정했다면 사용자 지시를 우선합니다.
 
+## 공용 MCP 설정
+
+프로젝트 MCP 서버 설정의 원본은 `.codex/config.toml`입니다. `.mcp.json`은 GitHub Copilot과 Claude Code가 함께 읽는 파생 파일이므로 직접 수정하지 않습니다. 원본을 변경한 뒤 `python3 scripts/sync_mcp_config.py`를 실행하고 `python3 scripts/sync_mcp_config.py --check`로 두 파일이 일치하는지 확인합니다. 공용 형식으로 안전하게 변환할 수 없는 Codex 전용 필드가 있으면 변환 스크립트가 실패합니다.
+
 ## 디렉터리 구조
 
 ```

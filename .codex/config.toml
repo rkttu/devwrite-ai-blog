@@ -1,0 +1,5 @@
+# GitHub Copilot과 Claude Code용 .mcp.json을 생성하는 원본입니다.
+# 이 파일을 변경한 후 python3 scripts/sync_mcp_config.py를 실행합니다.
+
+[mcp_servers.ms-learn]
+url = "https://learn.microsoft.com/api/mcp"
