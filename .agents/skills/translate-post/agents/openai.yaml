@@ -1,0 +1,3 @@
+interface:
+  display_name: "블로그 글 번역"
+  short_description: "한국어 원문을 영어와 일본어 Page Bundle로 번역합니다"

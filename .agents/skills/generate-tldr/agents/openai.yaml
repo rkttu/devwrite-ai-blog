@@ -1,0 +1,3 @@
+interface:
+  display_name: "Description과 TLDR 생성"
+  short_description: "본문에 근거한 SEO 설명과 핵심 요약을 작성합니다"

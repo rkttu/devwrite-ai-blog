@@ -1,0 +1,3 @@
+interface:
+  display_name: "히어로 이미지 선정"
+  short_description: "글에 맞는 이미지와 사용 조건을 확인하고 적용합니다"

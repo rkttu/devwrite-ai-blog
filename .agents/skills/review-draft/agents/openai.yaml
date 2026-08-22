@@ -1,0 +1,3 @@
+interface:
+  display_name: "블로그 초안 리뷰"
+  short_description: "글의 사실성, 문장, 번역과 발행 준비 상태를 검토합니다"

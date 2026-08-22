@@ -1,0 +1,3 @@
+interface:
+  display_name: "Draft 발행 상태 전환"
+  short_description: "검토된 글을 다음 운영 빌드의 게시 대상으로 전환합니다"
