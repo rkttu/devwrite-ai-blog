@@ -83,11 +83,8 @@
     {{- with .Params.tldr -}}
       {{- $article = merge $article (dict "abstract" (. | plainify)) -}}
     {{- end -}}
-    {{- with .Params.cover.image -}}
-      {{- $imageURL := . | absURL -}}
-      {{- if $.Params.cover.relative -}}
-        {{- $imageURL = path.Join $.RelPermalink . | absURL -}}
-      {{- end -}}
+    {{- with partial "templates/_funcs/get-cover-image.html" . -}}
+      {{- $imageURL := . -}}
       {{- $article = merge $article (dict "image" $imageURL) -}}
     {{- end -}}
 <script type="application/ld+json">

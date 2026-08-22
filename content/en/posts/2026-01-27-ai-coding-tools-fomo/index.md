@@ -12,7 +12,7 @@ categories:
   - Developer Culture
 translationKey: "ai-coding-tools-fomo"
 cover:
-  image: "images/posts/ai-coding-tools-fomo.jpg"
+  image: "images/posts/ai-coding-tools-fomo.webp"
   alt: "A balanced relationship between AI coding tools and developers"
 description: "Don't be swayed by AI coding tool hype. Deep utilization of synchronous sessions with HITL is a more practical productivity strategy than parallel agents."
 tldr: "Autonomous background agents multiply your review burden N-fold. Depth of use with your current tools—systematic prompts, optimized context, IDE integration—beats chasing new tool hype for real-world productivity."

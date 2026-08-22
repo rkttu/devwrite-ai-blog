@@ -1,0 +1,16 @@
+{{- $imageURL := "" -}}
+{{- with .Params.cover.image -}}
+  {{- if $.Params.cover.relative -}}
+    {{- $imageURL = path.Join $.RelPermalink . | absURL -}}
+  {{- else -}}
+    {{- $pageCover := ($.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+    {{- $globalCover := (resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+    {{- $cover := or $pageCover $globalCover -}}
+    {{- if $cover -}}
+      {{- $imageURL = $cover.Permalink -}}
+    {{- else -}}
+      {{- $imageURL = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $imageURL -}}

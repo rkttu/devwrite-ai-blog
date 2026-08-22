@@ -14,7 +14,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-IMAGES_DIR = PROJECT_ROOT / "static" / "images" / "posts"
+IMAGES_DIR = PROJECT_ROOT / "assets" / "images" / "posts"
 
 
 def fetch_image(slug: str, keywords: str, width: int = 1200, height: int = 630):

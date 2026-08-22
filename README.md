@@ -57,9 +57,9 @@ content/
 ├── en/           # English 콘텐츠 (번역)
 └── ja/           # 日本語 콘텐츠 (번역)
 
-static/
+assets/
 └── images/
-    └── posts/    # 포스트 Hero 이미지 (1200x630px 권장)
+    └── posts/    # Hugo가 크기별로 처리하는 포스트 Hero 이미지
 
 scripts/          # 포스트 생성, 번역 검증 등 유틸리티 스크립트
 

@@ -34,7 +34,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$ImagesDir = Join-Path $PSScriptRoot "..\static\images\posts"
+$ImagesDir = Join-Path $PSScriptRoot "..\assets\images\posts"
 $OutputPath = Join-Path $ImagesDir "$Slug.jpg"
 
 # 디렉터리 생성

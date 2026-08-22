@@ -42,7 +42,7 @@ except ImportError:
 
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-IMAGES_DIR = PROJECT_ROOT / "static" / "images" / "posts"
+IMAGES_DIR = PROJECT_ROOT / "assets" / "images" / "posts"
 CONTENT_DIR = PROJECT_ROOT / "content"
 
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png"}

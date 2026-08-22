@@ -12,7 +12,7 @@ categories:
   - 開発文化
 translationKey: "ai-coding-tools-fomo"
 cover:
-  image: "images/posts/ai-coding-tools-fomo.jpg"
+  image: "images/posts/ai-coding-tools-fomo.webp"
   alt: "AIコーディングツールと開発者のバランスの取れた関係"
 description: "AIコーディングツールのhypeに振り回されず、並列エージェントよりもHITLが維持される同期セッションを深く活用することが実質的な生産性向上戦略です。"
 tldr: "バックグラウンドエージェントの自律実行は検証負担をN倍に増やします。新しいツールの新規性より、今使っているツールの深い活用—プロンプト体系化、コンテキスト最適化、IDE統合—が実務の生産性に効果的です。"
