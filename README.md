@@ -20,7 +20,7 @@ Hugo 정적 사이트 생성기와 PaperMod 테마를 기반으로 구축된 다
 
 로컬에서 블로그를 실행하려면 다음이 필요합니다:
 
-- [Hugo Extended](https://gohugo.io/installation/) v0.139.0 이상 (SCSS 처리를 위해 Extended 버전 필수)
+- [Hugo Extended](https://gohugo.io/installation/) v0.165.0 이상 (이미지 처리와 자산 빌드를 위해 Extended 버전 사용)
 - Git
 
 ### 로컬 개발 환경 설정

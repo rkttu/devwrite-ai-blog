@@ -82,8 +82,8 @@ enableRobotsTXT = true
 # 언어별 설정
 [languages]
   [languages.ko]
-    languageName = '한국어'
-    languageCode = 'ko-KR'
+    label = '한국어'
+    locale = 'ko-KR'
     weight = 1
     contentDir = 'content/ko'
     [languages.ko.params]
@@ -116,8 +116,8 @@ enableRobotsTXT = true
       weight = 50
 
   [languages.en]
-    languageName = 'English'
-    languageCode = 'en-US'
+    label = 'English'
+    locale = 'en-US'
     weight = 2
     contentDir = 'content/en'
     [languages.en.params]
@@ -150,8 +150,8 @@ enableRobotsTXT = true
       weight = 50
 
   [languages.ja]
-    languageName = '日本語'
-    languageCode = 'ja-JP'
+    label = '日本語'
+    locale = 'ja-JP'
     weight = 3
     contentDir = 'content/ja'
     [languages.ja.params]

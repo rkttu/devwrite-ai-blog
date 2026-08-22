@@ -25,7 +25,7 @@
 
 ## 낮은 우선순위 (Low Impact)
 
-- [x] **15. `languageName` 가독성 개선** — '가'→'한국어', 'A'→'English', 'あ'→'日本語' 변경 완료
+- [x] **15. 언어 레이블 가독성 개선** — '가'→'한국어', 'A'→'English', 'あ'→'日本語' 변경 완료
 - [x] **16. 홈페이지 `keywords` 설정** — 각 언어별 params.keywords 추가 완료
 - [x] **17. 관련 포스트(Related Content) 섹션** — Hugo related 설정 + related_posts.html partial + CSS 스타일 추가 완료
 - [x] **18. 이미지 최적화** — scripts/optimize_images.py (Pillow 기반 WebP 변환 + 리사이즈 + front matter 업데이트) 구현 완료
