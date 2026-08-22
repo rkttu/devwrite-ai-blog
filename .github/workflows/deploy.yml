@@ -59,6 +59,17 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate source content
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/validate_translations.py
+          python scripts/check_asset_sizes.py
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -66,14 +77,19 @@ jobs:
           TZ: Asia/Seoul
         run: |
           hugo \
+            --environment production \
             --gc \
             --minify \
+            --panicOnWarning \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --buildDrafts=false \
             --buildFuture=false
 
       - name: Publish root 404 page
         run: cp public/ko/404.html public/404.html
+
+      - name: Validate production output
+        run: python scripts/validate_site.py public
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
