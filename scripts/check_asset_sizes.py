@@ -10,16 +10,27 @@ IMAGE_EXTENSIONS = {".avif", ".gif", ".jpeg", ".jpg", ".png", ".webp"}
 MAX_IMAGE_BYTES = 1_000_000
 
 
-def main() -> None:
+def find_oversized_images(
+    image_roots: list[Path] = IMAGE_ROOTS,
+    *,
+    project_root: Path = PROJECT_ROOT,
+    max_image_bytes: int = MAX_IMAGE_BYTES,
+) -> list[tuple[Path, int]]:
+    """제한을 초과한 이미지 경로와 크기를 반환합니다."""
     oversized = []
-    for root in IMAGE_ROOTS:
+    for root in image_roots:
         if not root.exists():
             continue
         for path in root.rglob("*"):
             if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS:
                 size = path.stat().st_size
-                if size > MAX_IMAGE_BYTES:
-                    oversized.append((path.relative_to(PROJECT_ROOT), size))
+                if size > max_image_bytes:
+                    oversized.append((path.relative_to(project_root), size))
+    return sorted(oversized)
+
+
+def main() -> None:
+    oversized = find_oversized_images()
 
     if oversized:
         print("1MB를 초과한 이미지가 있습니다.")

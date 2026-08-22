@@ -41,12 +41,12 @@ def parse_front_matter(content: str) -> dict:
     return front_matter
 
 
-def get_posts() -> dict:
+def get_posts(content_root: Path = CONTENT_ROOT) -> dict:
     """모든 포스트 수집"""
     posts = {}
 
     for lang in LANGUAGES:
-        posts_dir = CONTENT_ROOT / lang / "posts"
+        posts_dir = content_root / lang / "posts"
         if not posts_dir.exists():
             continue
 
@@ -76,14 +76,19 @@ def get_posts() -> dict:
     return posts
 
 
-def validate():
-    """검증 실행"""
+def validate_posts(
+    posts: dict,
+    *,
+    now: datetime | None = None,
+    assets_root: Path = ASSETS_ROOT,
+    static_root: Path = STATIC_ROOT,
+) -> tuple[list[str], list[str]]:
+    """수집한 포스트의 오류와 경고를 반환합니다."""
     errors = []
     warnings = []
-
-    print("🔍 Validating translations...")
-
-    posts = get_posts()
+    validation_time = now or datetime.now(timezone.utc)
+    if validation_time.tzinfo is None:
+        raise ValueError("now에는 시간대 정보가 필요합니다.")
 
     for post_name, post in posts.items():
         # 1. 기본 언어에 존재하는지 확인
@@ -109,7 +114,7 @@ def validate():
                 published_at = datetime.fromisoformat(base_post["date"].replace("Z", "+00:00"))
                 if published_at.tzinfo is None:
                     raise ValueError("timezone required")
-                if published_at.astimezone(timezone.utc) > datetime.now(timezone.utc):
+                if published_at.astimezone(timezone.utc) > validation_time.astimezone(timezone.utc):
                     errors.append(
                         f"❌ [{post_name}] 미래 날짜는 사용할 수 없습니다: {base_post['date']}"
                     )
@@ -149,9 +154,18 @@ def validate():
         # 5. Hero 이미지 확인
         if base_post["cover_image"]:
             image_path = Path(base_post["cover_image"])
-            candidates = [ASSETS_ROOT / image_path, STATIC_ROOT / image_path]
+            candidates = [assets_root / image_path, static_root / image_path]
             if not any(candidate.exists() for candidate in candidates):
                 warnings.append(f"⚠️  [{post_name}] Hero 이미지를 찾을 수 없습니다: {base_post['cover_image']}")
+
+    return errors, warnings
+
+
+def validate():
+    """검증 실행"""
+    print("🔍 Validating translations...")
+
+    errors, warnings = validate_posts(get_posts())
 
     # 결과 출력
     print()
