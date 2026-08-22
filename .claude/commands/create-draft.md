@@ -55,19 +55,19 @@ $ARGUMENTS
 1. Analyze post topic
 2. Find appropriate image from Unsplash (https://unsplash.com)
 3. Get direct image URL: `https://images.unsplash.com/photo-XXXXX?w=1200&h=630&fit=crop`
-4. Download to `static/images/posts/{slug}.jpg`
+4. Download to `assets/images/posts/{slug}.jpg`
 
 **Windows (PowerShell)**:
 
 ```powershell
 $url = "https://images.unsplash.com/photo-XXXXX?w=1200&h=630&fit=crop"
-Invoke-WebRequest -Uri $url -OutFile "static/images/posts/{slug}.jpg"
+Invoke-WebRequest -Uri $url -OutFile "assets/images/posts/{slug}.jpg"
 ```
 
 **macOS/Linux**:
 
 ```bash
-curl -L "https://images.unsplash.com/photo-XXXXX?w=1200&h=630&fit=crop" -o static/images/posts/{slug}.jpg
+curl -L "https://images.unsplash.com/photo-XXXXX?w=1200&h=630&fit=crop" -o assets/images/posts/{slug}.jpg
 ```
 
 ### Step 4: Create Translations

@@ -32,7 +32,7 @@ content/
     │       └── (이미지 등 리소스 파일)
     └── archives.md
 
-static/
+assets/
 └── images/
     └── posts/    # Hero 이미지 저장 위치 (공용)
 ```
@@ -43,7 +43,7 @@ static/
 - **포스트 파일명**: 각 디렉터리 안에 `index.md` (예: `2025-12-04-docker-basics/index.md`)
 - **포스트 내 이미지**: 같은 디렉터리에 저장 (예: `2025-12-04-docker-basics/diagram.png`)
 - **URL**: `slug` 필드가 결정 (예: `/ko/posts/docker-basics/`)
-- **Hero 이미지**: `static/images/posts/{slug}.jpg` (예: `docker-basics.jpg`)
+- **Hero 이미지**: `assets/images/posts/{slug}.jpg` (예: `docker-basics.jpg`)
 - **모든 언어에서 동일한 디렉터리명 사용**
 
 ## Front Matter 필수 필드
@@ -167,8 +167,8 @@ tags:
 
 ### 저장 위치
 ```
-static/images/posts/{slug}.jpg   ← 원본 (다운로드 시)
-static/images/posts/{slug}.webp  ← 최적화 후 (권장)
+assets/images/posts/{slug}.jpg   ← 원본 (다운로드 시)
+assets/images/posts/{slug}.webp  ← 최적화 후 (권장)
 ```
 
 ### WebP 변환 (권장)
@@ -214,7 +214,6 @@ chore(images): Add hero image for "slug-name"
 |------|---------------------|------------------------|
 | 새 포스트 생성 | `scripts/new-post.ps1` | `scripts/new_post.py` |
 | 번역 검증 | `scripts/validate-translations.ps1` | `scripts/validate_translations.py` |
-| Hero 이미지 다운로드 | `scripts/fetch-hero-image.ps1` | `scripts/fetch_hero_image.py` |
 | 이미지 WebP 변환 | `scripts/optimize-images.ps1` | `scripts/optimize_images.py` |
 
 ### 스크립트 선택 규칙
@@ -231,7 +230,6 @@ chore(images): Add hero image for "slug-name"
 ```powershell
 .\scripts\new-post.ps1 -Slug "my-post" -Title "새 포스트"
 .\scripts\validate-translations.ps1
-.\scripts\fetch-hero-image.ps1 -Slug "my-post" -Keywords "coding,tech"
 .\scripts\optimize-images.ps1
 .\scripts\optimize-images.ps1 -Slug "my-post" -DeleteOriginals -UpdateFrontmatter
 ```
@@ -240,7 +238,6 @@ chore(images): Add hero image for "slug-name"
 ```bash
 python3 scripts/new_post.py --slug "my-post" --title "새 포스트"
 python3 scripts/validate_translations.py
-python3 scripts/fetch_hero_image.py --slug "my-post" --keywords "coding,tech"
 python3 scripts/optimize_images.py
 python3 scripts/optimize_images.py --slug "my-post" --delete-originals --update-frontmatter
 ```

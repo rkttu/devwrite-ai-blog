@@ -2,7 +2,7 @@
 """
 Hero 이미지를 WebP 형식으로 변환하고 리사이즈하는 스크립트
 
-static/images/posts/ 디렉터리의 JPG/PNG Hero 이미지를 WebP로 변환합니다.
+assets/images/posts/ 디렉터리의 JPG/PNG Hero 이미지를 WebP로 변환합니다.
 변환 후 front matter의 cover.image 경로를 .webp로 업데이트할 수 있습니다.
 
 의존성:

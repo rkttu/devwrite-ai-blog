@@ -76,7 +76,7 @@ tldr: "[독자용 핵심 요약, 1-2문장. description보다 상세하고 구�
 ### Step 4: Select Hero Image
 
 1. Search Unsplash for an appropriate image based on post topic
-2. Download and save to `static/images/posts/[slug].jpg`
+2. Download and save to `assets/images/posts/[slug].jpg`
 3. Use dimensions: 1200x630px (or similar 16:9 ratio)
 4. Update `cover.alt` with descriptive text
 
@@ -171,7 +171,7 @@ After completion, verify:
 - [ ] `tldr` is specific and informative (description과 다른 내용)
 - [ ] `slug` and `translationKey` match across all languages
 - [ ] Directory name is consistent: `{YYYY-MM-DD}-{slug}/index.md` (Page Bundle)
-- [ ] Hero image exists at `static/images/posts/[slug].webp` (WebP 변환 완료)
+- [ ] Hero image exists at `assets/images/posts/[slug].webp` (WebP 변환 완료)
 - [ ] Cover image path in front matter uses `.webp` extension
 - [ ] Translations exist in `content/en/posts/` and `content/ja/posts/` (동일 디렉터리 구조)
 - [ ] `description` is translated for each language version

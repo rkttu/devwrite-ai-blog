@@ -63,13 +63,13 @@ alt: "Server room with blue lights"
 **Windows (PowerShell)**:
 ```powershell
 $url = "https://images.unsplash.com/photo-XXXXXXXXXX?w=1200&h=630&fit=crop"
-$output = "static/images/posts/{slug}.jpg"
+$output = "assets/images/posts/{slug}.jpg"
 Invoke-WebRequest -Uri $url -OutFile $output
 ```
 
 **macOS/Linux**:
 ```bash
-curl -L "https://images.unsplash.com/photo-XXXXXXXXXX?w=1200&h=630&fit=crop" -o static/images/posts/{slug}.jpg
+curl -L "https://images.unsplash.com/photo-XXXXXXXXXX?w=1200&h=630&fit=crop" -o assets/images/posts/{slug}.jpg
 ```
 
 ## Optimize Image (WebP 변환)
