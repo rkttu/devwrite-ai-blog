@@ -1,0 +1,59 @@
+.not-found h1 {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+#not-found-message {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+#not-found-description {
+    margin: 2rem 0 1.5rem;
+}
+
+.not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.not-found-actions a {
+    border: 1px solid var(--tertiary);
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+}
+
+.not-found-actions .not-found-primary {
+    background: var(--tertiary);
+    color: var(--theme);
+}
+
+.not-found-recent h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.not-found-recent ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.not-found-recent li {
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+}
+
+.not-found-recent time {
+    color: var(--secondary);
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}

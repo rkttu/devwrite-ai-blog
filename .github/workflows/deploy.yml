@@ -72,6 +72,9 @@ jobs:
             --buildDrafts=false \
             --buildFuture=false
 
+      - name: Publish root 404 page
+        run: cp public/ko/404.html public/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

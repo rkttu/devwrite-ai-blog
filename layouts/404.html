@@ -1,42 +1,73 @@
 {{- define "main" }}
+{{- $messages := dict
+  "ko" (dict "message" "페이지를 찾을 수 없습니다" "description" "요청하신 페이지가 존재하지 않거나 이동되었습니다." "home" "홈으로" "search" "검색하기" "recent" "최근 글")
+  "en" (dict "message" "Page not found" "description" "The page you're looking for doesn't exist or has been moved." "home" "Go Home" "search" "Search" "recent" "Recent Posts")
+  "ja" (dict "message" "ページが見つかりません" "description" "お探しのページは存在しないか、移動された可能性があります。" "home" "ホームへ" "search" "検索する" "recent" "最新の記事")
+-}}
 <article class="not-found">
-    <header>
-        <h1>404</h1>
-        <p style="font-size: 1.2em; color: var(--secondary); margin-top: 0.5em;">
-            {{ i18n "404_message" | default "Page not found" }}
-        </p>
-    </header>
+  <header>
+    <h1>404</h1>
+    <p id="not-found-message">{{ index (index $messages "ko") "message" }}</p>
+  </header>
 
-    <div style="margin: 2em 0;">
-        <p>{{ i18n "404_description" | default "The page you're looking for doesn't exist or has been moved." }}</p>
-        <div style="margin-top: 1.5em; display: flex; gap: 1em; flex-wrap: wrap;">
-            <a href="{{ site.Home.Permalink }}" style="padding: 0.5em 1.2em; background: var(--tertiary); color: var(--theme); border-radius: 6px; text-decoration: none; font-weight: 500;">
-                {{ i18n "404_home" | default "Go Home" }}
-            </a>
-            <a href="{{ relLangURL "/search/" }}" style="padding: 0.5em 1.2em; border: 1px solid var(--tertiary); color: var(--primary); border-radius: 6px; text-decoration: none; font-weight: 500;">
-                {{ i18n "404_search" | default "Search" }}
-            </a>
-        </div>
-    </div>
+  <p id="not-found-description">{{ index (index $messages "ko") "description" }}</p>
+  <nav class="not-found-actions" aria-label="404">
+    <a id="not-found-home" class="not-found-primary" href="{{ "/" | relLangURL }}">
+      {{ index (index $messages "ko") "home" }}
+    </a>
+    <a id="not-found-search" href="{{ "/search/" | relLangURL }}">
+      {{ index (index $messages "ko") "search" }}
+    </a>
+  </nav>
 
-    {{- /* 최근 포스트 표시 */}}
-    {{- $recentPosts := (where site.RegularPages "Section" "posts") }}
-    {{- $recentPosts = ($recentPosts | lang.Merge site.RegularPages) }}
-    {{- $recentPosts = (first 5 $recentPosts) }}
-    {{- if $recentPosts }}
-    <div style="margin-top: 2.5em;">
-        <h2 style="font-size: 1.1em; margin-bottom: 1em;">{{ i18n "404_recent" | default "Recent Posts" }}</h2>
-        <ul style="list-style: none; padding: 0;">
-            {{- range $recentPosts }}
-            <li style="margin-bottom: 0.8em; padding-bottom: 0.8em; border-bottom: 1px solid var(--border);">
-                <a href="{{ .Permalink }}" style="font-weight: 500;">{{ .Title }}</a>
-                <span style="color: var(--secondary); font-size: 0.85em; margin-left: 0.5em;">
-                    {{ .Date.Format "2006-01-02" }}
-                </span>
-            </li>
-            {{- end }}
-        </ul>
-    </div>
+  {{- range hugo.Sites }}
+    {{- $lang := .Language.Lang -}}
+    {{- $recentPosts := first 5 (where .RegularPages.ByDate.Reverse "Section" "posts") -}}
+    {{- with $recentPosts }}
+  <section class="not-found-recent" data-lang="{{ $lang }}"{{ if ne $lang "ko" }} hidden{{ end }}>
+    <h2>{{ index (index $messages $lang) "recent" }}</h2>
+    <ul>
+      {{- range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
     {{- end }}
+  {{- end }}
 </article>
-{{- end }}{{/* end main */}}
+
+<script>
+(() => {
+  const messages = {{ $messages | jsonify | safeJS }};
+  const supported = new Set(Object.keys(messages));
+  const pathLanguage = window.location.pathname.split('/')[1].toLowerCase();
+  const browserLanguage = (navigator.language || 'ko').slice(0, 2).toLowerCase();
+  const language = supported.has(pathLanguage)
+    ? pathLanguage
+    : (supported.has(browserLanguage) ? browserLanguage : 'ko');
+  const text = messages[language];
+
+  document.documentElement.lang = language;
+  document.title = `404 - ${text.message} | /dev/write`;
+  const siteHeader = document.querySelector('.header');
+  if (siteHeader) siteHeader.hidden = true;
+  document.getElementById('not-found-message').textContent = text.message;
+  document.getElementById('not-found-description').textContent = text.description;
+
+  const home = document.getElementById('not-found-home');
+  home.textContent = text.home;
+  home.href = `/${language}/`;
+
+  const search = document.getElementById('not-found-search');
+  search.textContent = text.search;
+  search.href = `/${language}/search/`;
+
+  document.querySelectorAll('.not-found-recent').forEach((section) => {
+    section.hidden = section.dataset.lang !== language;
+  });
+})();
+</script>
+{{- end }}

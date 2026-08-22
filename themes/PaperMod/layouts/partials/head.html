@@ -6,8 +6,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
-<meta name="robots" content="index, follow">
+{{- if and (ne .Kind "404") (hugo.IsProduction | or (eq site.Params.env "production")) (ne .Params.robotsNoIndex true) }}
+<meta name="robots" content="index, follow, max-image-preview:large">
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
 {{- end }}
