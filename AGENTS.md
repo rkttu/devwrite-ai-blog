@@ -1,9 +1,15 @@
-# DevWrite Blog - Copilot Instructions
+# AGENTS.md
 
-<!-- 이 파일은 AGENTS.md에서 자동 생성됩니다. 수정하려면 AGENTS.md를 고친 뒤 `python3 scripts/sync_agent_docs.py`를 실행하세요. -->
+이 파일은 이 저장소에서 작업하는 모든 AI 에이전트(Codex, GitHub Copilot, Claude Code)의 지침에 대한
+**단일 진실 공급원(source of truth)**입니다. `.github/copilot-instructions.md`와 `CLAUDE.md`는
+이 파일의 본문(아래 `SYNC:BEGIN` ~ `SYNC:END` 구간)에서 자동 생성되는 파생 파일이므로 직접 수정하지 않습니다.
 
-이 문서는 GitHub Copilot 및 AI 에이전트가 이 블로그 리포지토리에서 작업할 때 따라야 할 규칙입니다.
-원본은 [AGENTS.md](../AGENTS.md)입니다.
+지침을 변경할 때는 **이 파일만 수정**한 뒤 `python3 scripts/sync_agent_docs.py`를 실행해 두 파생 파일을 갱신하고,
+`python3 scripts/sync_agent_docs.py --check`로 세 파일이 서로 일치하는지 확인합니다.
+
+작성 스타일 가이드(`writing-style-guide.md`)는 별도 파일로 유지하며, 아래 본문에서 참조만 합니다.
+
+<!-- SYNC:BEGIN -->
 
 ## 프로젝트 개요
 
@@ -337,3 +343,5 @@ markdownlint 호환성을 위해 다음 규칙을 준수합니다:
 
 - 주 작업 환경은 Windows 11 + PowerShell. macOS/Linux의 동등한 Python 스크립트는 `scripts/*.py`.
 - 커밋과 푸시처럼 외부 영향이 있는 작업은 사용자가 명시적으로 요청했을 때만 수행합니다.
+
+<!-- SYNC:END -->

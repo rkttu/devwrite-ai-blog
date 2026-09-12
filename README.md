@@ -58,9 +58,10 @@ Windows에서는 `scripts/optimize-images.ps1`이 같은 Python 스크립트를 
 
 ### 소스 품질 검사
 
-Pull Request와 수동 실행에서는 [품질 검사 워크플로](.github/workflows/quality.yml)가 다음 검사를 실행합니다. MCP 설정 동기화 검사는 단위 테스트에 포함됩니다.
+Pull Request와 수동 실행에서는 [품질 검사 워크플로](.github/workflows/quality.yml)가 다음 검사를 실행합니다. 에이전트 지침 동기화 검사는 별도 단계로 실행하며 MCP 설정 동기화 검사는 단위 테스트에 포함됩니다.
 
 ```bash
+python3 scripts/sync_agent_docs.py --check
 python3 scripts/sync_mcp_config.py --check
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_translations.py
@@ -143,11 +144,22 @@ license: "CC BY-NC 4.0"
 | `cover.alt` | 이미지 의미를 전달하는 대체 텍스트 | 다르게 작성 |
 | `license` | 생략하면 `CC BY-NC 4.0` 적용 | 동일 |
 
-한국어 글과 작업 보고는 [한국어 글쓰기 스타일 가이드](writing-style-guide.md)를 따릅니다. 콘텐츠와 메타데이터의 세부 규칙은 [GitHub Copilot 작업 지침](.github/copilot-instructions.md)에 정리했습니다.
+한국어 글과 작업 보고는 [한국어 글쓰기 스타일 가이드](writing-style-guide.md)를 따릅니다. 콘텐츠와 메타데이터의 세부 규칙은 공용 지침 원본인 [AGENTS.md](AGENTS.md)에서 관리합니다.
 
 ## 에이전트 글 작성과 발행 워크플로
 
-블로그 스킬의 원본은 [`.agents/skills/`](.agents/skills/)에 있습니다. GitHub Copilot과 OpenAI Codex는 이 경로를 사용합니다. Claude Code는 `.claude/skills/`의 심볼릭 링크를 통해 같은 원본을 읽으며 [CLAUDE.md](CLAUDE.md)가 공용 작업 지침과 글쓰기 가이드를 불러옵니다.
+공용 작업 지침의 관리 방식부터 살펴보겠습니다. [AGENTS.md](AGENTS.md)의 `SYNC:BEGIN`과 `SYNC:END` 사이 본문을 원본으로 사용하며 생성 스크립트가 [Copilot 지침](.github/copilot-instructions.md)과 [CLAUDE.md](CLAUDE.md)에 같은 본문을 반영합니다. Claude Code는 별도로 `writing-style-guide.md`도 가져옵니다.
+
+공용 지침을 수정한 뒤 다음 명령으로 두 문서를 생성하고 원본과의 일치 여부를 검사합니다.
+
+```bash
+python3 scripts/sync_agent_docs.py
+python3 scripts/sync_agent_docs.py --check
+```
+
+검사 모드는 파일을 수정하지 않습니다. 생성 문서가 없거나 원본과 다르면 실패하며 품질 검사와 배포 워크플로가 이 검사를 실행합니다.
+
+블로그 스킬의 원본은 [`.agents/skills/`](.agents/skills/)에 있습니다. GitHub Copilot과 OpenAI Codex는 이 경로의 원본을 사용합니다. Claude Code는 `.claude/skills/`의 심볼릭 링크를 통해 같은 원본을 읽습니다.
 
 작업 범위에 따라 다음 스킬을 선택할 수 있습니다.
 

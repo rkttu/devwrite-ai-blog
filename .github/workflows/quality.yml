@@ -51,6 +51,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Validate agent instructions
+        run: python scripts/sync_agent_docs.py --check
+
       - name: Validate source content
         run: |
           python -m unittest discover -s tests -v
