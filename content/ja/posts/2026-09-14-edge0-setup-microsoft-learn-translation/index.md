@@ -8,6 +8,10 @@ description: "Edge0サーバー、Microsoft Learn CLI、Apple Translationを接�
 tags: ["Edge0", "ローカルLLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["人工知能"]
 tldr: "Edge0-35BサーバーとPythonエージェントを別々のターミナルで実行し、文書検索とオンデバイス翻訳を接続します。モデルパス、macOS 26.4以降の翻訳API、言語リソースの導入、韓国語の間接疑問文への対処を準備します。"
+cover:
+  image: "images/posts/edge0-setup-microsoft-learn-translation.webp"
+  alt: "ノートPCの前で接続した演算装置、文書カード、半透明の吹き出し。"
+  caption: "記事のテーマを基にAIで生成したイメージです。"
 license: "CC BY-NC 4.0"
 ---
 

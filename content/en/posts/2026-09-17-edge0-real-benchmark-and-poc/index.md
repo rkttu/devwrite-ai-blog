@@ -8,6 +8,10 @@ description: "Analyze an Edge0 RAG run on a 16GB M2 MacBook Air: 53.47-second TT
 tags: ["Edge0", "Local LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["Artificial Intelligence"]
 tldr: "One request took about 2.6 seconds through search, then 53.47 seconds from the Edge0 request to first content and 82.11 seconds to stream completion. This article interprets the roughly 4.15 events-per-second rate from 119 content events and defines follow-up comparisons within the limits of a single run."
+cover:
+  image: "images/posts/edge0-real-benchmark-and-poc.webp"
+  alt: "A laptop on a measurement platform beside test instruments and a desktop computer, representing a proof of concept."
+  caption: "AI-generated illustration based on the article's topic."
 license: "CC BY-NC 4.0"
 ---
 

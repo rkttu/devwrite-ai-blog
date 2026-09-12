@@ -8,6 +8,10 @@ description: "Set up Edge0, Microsoft Learn CLI, and Apple Translation, includin
 tags: ["Edge0", "Local LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["Artificial Intelligence"]
 tldr: "Run the Edge0-35B server and Python agent in separate terminals, then connect document search and on-device translation. This guide covers model paths, the macOS 26.4 translation API, installed language resources, and normalization of Korean indirect questions."
+cover:
+  image: "images/posts/edge0-setup-microsoft-learn-translation.webp"
+  alt: "A compute device, document cards, and translucent speech bubbles connected in front of a laptop."
+  caption: "AI-generated illustration based on the article's topic."
 license: "CC BY-NC 4.0"
 ---
 

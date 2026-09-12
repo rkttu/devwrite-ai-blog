@@ -8,6 +8,10 @@ description: "Edge0의 SSE 응답을 받으며 첫 응답 대기 시간과 이�
 tags: ["Edge0", "로컬 LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["인공지능"]
 tldr: "작업 스레드가 Edge0 스트림을 수신하고 메인 스레드가 대기 상태와 한국어 답변을 표시하도록 구성합니다. TTFT와 요청 전체 시간을 나누어 기록하며 SSE 콘텐츠 이벤트 수로 계산한 출력 속도를 서버 내부의 순수 디코드 성능과 구분합니다."
+cover:
+  image: "images/posts/edge0-streaming-ttft-metrics.webp"
+  alt: "시간 측정 장치와 노트북 사이에 간격을 두고 이어지는 푸른 유리 패널"
+  caption: "글의 주제를 바탕으로 AI로 생성했습니다."
 license: "CC BY-NC 4.0"
 ---
 

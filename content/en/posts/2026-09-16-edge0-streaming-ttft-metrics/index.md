@@ -8,6 +8,10 @@ description: "Measure first-response latency and output rate from Edge0 SSE stre
 tags: ["Edge0", "Local LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["Artificial Intelligence"]
 tldr: "A worker thread receives the Edge0 stream while the main thread displays progress and Korean answers. The sample separates TTFT from total request time and distinguishes an SSE content-event rate from the server’s internal decode performance."
+cover:
+  image: "images/posts/edge0-streaming-ttft-metrics.webp"
+  alt: "Blue glass panels following an initial gap along a timing rail between a timing instrument and a laptop."
+  caption: "AI-generated illustration based on the article's topic."
 license: "CC BY-NC 4.0"
 ---
 

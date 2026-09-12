@@ -8,6 +8,10 @@ description: "Running Edge0-35B on a 16GB M2 MacBook Air, with official-document
 tags: ["Edge0", "Local LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["Artificial Intelligence"]
 tldr: "I ran Edge0-35B on a 16GB M2 MacBook Air and supplied Microsoft Learn references for technical answers. This article separates execution feasibility, changes in grounded answers, and input-length effects to explain how the model and host share responsibility."
+cover:
+  image: "images/posts/edge0-16gb-mac-overview.webp"
+  alt: "Glass blocks above a silver laptop and stacked storage devices representing local model inference."
+  caption: "AI-generated illustration based on the article's topic."
 license: "CC BY-NC 4.0"
 ---
 

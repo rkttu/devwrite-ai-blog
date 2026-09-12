@@ -8,6 +8,10 @@ description: "16GB M2 MacBook Air에서 Edge0-35B를 실행한 경험을 바탕�
 tags: ["Edge0", "로컬 LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["인공지능"]
 tldr: "Edge0-35B를 M2 MacBook Air 16GB에서 실행하고 Microsoft Learn 자료를 제공해 기술 질문에 답하도록 구성했습니다. 실행 가능성, 근거에 따른 답변 변화, 입력 문서 길이에 따른 처리 시간을 구분해 로컬 RAG 에이전트의 역할 분담을 설명합니다."
+cover:
+  image: "images/posts/edge0-16gb-mac-overview.webp"
+  alt: "은색 노트북 위의 유리 블록과 옆에 쌓인 저장 장치로 표현한 로컬 모델 추론"
+  caption: "글의 주제를 바탕으로 AI로 생성했습니다."
 license: "CC BY-NC 4.0"
 ---
 

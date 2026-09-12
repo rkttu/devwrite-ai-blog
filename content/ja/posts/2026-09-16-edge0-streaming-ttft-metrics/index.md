@@ -8,6 +8,10 @@ description: "Edge0のSSE応答から最初の出力までの待ち時間と出�
 tags: ["Edge0", "ローカルLLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["人工知能"]
 tldr: "ワーカースレッドがEdge0のストリームを受信し、メインスレッドが待機状態と韓国語の回答を表示します。TTFTとリクエスト全体の時間を分けて記録し、SSEコンテンツイベント数から求めた出力速度をサーバー内部のデコード性能と区別します。"
+cover:
+  image: "images/posts/edge0-streaming-ttft-metrics.webp"
+  alt: "時間を測る装置とノートPCの間のレール上で、最初の空白区間に続いて並ぶ青いガラスのパネル。"
+  caption: "記事のテーマを基にAIで生成したイメージです。"
 license: "CC BY-NC 4.0"
 ---
 

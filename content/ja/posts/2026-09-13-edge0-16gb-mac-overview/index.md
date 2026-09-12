@@ -8,6 +8,10 @@ description: "16GBのM2 MacBook AirでEdge0-35Bを実行した経験を基に、
 tags: ["Edge0", "ローカルLLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["人工知能"]
 tldr: "16GBのM2 MacBook AirでEdge0-35Bを実行し、Microsoft Learnの資料を根拠に技術的な質問へ回答する構成を試しました。実行可能性、参照資料による回答の変化、入力の長さと処理時間を分けて、モデルとホストの役割を説明します。"
+cover:
+  image: "images/posts/edge0-16gb-mac-overview.webp"
+  alt: "銀色のノートPCの上に浮かぶガラスのブロックと積み重ねたストレージで表したローカルモデルの推論。"
+  caption: "記事のテーマを基にAIで生成したイメージです。"
 license: "CC BY-NC 4.0"
 ---
 

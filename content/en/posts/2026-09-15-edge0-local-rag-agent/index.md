@@ -8,6 +8,10 @@ description: "Connect Korean question normalization, Apple Translation, and Micr
 tags: ["Edge0", "Local LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["Artificial Intelligence"]
 tldr: "The Python host translates questions and searches Microsoft Learn, while Edge0 reads selected references to answer. URL deduplication, source numbers, insufficient-evidence rules, and a two-turn request history control input size and traceability."
+cover:
+  image: "images/posts/edge0-local-rag-agent.webp"
+  alt: "A magnifying glass over highlighted document passages and a glass box holding three selected reference cards."
+  caption: "AI-generated illustration based on the article's topic."
 license: "CC BY-NC 4.0"
 ---
 

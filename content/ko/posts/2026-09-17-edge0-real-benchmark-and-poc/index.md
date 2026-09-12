@@ -8,6 +8,10 @@ description: "M2 MacBook Air 16GB에서 Edge0 RAG 에이전트를 실행한 기�
 tags: ["Edge0", "로컬 LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["인공지능"]
 tldr: "한 요청에서 검색 완료까지 약 2.6초, Edge0 요청 기준 첫 콘텐츠 수신까지 53.47초, 스트림 수신 종료까지 82.11초를 기록했습니다. 콘텐츠 이벤트 119개로 계산한 약 4.15회/초의 처리율과 단일 실행의 한계를 구분하고 후속 비교 조건을 제시합니다."
+cover:
+  image: "images/posts/edge0-real-benchmark-and-poc.webp"
+  alt: "측정대 위의 노트북, 계측 장치와 데스크톱으로 표현한 PoC 실험"
+  caption: "글의 주제를 바탕으로 AI로 생성했습니다."
 license: "CC BY-NC 4.0"
 ---
 

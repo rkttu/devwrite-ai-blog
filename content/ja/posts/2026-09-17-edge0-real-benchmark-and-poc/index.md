@@ -8,6 +8,10 @@ description: "16GBのM2 MacBook AirでEdge0 RAGエージェントを実行した
 tags: ["Edge0", "ローカルLLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["人工知能"]
 tldr: "一つのリクエストで検索完了まで約2.6秒、Edge0要求から最初のコンテンツまで53.47秒、受信終了まで82.11秒を記録しました。119個のコンテンツイベントから求めた約4.15回/秒の処理率と単一実行の限界を区別し、後続の比較条件を示します。"
+cover:
+  image: "images/posts/edge0-real-benchmark-and-poc.webp"
+  alt: "計測台に置いたノートPC、計測機器、デスクトップPCで表したPoC実験。"
+  caption: "記事のテーマを基にAIで生成したイメージです。"
 license: "CC BY-NC 4.0"
 ---
 

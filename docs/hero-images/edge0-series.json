@@ -1,0 +1,100 @@
+{
+  "series": "Edge0",
+  "generatedOn": "2026-09-13",
+  "generator": "built-in image_gen",
+  "purpose": "Conceptual editorial illustrations for five multilingual blog articles. These are not photographs of the measured equipment.",
+  "processing": {
+    "script": "scripts/optimize_images.py",
+    "format": "WebP",
+    "maxWidth": 1200,
+    "quality": 85,
+    "crop": false
+  },
+  "captions": {
+    "ko": "글의 주제를 바탕으로 AI로 생성했습니다.",
+    "en": "AI-generated illustration based on the article's topic.",
+    "ja": "記事のテーマを基にAIで生成したイメージです。"
+  },
+  "images": [
+    {
+      "episode": 1,
+      "slug": "edge0-16gb-mac-overview",
+      "asset": "assets/images/posts/edge0-16gb-mac-overview.webp",
+      "prompt": "Use case: stylized-concept.\nAsset type: finished hero image for a serious multilingual engineering blog, one image from a coordinated five-part series about running an Edge0 local LLM and retrieval agent on an Apple Silicon laptop.\nPrimary request: Create a refined editorial 3D still-life illustration, tactile and understated, with believable manufactured shapes rather than a software screenshot or an explanatory diagram.\nScene/backdrop: a seamless deep graphite studio surface and background. Objects of brushed silver aluminum, matte charcoal ceramic, frosted glass, and pale ivory paper. Restrained cool blue reflected light, soft broad studio illumination and soft realistic shadows, crisp large silhouettes, subtle fine-grain material detail. Strong visual hierarchy readable as a small thumbnail.\nComposition/framing: panoramic landscape, approximately 1.91:1 aspect ratio, ideally 1920 by 1008 pixels. Entire subject safely inside central 80 percent with breathing room on all sides. Balanced continuous composition, one scene, no panels, no borders, no blank title area.\nConstraints: no text, letters, numerals, logos, watermarks, brand marks, chart labels, legible code, robot faces, brains, human figures or hands. Not a real product screenshot. Do not imply measured numbers or benchmark results. Avoid neon cyberpunk, dense glowing circuit networks, tiny scattered decorations, and excessive visual effects.\nSubject for Part 1, local large-model inference on a memory-limited laptop: a beautifully proportioned thin open silver laptop with a dark reflective display, accompanied by a compact stack of charcoal storage slabs. A small carefully arranged cluster of frosted modular glass blocks hovers immediately above the keyboard, only a few blocks gently illuminated blue while the rest remain matte. Convey a large model accessed selectively from storage on a modest personal computer. The laptop is the dominant recognizable anchor; keep the symbolic block cluster restrained and physically coherent.",
+      "alt": {
+        "ko": "은색 노트북 위의 유리 블록과 옆에 쌓인 저장 장치로 표현한 로컬 모델 추론",
+        "en": "Glass blocks above a silver laptop and stacked storage devices representing local model inference.",
+        "ja": "銀色のノートPCの上に浮かぶガラスのブロックと積み重ねたストレージで表したローカルモデルの推論。"
+      },
+      "width": 1200,
+      "height": 631,
+      "bytes": 42490,
+      "sha256": "4cbff162287b80ba8d8269c48cd979437e2e95e27283a906d28c1394fddfe64f",
+      "generatedSourceSha256": "baf8f599e5b8fe1dc8c010ba2e18b0b2cbe02d3c1e2914dae74f9d9e35eb8a2a"
+    },
+    {
+      "episode": 2,
+      "slug": "edge0-setup-microsoft-learn-translation",
+      "asset": "assets/images/posts/edge0-setup-microsoft-learn-translation.webp",
+      "prompt": "Use case: stylized-concept.\nAsset type: finished hero image for a serious multilingual engineering blog, one image from a coordinated five-part series about running an Edge0 local LLM and retrieval agent on an Apple Silicon laptop.\nPrimary request: Create a refined editorial 3D still-life illustration, tactile and understated, with believable manufactured shapes rather than a software screenshot or an explanatory diagram.\nScene/backdrop: a seamless deep graphite studio surface and background. Objects of brushed silver aluminum, matte charcoal ceramic, frosted glass, and pale ivory paper. Restrained cool blue reflected light, soft broad studio illumination and soft realistic shadows, crisp large silhouettes, subtle fine-grain material detail. Strong visual hierarchy readable as a small thumbnail.\nComposition/framing: panoramic landscape, approximately 1.91:1 aspect ratio, ideally 1920 by 1008 pixels. Entire subject safely inside central 80 percent with breathing room on all sides. Balanced continuous composition, one scene, no panels, no borders, no blank title area.\nConstraints: no text, letters, numerals, logos, watermarks, brand marks, chart labels, legible code, robot faces, brains, human figures or hands. Not a real product screenshot. Do not imply measured numbers or benchmark results. Avoid neon cyberpunk, dense glowing circuit networks, tiny scattered decorations, and excessive visual effects.\nSubject for Part 2, connecting the execution environment: three elegant tabletop components joined by short, tidy physical cables. A small matte charcoal compute enclosure, a standing group of ivory document cards, and two overlapping frosted translucent speech-shaped tiles that symbolize translation. A slim open silver laptop behind them provides context at a smaller scale. Show clear connector junctions and a sense of a workstation prepared for use, not an exploded technical diagram. No symbols or text on any component.",
+      "alt": {
+        "ko": "노트북 앞의 연산 장치, 문서 카드와 반투명 말풍선을 연결한 구성",
+        "en": "A compute device, document cards, and translucent speech bubbles connected in front of a laptop.",
+        "ja": "ノートPCの前で接続した演算装置、文書カード、半透明の吹き出し。"
+      },
+      "width": 1200,
+      "height": 631,
+      "bytes": 37496,
+      "sha256": "b338765566ff24a6b31224e9c110d61896957ecb03d10d0df958ca2cd308265b",
+      "generatedSourceSha256": "8bff8f57f2b6fc7cef5a1c5363bed96074832ae35096040c54e592b21050ec09"
+    },
+    {
+      "episode": 3,
+      "slug": "edge0-local-rag-agent",
+      "asset": "assets/images/posts/edge0-local-rag-agent.webp",
+      "prompt": "Use case: stylized-concept.\nAsset type: finished hero image for a serious multilingual engineering blog, one image from a coordinated five-part series about running an Edge0 local LLM and retrieval agent on an Apple Silicon laptop.\nPrimary request: Create a refined editorial 3D still-life illustration, tactile and understated, with believable manufactured shapes rather than a software screenshot or an explanatory diagram.\nScene/backdrop: a seamless deep graphite studio surface and background. Objects of brushed silver aluminum, matte charcoal ceramic, frosted glass, and pale ivory paper. Restrained cool blue reflected light, soft broad studio illumination and soft realistic shadows, crisp large silhouettes, subtle fine-grain material detail. Strong visual hierarchy readable as a small thumbnail.\nComposition/framing: panoramic landscape, approximately 1.91:1 aspect ratio, ideally 1920 by 1008 pixels. Entire subject safely inside central 80 percent with breathing room on all sides. Balanced continuous composition, one scene, no panels, no borders, no blank title area.\nConstraints: no text, letters, numerals, logos, watermarks, brand marks, chart labels, legible code, robot faces, brains, human figures or hands. Not a real product screenshot. Do not imply measured numbers or benchmark results. Avoid neon cyberpunk, dense glowing circuit networks, tiny scattered decorations, and excessive visual effects.\nSubject for Part 3, retrieving relevant evidence: several upright ivory document sheets arranged like a miniature library, a large precision optical glass lens in a simple silver circular frame selecting a small blue-highlighted passage-shaped strip on one sheet, and a compact frosted glass block receiving only three selected paper strips. A sliver of a closed thin silver laptop anchors the lower composition. Emphasize selection from many documents into a small grounded answer, clean and quietly analytical. Paper contains only shallow abstract ruled impressions, absolutely no letters.",
+      "alt": {
+        "ko": "문서의 강조 구절을 확대하는 돋보기와 선택한 문서 세 장을 담은 유리 상자",
+        "en": "A magnifying glass over highlighted document passages and a glass box holding three selected reference cards.",
+        "ja": "文書の強調箇所を拡大する虫眼鏡と、選択した3枚の参照カードを入れたガラスの箱。"
+      },
+      "width": 1200,
+      "height": 630,
+      "bytes": 45396,
+      "sha256": "0f6d22146742d4699947528523e83d7d63ae236d335c74637a0871b6029dc135",
+      "generatedSourceSha256": "543b4f3cbb0ba30cab2c2c12ddfd4a01e44cd786ecd1e049b003f17d2c7dda61"
+    },
+    {
+      "episode": 4,
+      "slug": "edge0-streaming-ttft-metrics",
+      "asset": "assets/images/posts/edge0-streaming-ttft-metrics.webp",
+      "prompt": "Use case: stylized-concept.\nAsset type: finished hero image for a serious multilingual engineering blog, one image from a coordinated five-part series about running an Edge0 local LLM and retrieval agent on an Apple Silicon laptop.\nPrimary request: Create a refined editorial 3D still-life illustration, tactile and understated, with believable manufactured shapes rather than a software screenshot or an explanatory diagram.\nScene/backdrop: a seamless deep graphite studio surface and background. Objects of brushed silver aluminum, matte charcoal ceramic, frosted glass, and pale ivory paper. Restrained cool blue reflected light, soft broad studio illumination and soft realistic shadows, crisp large silhouettes, subtle fine-grain material detail. Strong visual hierarchy readable as a small thumbnail.\nComposition/framing: panoramic landscape, approximately 1.91:1 aspect ratio, ideally 1920 by 1008 pixels. Entire subject safely inside central 80 percent with breathing room on all sides. Balanced continuous composition, one scene, no panels, no borders, no blank title area.\nConstraints: no text, letters, numerals, logos, watermarks, brand marks, chart labels, legible code, robot faces, brains, human figures or hands. Not a real product screenshot. Do not imply measured numbers or benchmark results. Avoid neon cyberpunk, dense glowing circuit networks, tiny scattered decorations, and excessive visual effects.\nSubject for Part 4, initial response latency and subsequent streaming: an elegant horizontal brushed-aluminum timing rail on the tabletop. At one end a slim blank-faced circular timing instrument, with no numbers, symbols or ticks. Along the rail a deliberate empty interval is followed by an evenly spaced sequence of small frosted-glass rectangular content pieces illuminated faint blue, coming toward a thin open silver laptop. The first content piece is visually distinct by brighter light, not by a label. Express waiting followed by a steady stream as a sculptural still life, not a literal chart or performance claim.",
+      "alt": {
+        "ko": "시간 측정 장치와 노트북 사이에 간격을 두고 이어지는 푸른 유리 패널",
+        "en": "Blue glass panels following an initial gap along a timing rail between a timing instrument and a laptop.",
+        "ja": "時間を測る装置とノートPCの間のレール上で、最初の空白区間に続いて並ぶ青いガラスのパネル。"
+      },
+      "width": 1200,
+      "height": 631,
+      "bytes": 40284,
+      "sha256": "c036556772f0309403c37f1a61ee7e2c6251bf7f47047c58a50447b253f942aa",
+      "generatedSourceSha256": "3500f74c4dab175c1dc88b1f4ac6333bcfe188f2f56814611efa8e16821883d6"
+    },
+    {
+      "episode": 5,
+      "slug": "edge0-real-benchmark-and-poc",
+      "asset": "assets/images/posts/edge0-real-benchmark-and-poc.webp",
+      "prompt": "Use case: stylized-concept.\nAsset type: finished hero image for a serious multilingual engineering blog, one image from a coordinated five-part series about running an Edge0 local LLM and retrieval agent on an Apple Silicon laptop.\nPrimary request: Create a refined editorial 3D still-life illustration, tactile and understated, with believable manufactured shapes rather than a software screenshot or an explanatory diagram.\nScene/backdrop: a seamless deep graphite studio surface and background. Objects of brushed silver aluminum, matte charcoal ceramic, frosted glass, and pale ivory paper. Restrained cool blue reflected light, soft broad studio illumination and soft realistic shadows, crisp large silhouettes, subtle fine-grain material detail. Strong visual hierarchy readable as a small thumbnail.\nComposition/framing: panoramic landscape, approximately 1.91:1 aspect ratio, ideally 1920 by 1008 pixels. Entire subject safely inside central 80 percent with breathing room on all sides. Balanced continuous composition, one scene, no panels, no borders, no blank title area.\nConstraints: no text, letters, numerals, logos, watermarks, brand marks, chart labels, legible code, robot faces, brains, human figures or hands. Not a real product screenshot. Do not imply measured numbers or benchmark results. Avoid neon cyberpunk, dense glowing circuit networks, tiny scattered decorations, and excessive visual effects.\nSubject for Part 5, a measured local experiment and a small internal proof of concept: a thin open silver laptop on a low precision laboratory-style platform, beside a compact square silver desktop compute enclosure. A pair of slim physical measurement probes or cables links the platform to a simple unmarked instrument block. Three neatly stacked ivory experiment cards sit close to the device. Convey controlled testing and cautious expansion from a personal laptop to a small desktop setup. No glowing server farm, cloud, graphs, numeric readings or claims of a measured speed advantage.",
+      "alt": {
+        "ko": "측정대 위의 노트북, 계측 장치와 데스크톱으로 표현한 PoC 실험",
+        "en": "A laptop on a measurement platform beside test instruments and a desktop computer, representing a proof of concept.",
+        "ja": "計測台に置いたノートPC、計測機器、デスクトップPCで表したPoC実験。"
+      },
+      "width": 1200,
+      "height": 631,
+      "bytes": 55960,
+      "sha256": "7127f9419efb8fc4f2679df1aac11a5aed7ab2d91366a74773c19d204291e1ff",
+      "generatedSourceSha256": "87c6e8aed63e2c672d98eb59c9f13209519f239a1d7401ec1cdf7edda0e26bb6"
+    }
+  ]
+}

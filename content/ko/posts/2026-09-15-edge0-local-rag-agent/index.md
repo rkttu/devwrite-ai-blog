@@ -8,6 +8,10 @@ description: "한국어 질문 정규화, Apple Translation 호출, Microsoft Le
 tags: ["Edge0", "로컬 LLM", "RAG", "Apple Silicon", "Microsoft Learn"]
 categories: ["인공지능"]
 tldr: "Python 호스트가 질문 번역과 Microsoft Learn 검색을 수행하고 Edge0에는 선택한 자료를 읽어 답하도록 요청합니다. URL 중복 제거, 참고 자료 번호, 근거 부족 응답 규칙과 최근 두 턴의 요청 문맥을 통해 입력량과 답변 근거를 관리합니다."
+cover:
+  image: "images/posts/edge0-local-rag-agent.webp"
+  alt: "문서의 강조 구절을 확대하는 돋보기와 선택한 문서 세 장을 담은 유리 상자"
+  caption: "글의 주제를 바탕으로 AI로 생성했습니다."
 license: "CC BY-NC 4.0"
 ---
 
