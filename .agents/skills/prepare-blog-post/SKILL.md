@@ -44,12 +44,12 @@ description: Hugo 블로그 글을 작성, 보완, 번역, 리뷰, 탈고하고 
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_translations.py
 python3 scripts/check_asset_sizes.py
-hugo --environment production --cleanDestinationDir --gc --minify --panicOnWarning --buildDrafts=false
+hugo --environment production --cleanDestinationDir --gc --minify --panicOnWarning --buildDrafts=false --buildFuture=false
 cp public/ko/404.html public/404.html
 cp public/ko/llms.txt public/llms.txt
 python3 scripts/validate_site.py public
 ```
 
-생성된 `public/<언어>/posts/<slug>/index.html`과 원본 파일의 제목, canonical URL, Open Graph 메타데이터를 대조합니다.
+현재 공개 대상은 생성된 `public/<언어>/posts/<slug>/index.html`과 원본 파일의 제목, canonical URL, Open Graph 메타데이터를 대조합니다. 예약 대상은 현재 빌드에서 제외됐는지 확인한 뒤 `--clock`으로 각 공개 경계 시각을 지정해 같은 항목과 연재 링크를 검증합니다.
 
 완료 시 글이 `커밋 가능` 상태라고 보고합니다. 이 스킬은 Git 커밋, 푸시, GitHub Actions 감시, Discourse 또는 LinkedIn 게시를 수행하지 않습니다.

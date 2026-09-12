@@ -1,0 +1,12 @@
+{{- $slug := .Get "slug" -}}
+{{- $text := .Get "text" -}}
+{{- if not (and $slug $text) -}}
+  {{- errorf "series-link requires slug and text: %s" .Position -}}
+{{- end -}}
+{{- $pages := where (where .Page.Site.RegularPages "Section" "posts") "Slug" $slug -}}
+{{- with $pages -}}
+  {{- with index . 0 -}}<a href="{{ .RelPermalink }}">{{ $text }}</a>{{- end -}}
+{{- else -}}
+  {{- $pending := index (dict "ko" "공개 예정" "en" "Coming soon" "ja" "公開予定") .Page.Language.Lang | default "Coming soon" -}}
+  <span>{{ $text }} ({{ $pending }})</span>
+{{- end -}}

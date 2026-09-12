@@ -1,5 +1,7 @@
 googleAnalytics = 'G-V1NLDLYHN0'
 enableGitInfo = true
+buildDrafts = false
+buildFuture = false
 
 [params.integrations]
   googleanalytics = true

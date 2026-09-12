@@ -5,6 +5,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    # Daily at 09:00 Asia/Seoul (00:00 UTC); GitHub may delay the run.
+    - cron: '0 0 * * *'
 
 # GitHub Pages 배포를 위한 권한 설정
 permissions:
@@ -94,7 +97,8 @@ jobs:
             --minify \
             --panicOnWarning \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --buildDrafts=false
+            --buildDrafts=false \
+            --buildFuture=false
 
       - name: Publish root fallback files
         run: |

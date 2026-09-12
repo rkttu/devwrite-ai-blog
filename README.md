@@ -20,7 +20,8 @@
 - 포스트별 라이선스와 기본 `CC BY-NC 4.0` 정책
 - GitHub Actions 품질 검사와 GitHub Pages 배포
 - `.agents/skills/`를 원본으로 사용하는 다중 에이전트 글 작성 및 발행 절차
-- 광고, 댓글, 예약 발행, 외부 뉴스레터 연동을 포함하지 않는 정적 운영 구조
+- 매일 오전 9시(한국 시각) 재빌드를 통한 날짜별 예약 발행
+- 광고, 댓글, 외부 뉴스레터 연동을 포함하지 않는 정적 운영 구조
 
 ## 로컬 환경과 검증
 
@@ -134,7 +135,7 @@ license: "CC BY-NC 4.0"
 | 필드 | 작성 기준 | 언어 간 일치 여부 |
 | --- | --- | --- |
 | `title` | 언어별 제목 | 다르게 작성 |
-| `date` | 시간대를 포함한 현재 또는 과거 시각 | 동일 |
+| `date` | 시간대를 포함한 공개 시각, 예약 발행은 미래 시각 | 동일 |
 | `draft` | 초안은 `true`, 배포 대상은 `false` | 동일 |
 | `slug` | 영문 소문자, 숫자와 단일 하이픈 | 동일 |
 | `translationKey` | 번역본 연결 식별자 | 동일 |
@@ -197,7 +198,7 @@ python3 scripts/sync_mcp_config.py --check
 
 ### 배포 흐름
 
-`main` 브랜치에 푸시하면 [배포 워크플로](.github/workflows/deploy.yml)가 다음 순서로 사이트를 반영합니다.
+`main` 브랜치 푸시, 수동 실행 또는 매일 오전 9시(한국 시각)의 예약 실행으로 [배포 워크플로](.github/workflows/deploy.yml)가 다음 순서로 사이트를 반영합니다.
 
 1. Hugo Extended 패키지의 체크섬을 검증하고 설치합니다.
 2. 단위 테스트, 번역 일관성 검사와 이미지 크기 검사를 실행합니다.
@@ -205,7 +206,17 @@ python3 scripts/sync_mcp_config.py --check
 4. GitHub Pages 아티팩트를 업로드하고 배포합니다.
 5. `deploy-blog-post` 스킬이 해당 커밋의 Actions 결과와 세 언어 URL을 확인합니다.
 
-`draft: false`는 다음 프로덕션 빌드에 글을 포함한다는 뜻이며 커밋이나 배포를 대신하지 않습니다. 예약 발행은 지원하지 않으며 미래 날짜가 있으면 번역 검증 단계가 실패합니다. 철회 배경은 [예약 발행 결정 기록](docs/decisions/0001-retire-scheduled-publishing.md)에 정리했습니다.
+`draft: false`인 글은 공개 시각이 지난 뒤 실행한 프로덕션 빌드부터 포함합니다. 세 언어의 `date`를 같은 시각으로 지정하면 함께 공개합니다. 별도 `publishDate`가 있으면 Hugo가 해당 값을 공개 시각으로 사용합니다. 프로덕션 빌드는 `buildDrafts=false`와 `buildFuture=false`를 유지합니다. [Hugo 공개 날짜 처리](https://gohugo.io/methods/page/publishdate/)
+
+예약은 `0 0 * * *`(UTC)로 하루 한 번 실행합니다. GitHub 대기열과 빌드 시간에 따라 실제 공개는 오전 9시보다 늦어질 수 있습니다. 실행 누락이나 실패 뒤에는 `main`의 배포 워크플로를 수동 실행하면 그 시점까지 기한이 지난 글을 모두 반영합니다. 공개 저장소에서 60일간 활동이 없으면 GitHub가 예약 실행을 비활성화할 수 있습니다. [GitHub 예약 실행 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
+
+연재 본문에서 아직 공개하지 않은 글을 참조할 때는 다음 shortcode를 사용합니다. 해당 언어의 대상 페이지를 빌드한 뒤 링크를 만들고 그전에는 제목과 공개 예정 문구를 표시합니다.
+
+```text
+{{< series-link slug="next-post" text="다음 편 제목" >}}
+```
+
+예약 원고는 공개 Git 저장소에서 열람할 수 있습니다. 운영 사이트의 공개 일정과 저장소 접근 범위를 구분한 결정은 [일일 예약 발행 재도입 기록](docs/decisions/0004-daily-scheduled-publishing.md)에 정리했습니다.
 
 ### 닷넷데브와 LinkedIn
 
@@ -242,7 +253,8 @@ themes/PaperMod/         # 저장소에 포함한 PaperMod 기준 리비전 복�
 - [SEO 및 트래픽 개선 완료 기록](seo-improvements.md)
 - [외부 서비스 로딩 정책](docs/external-services.md)
 - [PaperMod 기준 리비전과 갱신 절차](themes/PaperMod/UPSTREAM.md)
-- [예약 발행 철회 기록](docs/decisions/0001-retire-scheduled-publishing.md)
+- [이전 예약 발행 철회 기록](docs/decisions/0001-retire-scheduled-publishing.md)
+- [일일 예약 발행 재도입 기록](docs/decisions/0004-daily-scheduled-publishing.md)
 - [Kit 뉴스레터 연동 제거 기록](docs/decisions/0002-remove-kit-newsletter.md)
 - [HTTP 보안 헤더 적용 경로](docs/decisions/0003-plan-http-security-headers.md)
 

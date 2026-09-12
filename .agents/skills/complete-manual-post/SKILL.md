@@ -16,7 +16,7 @@ description: 직접 작성한 한국어 Hugo 글에 누락된 front matter, 요�
 다음 항목을 점검하고 실제로 빠진 내용만 보완합니다.
 
 - Page Bundle 디렉터리명과 slug
-- 필수 front matter와 시간대가 포함된 현재 또는 과거 날짜
+- 필수 front matter와 시간대가 포함된 날짜, 예약 요청 시 지정한 공개 시각
 - 글의 사실을 반영한 `description`과 `tldr`
 - 태그, 카테고리, `translationKey`
 - 선택적 `license`

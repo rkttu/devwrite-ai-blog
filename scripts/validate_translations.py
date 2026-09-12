@@ -8,7 +8,7 @@
 
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
@@ -70,6 +70,8 @@ def get_posts(content_root: Path = CONTENT_ROOT) -> dict:
                 "translationKey": fm.get("translationKey"),
                 "slug": fm.get("slug"),
                 "date": fm.get("date"),
+                "publishDate": fm.get("publishDate"),
+                "draft": fm.get("draft"),
                 "cover_image": fm.get("image"),
             }
 
@@ -79,16 +81,12 @@ def get_posts(content_root: Path = CONTENT_ROOT) -> dict:
 def validate_posts(
     posts: dict,
     *,
-    now: datetime | None = None,
     assets_root: Path = ASSETS_ROOT,
     static_root: Path = STATIC_ROOT,
 ) -> tuple[list[str], list[str]]:
     """수집한 포스트의 오류와 경고를 반환합니다."""
     errors = []
     warnings = []
-    validation_time = now or datetime.now(timezone.utc)
-    if validation_time.tzinfo is None:
-        raise ValueError("now에는 시간대 정보가 필요합니다.")
 
     for post_name, post in posts.items():
         # 1. 기본 언어에 존재하는지 확인
@@ -106,7 +104,7 @@ def validate_posts(
         if not base_post["slug"]:
             errors.append(f"❌ [{post_name}] slug가 없습니다. (ko)")
 
-        # 예약 발행을 지원하지 않으므로 미래 날짜를 허용하지 않습니다.
+        # Future dates are valid schedules. Hugo excludes them until publication.
         if not base_post["date"]:
             errors.append(f"❌ [{post_name}] date가 없습니다. (ko)")
         else:
@@ -114,12 +112,16 @@ def validate_posts(
                 published_at = datetime.fromisoformat(base_post["date"].replace("Z", "+00:00"))
                 if published_at.tzinfo is None:
                     raise ValueError("timezone required")
-                if published_at.astimezone(timezone.utc) > validation_time.astimezone(timezone.utc):
-                    errors.append(
-                        f"❌ [{post_name}] 미래 날짜는 사용할 수 없습니다: {base_post['date']}"
-                    )
             except ValueError:
                 errors.append(f"❌ [{post_name}] date 형식이 올바르지 않습니다: {base_post['date']}")
+
+        if base_post.get("publishDate"):
+            try:
+                publish_date = datetime.fromisoformat(base_post["publishDate"].replace("Z", "+00:00"))
+                if publish_date.tzinfo is None:
+                    raise ValueError("timezone required")
+            except ValueError:
+                errors.append(f"❌ [{post_name}] publishDate 형식이 올바르지 않습니다: {base_post['publishDate']}")
 
         # 4. 번역본 확인
         for lang in LANGUAGES:
@@ -150,6 +152,10 @@ def validate_posts(
                         f"❌ [{post_name}] date 불일치: "
                         f"ko='{base_post['date']}' vs {lang}='{lang_post['date']}'"
                     )
+
+                for field in ("publishDate", "draft"):
+                    if lang_post.get(field) != base_post.get(field):
+                        errors.append(f"❌ [{post_name}] {field} 불일치: ko vs {lang}")
 
         # 5. Hero 이미지 확인
         if base_post["cover_image"]:
