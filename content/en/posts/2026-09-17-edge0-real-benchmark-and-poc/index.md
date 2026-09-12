@@ -109,16 +109,19 @@ The host displayed those two documents along with the [Native AOT support docume
 
 ## Output rate calculated from content events
 
-The final log recorded a TTFT of 53.47 seconds, total generation time of 82.11 seconds, a completion count of 119, 28.64 seconds after the first response, and 4.15 `tok/s`. Applying the actual definitions in the [measurement code](https://gist.github.com/rkttu/805dd58e333b7e51b10326168a484c2d) gives the following interpretation:
+The measurements in the execution log can be interpreted using the actual definitions in the [measurement code](https://gist.github.com/rkttu/805dd58e333b7e51b10326168a484c2d):
 
-| Metric | Measured value | Interpretation |
-| --- | --- | --- |
-| Question processing and search | About 2.6 seconds | Input-processing start to source selection |
-| TTFT | 53.47 seconds | Edge0 request reference time to first content receipt |
-| Total generation time | 82.11 seconds | Edge0 request reference time to end of stream reception |
-| Content-event count | 119 | Count stored in the sample's `completion_tokens` field |
-| Time after first response | 28.64 seconds | First content receipt to reception end |
-| Event-based output rate | About 4.15 events/second | 119 ÷ 28.64, labeled `tok/s` in the original log |
+- **Question processing and search, about 2.6 seconds**: Measured from the start of input processing to source selection.
+
+- **TTFT, 53.47 seconds**: Measured from the Edge0 request reference timestamp to receipt of the first content.
+
+- **Total generation time, 82.11 seconds**: Measured from the Edge0 request reference timestamp to the end of stream reception.
+
+- **Content-event count, 119**: The sample's `completion_tokens` field counted events containing content.
+
+- **Time after first response, 28.64 seconds**: Measured from receipt of the first content to the end of stream reception.
+
+- **Event-based output rate, about 4.15 events/second**: Calculated by dividing 119 content events by 28.64 seconds after the first response. The original log labeled this value `tok/s`.
 
 Once the first response began, translated sentences appeared progressively. TTFT ends at receipt of the first English content; the first Korean sentence requires additional buffering and translation time. Total generation time likewise does not measure the point when all Korean translation and display have finished.
 

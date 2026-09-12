@@ -29,15 +29,17 @@ The following scope applies to the release status and measurements:
 
 Edge0's memory strategy starts with the sparse MoE architecture. According to the [project description](https://github.com/Edge0-AI/Edge0), Edge0 keeps expert weights on SSD and reads the portions needed for inference. Its memory behavior therefore differs from loading the entire model into RAM at startup.
 
-The public model and my test environment have the following characteristics:
+The following details distinguish the public model specifications and official measurement from my test environment:
 
-| Item | Value | Scope |
-| --- | --- | --- |
-| Public model | `Edge0-35B-A3B-preview` | A 35B-class MoE model with 4-bit quantization |
-| Model file size | About 23GB | Checkpoint size on SSD |
-| Official memory measurement | About 2.9GiB | Peak active MLX allocator memory with a short context |
-| My test device | M2 MacBook Air, 16GB | The laptop used in this series |
-| Initial generation experiment | About 43.8 seconds for 128 tokens | One specific input and execution setup |
+- **Public model**: `Edge0-35B-A3B-preview` uses a 35B-class MoE architecture with 4-bit quantization.
+
+- **Model file size**: The checkpoint occupies about 23GB on SSD.
+
+- **Official memory measurement**: Peak active MLX allocator memory reached about 2.9GiB with a short context.
+
+- **My test device**: I used an M2 MacBook Air with 16GB of memory for this series.
+
+- **Initial generation experiment**: Generating 128 tokens took about 43.8 seconds with one specific input and execution setup.
 
 The official memory figure does not represent total system memory use. The operating system, tokenizer, caches, and context length add to the overall footprint. The [architecture documentation](https://github.com/Edge0-AI/Edge0/blob/main/docs/architecture.md) explains how the runtime loads weights.
 
@@ -92,11 +94,11 @@ In this experiment, the model assessed the question's premises against the suppl
 
 I compared total processing time while reducing the amount of grounding material for the same question. This is also why the [sample code](https://gist.github.com/rkttu/805dd58e333b7e51b10326168a484c2d) limits the number and length of search results.
 
-| Grounding material size | Total processing time | Answer observation |
-| --- | --- | --- |
-| About 6.7KB | About 94 seconds | Baseline answer |
-| About 3.4KB | About 78 seconds | Answer compared after reducing the material |
-| About 1.7KB | About 48 seconds | Core answer retained |
+- **About 6.7KB of grounding material**: Total processing took about 94 seconds. I used this answer as the baseline.
+
+- **About 3.4KB of grounding material**: Total processing took about 78 seconds. I compared the answer after reducing the material.
+
+- **About 1.7KB of grounding material**: Total processing took about 48 seconds, with the core answer retained.
 
 These are individual execution records, not a benchmark with controlled repetition counts and cache states. Material size is measured in bytes and differs from the number of input tokens the model processes. These results alone cannot attribute the entire time reduction to shorter prefill.
 

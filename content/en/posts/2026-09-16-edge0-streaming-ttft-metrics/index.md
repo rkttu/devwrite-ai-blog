@@ -29,13 +29,15 @@ The measurements have the following scope:
 
 [Gist's `StreamStats`](https://gist.github.com/rkttu/805dd58e333b7e51b10326168a484c2d) saves a reference timestamp immediately before starting the worker thread that handles the request. It then records the first nonempty content and the end of stream reception.
 
-| Metric | Calculation | Scope |
-| --- | --- | --- |
-| TTFT | Request reference time to first content receipt | Client-observed wait for initial output |
-| Total generation time | Request reference time to reception end | Excludes search and completion of all Korean translation |
-| Completion count | Number of SSE events containing content | A token-count estimate based on current transport behavior |
-| Time after first response | First content receipt to reception end | Includes network reception and termination handling |
-| Output rate | Completion count divided by time after first response | Throughput measured in content events |
+- **TTFT**: Elapsed time from the request reference timestamp to receipt of the first content. It captures the client-observed wait for initial output.
+
+- **Total generation time**: Elapsed time from the request reference timestamp to the end of stream reception. It excludes search and does not extend to completion of all Korean translation.
+
+- **Completion count**: The number of SSE events containing content. The sample uses this as a token-count estimate based on the current transport behavior.
+
+- **Time after first response**: Elapsed time from receipt of the first content to the end of stream reception. It includes network reception and termination handling.
+
+- **Output rate**: Completion count divided by time after the first response. This calculates throughput in content events.
 
 ### An object for timestamps and completion counts
 

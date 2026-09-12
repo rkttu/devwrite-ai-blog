@@ -202,11 +202,11 @@ When testing NLLB 600M, NLLB 1.3B, and Apple Translation, I encountered translat
 
 The original question, mistranslation, and normalized wording illustrate this distinction:
 
-| Type | Sentence | Intended question |
-| --- | --- | --- |
-| Original | 런타임에 새로운 실행 코드를 생성하는지도 함께 설명해주세요. | Whether new executable code is generated |
-| Mistranslation observed | Explain how to generate new executable code at runtime. | How to generate it |
-| After normalization | 런타임에 새로운 실행 코드를 생성합니까? 그 여부도 함께 설명해주세요. | Whether it is generated |
+- **Original question**: “런타임에 새로운 실행 코드를 생성하는지도 함께 설명해주세요.” asks whether new executable code is generated at runtime.
+
+- **Mistranslation observed**: “Explain how to generate new executable code at runtime.” changes the question from whether code is generated to how to generate it.
+
+- **After normalization**: “런타임에 새로운 실행 코드를 생성합니까? 그 여부도 함께 설명해주세요.” uses a direct question to ask whether code is generated.
 
 The function rewrites fixed patterns such as `~할 수 있는지도`, `~되는지도`, `~하는지도`, and `~필요한지도` into direct questions. Sentences that do not match the regular expressions pass to the translator unchanged. This is not a general-purpose correction system that understands and rewrites arbitrary Korean sentences.
 
